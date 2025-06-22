@@ -10,8 +10,7 @@ public class NPC : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _tradeText;
 
     [Header("Clothing Item")]
-    [SerializeField] private Transform _clothingTransform;
-    [SerializeField] private GameObject _clothingPrefab;
+    [SerializeField] private GameObject _clothingObject;
     [SerializeField] private ClothingItemType _clothingItemType;
 
     private PlayerClothing _playerClothing;
@@ -22,7 +21,6 @@ public class NPC : MonoBehaviour
         _playerClothing = FindAnyObjectByType<PlayerClothing>();
 
         _tradeText.text = string.Format(_tradeText.text, _tradeInput.action.GetBindingDisplayString());
-        Instantiate(_clothingPrefab, _clothingTransform);
     }
 
     private void Update()
@@ -41,8 +39,8 @@ public class NPC : MonoBehaviour
     {
         if (!_tradeInput.action.WasPressedThisFrame()) return;
 
-        Destroy(_clothingTransform.gameObject); // Remove piece of clothing from the NPC
-        _playerClothing.WearClothing(_clothingItemType, _clothingPrefab);
+        _playerClothing.WearClothing(_clothingItemType, _clothingObject);
+        _clothingObject = null;
 
         _hasTraded = true;
         _tradeText.enabled = false;
