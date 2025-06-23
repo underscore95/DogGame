@@ -145,7 +145,6 @@ public class PLAYER_STATEMACHINE : MonoBehaviour
 
     void Jump()
     {
-        Debug.Log("jump!" + PSS.StateGrp);
         PM.StartCoroutine(PM.UnstickGroundTimer());
         PM.ApplyJump(Vector3.up, PS.AST.jumpStr, PS.AST.airMoveStr, 1f, false, PS.AST.airDragStr, PS.AST.heaviness);
         //PM.ApplyMovement(false);

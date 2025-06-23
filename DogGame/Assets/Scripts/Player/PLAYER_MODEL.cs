@@ -39,8 +39,12 @@ public class PLAYER_MODEL : MonoBehaviour
 
         rot = Vector3.Lerp(rot, rotTarget, turnSpd * Time.deltaTime);
 
-        transform.rotation = Quaternion.LookRotation(rot);
-     
-      
+        if (rot != Vector3.zero) 
+        {
+            transform.rotation = Quaternion.LookRotation(rot);
+
+        }
+
+
     }
 }
