@@ -440,9 +440,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GST:
-    maxSpeed: 16
-    accelSpd: 20
-    decelSpd: 40
+    maxSpeed: 11
+    accelSpd: 14
+    decelSpd: 20
     turnSpd: 5
     minTurnVel: 0
     angDrag: 0
