@@ -4,7 +4,10 @@ using UnityEngine.Events;
 
 public class PROGRESSION_TRACKER : MonoBehaviour
 {
+    public GameObject QuestPopupUI;
+    UI_QUESTPOPUP QUESTPOPUP;
     [System.Serializable]
+
     public struct Game_Quest
     {
         public int id;
@@ -14,26 +17,42 @@ public class PROGRESSION_TRACKER : MonoBehaviour
         public bool completed;
         public UnityEvent[] activateQuestEvents;
         public UnityEvent[] completeQuestEvents;
+        UI_QUESTPOPUP QPOPUP;
+
         public void DoComplete()
         {
 
             if (!completed) { completed = true;
 
-                Debug.Log("QUEST " + id + ": " + name + " Has Completed!");
+                AddQuestUI("QUEST " + id + ": " + name + " Has Completed!", false);
                 foreach (var qevent in  completeQuestEvents)
                 {
-                qevent.Invoke();
+                    
+
+
+                    qevent.Invoke();
+                   
                 }
                 
 
             }
         }
 
+        public void AddQuestUI(string text, bool activate)
+        {
+            GameObject GM = GameObject.Find("Game_Manager");
+            PROGRESSION_TRACKER PT = GM.GetComponent<PROGRESSION_TRACKER>();
+            GameObject popup = Instantiate(PT.QuestPopupUI);
+            QPOPUP = popup.GetComponent<UI_QUESTPOPUP>();
+            QPOPUP.Text.text = text;
+            if (activate) { QPOPUP.ChangePos(); }
+        }
+
         public void OnActivate()
         {
-            if (!activated) { 
+            if (!activated) {
 
-                Debug.Log("QUEST " + id + ": " + name + " Has Activated!");
+                AddQuestUI("QUEST " + id + ": " + name + " Has Activated!", true);
                 activated = true;
                 foreach (var qevent in activateQuestEvents)
                 {
@@ -51,6 +70,11 @@ public class PROGRESSION_TRACKER : MonoBehaviour
     {
 
         ActivateEvents();
+    }
+
+    public void AddQuestPopup()
+    {
+
     }
 
     void ActivateEvents()

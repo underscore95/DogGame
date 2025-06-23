@@ -125,9 +125,10 @@ GameObject:
   m_Component:
   - component: {fileID: 278234818016662363}
   - component: {fileID: 7817785984601880353}
+  - component: {fileID: 6282523805215475764}
   m_Layer: 0
   m_Name: NPC
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,6 +167,21 @@ MonoBehaviour:
   _tradeText: {fileID: 8375281692324935009}
   _clothingObject: {fileID: 5482821459904701822}
   _clothingItemType: 0
+--- !u!114 &6282523805215475764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5170976752668250826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 496f8ad61f40dd14b9be888fba50e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GM: {fileID: 0}
+  QEVENTS: {fileID: 0}
+  QUESTS: {fileID: 0}
 --- !u!1 &8871490725037298546
 GameObject:
   m_ObjectHideFlags: 0

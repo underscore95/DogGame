@@ -492,6 +492,17 @@
                     "action": "NPC Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3ed5db48-47ce-4e3b-9d96-077c8337f128",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "NPC Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

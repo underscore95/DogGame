@@ -117,6 +117,15 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""9b7d4704-456a-4c98-b155-0be7148e78c6"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -361,6 +370,28 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
                     ""action"": ""Camera_Axis"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""34f058cb-19fa-4338-95e0-4cd0bdd5362d"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""557be2cc-de4e-4f22-98de-e5741cca857c"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -372,6 +403,7 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
         m_Movement_Move_Axis = m_Movement.FindAction("Move_Axis", throwIfNotFound: true);
         m_Movement_Jump = m_Movement.FindAction("Jump", throwIfNotFound: true);
         m_Movement_Camera_Axis = m_Movement.FindAction("Camera_Axis", throwIfNotFound: true);
+        m_Movement_Interact = m_Movement.FindAction("Interact", throwIfNotFound: true);
     }
 
     ~@IAS_Player()
@@ -455,6 +487,7 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
     private readonly InputAction m_Movement_Move_Axis;
     private readonly InputAction m_Movement_Jump;
     private readonly InputAction m_Movement_Camera_Axis;
+    private readonly InputAction m_Movement_Interact;
     /// <summary>
     /// Provides access to input actions defined in input action map "Movement".
     /// </summary>
@@ -478,6 +511,10 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Movement/Camera_Axis".
         /// </summary>
         public InputAction @Camera_Axis => m_Wrapper.m_Movement_Camera_Axis;
+        /// <summary>
+        /// Provides access to the underlying input action "Movement/Interact".
+        /// </summary>
+        public InputAction @Interact => m_Wrapper.m_Movement_Interact;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -513,6 +550,9 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
             @Camera_Axis.started += instance.OnCamera_Axis;
             @Camera_Axis.performed += instance.OnCamera_Axis;
             @Camera_Axis.canceled += instance.OnCamera_Axis;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
         }
 
         /// <summary>
@@ -533,6 +573,9 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
             @Camera_Axis.started -= instance.OnCamera_Axis;
             @Camera_Axis.performed -= instance.OnCamera_Axis;
             @Camera_Axis.canceled -= instance.OnCamera_Axis;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
         }
 
         /// <summary>
@@ -594,5 +637,12 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnCamera_Axis(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Interact" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnInteract(InputAction.CallbackContext context);
     }
 }
