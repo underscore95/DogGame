@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -19,6 +20,13 @@ public class InterpolatedTransform : MonoBehaviour
         public override readonly string ToString()
         {
             return $"LocalTransform{{   Position: {Position}   Rotation: {Rotation.eulerAngles}   Scale: {Scale}   }}";
+        }
+
+        public readonly void ApplyToTransform(Transform t)
+        {
+            t.localPosition = Position;
+            t.localRotation = Rotation;
+            t.localScale = Scale;
         }
     }
 
