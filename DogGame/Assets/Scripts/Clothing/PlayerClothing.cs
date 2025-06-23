@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.VFX;
 
 public class PlayerClothing : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class PlayerClothing : MonoBehaviour
         public Transform Transform;
     }
 
+    [SerializeField] private float _clothingEquipDuration = 0.5f;
+    [SerializeField] private VisualEffect _poofEffect;
     [SerializeField] private List<ClothingTransform> _clothingTransforms = new();
     private readonly Dictionary<ClothingItemType, GameObject> _wornClothing = new();
 
@@ -49,6 +52,15 @@ public class PlayerClothing : MonoBehaviour
         // 3. interpolate the local transform back to the original
         InterpolatedTransform.LocalTransform destination = new(clothingObject.transform);
         clothingObject.transform.SetParent(parentTransform, true);
-        InterpolatedTransform.StartInterpolation(clothingObject, destination);
+        InterpolatedTransform.StartInterpolation(clothingObject, destination, _clothingEquipDuration);
+
+        StartCoroutine(PlayPoofEffect(destination));
+    }
+
+    private IEnumerator PlayPoofEffect(InterpolatedTransform.LocalTransform pos)
+    {
+        yield return new WaitForSeconds(_clothingEquipDuration);
+        pos.ApplyToTransform(_poofEffect.transform);
+        _poofEffect.Play();
     }
 }
