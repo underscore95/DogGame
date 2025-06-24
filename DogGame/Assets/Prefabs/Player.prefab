@@ -120,6 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lerpSpd: 90
   turnSpd: 6
+  slopeAlignspd: 12
   alignToSlope: 1
 --- !u!1 &914697518968547289
 GameObject:

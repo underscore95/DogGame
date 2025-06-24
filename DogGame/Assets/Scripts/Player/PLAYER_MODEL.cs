@@ -8,8 +8,10 @@ public class PLAYER_MODEL : MonoBehaviour
     GameObject Player;
     public float lerpSpd;
     public float turnSpd;
+    public float slopeAlignspd;
     Vector3 rot;
     public bool alignToSlope;
+    float roty;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,8 +39,9 @@ public class PLAYER_MODEL : MonoBehaviour
         Vector3 rotTarget = PM.targetDir;
         if (!alignToSlope) { rotTarget.y = 0; rotTarget.Normalize(); }
 
+        roty = Mathf.Lerp(roty, rotTarget.y, slopeAlignspd * Time.deltaTime);
         rot = Vector3.Lerp(rot, rotTarget, turnSpd * Time.deltaTime);
-
+        rot.y = roty;
         if (rot != Vector3.zero) 
         {
             transform.rotation = Quaternion.LookRotation(rot);
