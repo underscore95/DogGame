@@ -4,79 +4,84 @@ using UnityEngine;
 
 public class PLAYER_FETCHING : MonoBehaviour
 {
-    SphereCollider col;
+   
     PLAYER_INPUTS PI;
+
     GameObject heldObj;
     FETCHABLE heldFetch;
+    bool grabInput;
     bool fetching;
     public GameObject holdPoint;
-    public Vector3 holdPos;
     public GameObject dropPoint;
-    bool grabbedThisFrame;
-    bool droppedThisFrame;
+    Vector3 holdPos;
+
+    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         PI = GetComponent<PLAYER_INPUTS>();
     }
 
+    //Keeps input enabled for a few seconds
+    IEnumerator InputBuffer()
+    {
+        grabInput = true;
+        yield return new WaitForSeconds(0.3f);
+        grabInput = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (grabbedThisFrame) { return; }
+        if (PI.IA_Fetch.WasPressedThisFrame())
+        {
+            StartCoroutine(InputBuffer());
+        }
+
         if (fetching)
         {
-            holdPos = holdPoint.transform.position;
-
-            if (PI.IA_Fetch.WasPressedThisFrame())
-            {
-                heldObj.transform.position = holdPos * heldFetch.scale;
-                droppedThisFrame = true;
-                heldFetch.EndFetch();
-                fetching = false;
-            }
-        MoveGrabbedObj();
+            //Drop Object is grab button is pressed while grabbing
+            if (grabInput) { DropObject(); grabInput = false; }
+            MoveGrabbedObj();
         }
     }
 
     void DropObject()
-    {
-
+    {  
+        heldObj.transform.position = dropPoint.transform.position;
+        heldFetch.EndFetch();
+        fetching = false;       
     }
 
     void MoveGrabbedObj()
     {
-        heldObj.transform.position = holdPoint.transform.position;
-        heldObj.transform.rotation = holdPoint.transform.rotation;
+        holdPos = holdPoint.transform.position;
+        heldObj.transform.SetPositionAndRotation(holdPoint.transform.position, holdPoint.transform.rotation);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-       
-    }
-
+   
     private void OnTriggerStay(Collider other)
     {
-        if (droppedThisFrame) { return; }
-        if (other.GetComponent<FETCHABLE>() != null)
+        if (other.gameObject.GetComponent<FETCHABLE>() != null)
         {
-            if (PI.IA_Fetch.WasPressedThisFrame() && !fetching)
+            if (grabInput)
             {
                 heldFetch = other.GetComponent<FETCHABLE>();
                 if (!heldFetch.canFetch) { return; }
                 heldFetch.BeginFetch();
                 heldObj = other.gameObject;
-                grabbedThisFrame = true;
                 fetching = true;
-                }
+                grabInput = false;
+            }
         }
     }
 
-    private void LateUpdate()
-    {
-        grabbedThisFrame = false;
-        droppedThisFrame = false;
-    }
+  
+
+   
+
+    
 
 
 

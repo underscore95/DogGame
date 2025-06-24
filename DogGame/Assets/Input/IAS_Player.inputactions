@@ -39,7 +39,7 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -299,7 +299,7 @@
                 {
                     "name": "",
                     "id": "6a5d89fb-1bcc-482b-86cd-d74c349a7edf",
-                    "path": "<Gamepad>/buttonEast",
+                    "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

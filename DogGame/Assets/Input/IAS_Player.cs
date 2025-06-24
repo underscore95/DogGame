@@ -125,7 +125,7 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -385,7 +385,7 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""6a5d89fb-1bcc-482b-86cd-d74c349a7edf"",
-                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

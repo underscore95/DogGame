@@ -22,8 +22,11 @@ public class FETCHABLE : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bounds = col.bounds;
-        scale = bounds.extents.x;
+        if (!fetched)
+        {
+            bounds = col.bounds;
+            scale = bounds.extents.x;
+        }
     }
 
     public void BeginFetch()
