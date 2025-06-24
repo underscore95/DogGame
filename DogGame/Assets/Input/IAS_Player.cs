@@ -104,7 +104,7 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
                     ""id"": ""c3a26be1-8089-4b71-a601-e8c09019b585"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -125,7 +125,16 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": true
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact/Bark"",
+                    ""type"": ""Button"",
+                    ""id"": ""3f2b848a-7158-4b1d-9eaf-4f6e045d04fb"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -385,7 +394,7 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""6a5d89fb-1bcc-482b-86cd-d74c349a7edf"",
-                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -395,12 +404,12 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c95e2ede-ac34-41d6-9a9c-f00f46e39823"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""id"": ""b6719f62-8359-4efd-ae71-c1330d728a4c"",
+                    ""path"": """",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Fetch"",
+                    ""action"": ""Interact/Bark"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -415,6 +424,7 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
         m_Movement_Jump = m_Movement.FindAction("Jump", throwIfNotFound: true);
         m_Movement_Camera_Axis = m_Movement.FindAction("Camera_Axis", throwIfNotFound: true);
         m_Movement_Fetch = m_Movement.FindAction("Fetch", throwIfNotFound: true);
+        m_Movement_InteractBark = m_Movement.FindAction("Interact/Bark", throwIfNotFound: true);
     }
 
     ~@IAS_Player()
@@ -499,6 +509,7 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
     private readonly InputAction m_Movement_Jump;
     private readonly InputAction m_Movement_Camera_Axis;
     private readonly InputAction m_Movement_Fetch;
+    private readonly InputAction m_Movement_InteractBark;
     /// <summary>
     /// Provides access to input actions defined in input action map "Movement".
     /// </summary>
@@ -526,6 +537,10 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Movement/Fetch".
         /// </summary>
         public InputAction @Fetch => m_Wrapper.m_Movement_Fetch;
+        /// <summary>
+        /// Provides access to the underlying input action "Movement/InteractBark".
+        /// </summary>
+        public InputAction @InteractBark => m_Wrapper.m_Movement_InteractBark;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -564,6 +579,9 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
             @Fetch.started += instance.OnFetch;
             @Fetch.performed += instance.OnFetch;
             @Fetch.canceled += instance.OnFetch;
+            @InteractBark.started += instance.OnInteractBark;
+            @InteractBark.performed += instance.OnInteractBark;
+            @InteractBark.canceled += instance.OnInteractBark;
         }
 
         /// <summary>
@@ -587,6 +605,9 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
             @Fetch.started -= instance.OnFetch;
             @Fetch.performed -= instance.OnFetch;
             @Fetch.canceled -= instance.OnFetch;
+            @InteractBark.started -= instance.OnInteractBark;
+            @InteractBark.performed -= instance.OnInteractBark;
+            @InteractBark.canceled -= instance.OnInteractBark;
         }
 
         /// <summary>
@@ -655,5 +676,12 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnFetch(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Interact/Bark" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnInteractBark(InputAction.CallbackContext context);
     }
 }

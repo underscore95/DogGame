@@ -9,6 +9,7 @@ public class PLAYER_INPUTS : MonoBehaviour
     public InputActionAsset IAA;
     public InputAction IA_Move;
     public InputAction IA_Fetch;
+    public InputAction IA_Interact_Bark;
 
     public InputAction IA_Jump;
     public InputAction IA_Cam;
@@ -22,6 +23,7 @@ public class PLAYER_INPUTS : MonoBehaviour
         IA_Jump = IAS.Movement.Jump;
         IA_Cam = IAS.Movement.Camera_Axis;
         IA_Fetch = IAS.Movement.Fetch;
+        IA_Interact_Bark = IAS.Movement.InteractBark;
         IA_Move.Enable();
         IA_Jump.Enable();
         IA_Cam.Enable();
