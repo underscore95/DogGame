@@ -4,19 +4,21 @@ using UnityEngine;
 public class PLAYER_BUBBLE_UI_CONTROLLER : MonoBehaviour
 {
     [SerializeField] UI_BUBBLE_DISPLAY playerBubbleDisplay;
+    [SerializeField]PLAYER_AUDIO PA;
     PLAYER_INPUTS PI;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         PI = GetComponentInParent<PLAYER_INPUTS>();
-
         playerBubbleDisplay.SetSpriteDataIndex(0);
         Invoke(nameof(ShowBubble), 0.5f);
     }
 
     private void Update()
     {
+        if (PI.IA_Interact_Bark.WasPressedThisFrame()) { PA.PlayBark(); }
+
         if (PI.IA_Move.WasPressedThisFrame())
         {
             Invoke(nameof(HideBubble), 1f);

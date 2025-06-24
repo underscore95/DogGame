@@ -34,7 +34,6 @@ public class FETCHABLE : MonoBehaviour
         {
             vel = (transform.position - lastFramePos)/Time.deltaTime/2;
             lastFramePos = transform.position;
-            Debug.Log(vel);
         }
     }
 

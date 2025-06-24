@@ -782,7 +782,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdPoint: {fileID: 1095057805438804696}
-  holdPos: {x: 0, y: 0, z: 0}
   dropPoint: {fileID: 1408918598383618889}
 --- !u!135 &6191511677263429023
 SphereCollider:
@@ -2070,6 +2069,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4ec0ae5822df18d4fba98cb4227df408, type: 3}
   - {fileID: 8300000, guid: c6e0e2f48b1b9cb47a8e6bef9a7c7bd0, type: 3}
   - {fileID: 8300000, guid: b4465a32d3d543d48a3df09867701af8, type: 3}
+  Barks:
+  - {fileID: 8300000, guid: cb9c3658e97ff95478e9fcf1f51a023c, type: 3}
+  - {fileID: 8300000, guid: 22fbe2f0d8b0a064ca23c166df4a1756, type: 3}
+  - {fileID: 8300000, guid: 40b590030ff145e418ec63a6e5cdcecb, type: 3}
+  - {fileID: 8300000, guid: 8e9f8b70b6131a446892f79a50135d3d, type: 3}
+  barkRate: 0.3
 --- !u!81 &1429049339835589988
 AudioListener:
   m_ObjectHideFlags: 0

@@ -319,7 +319,18 @@
                 {
                     "name": "",
                     "id": "b6719f62-8359-4efd-ae71-c1330d728a4c",
-                    "path": "",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact/Bark",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7aa8f9e5-ed67-4e04-b8ed-cea21f7b51e6",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

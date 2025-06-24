@@ -28,6 +28,7 @@ public class PLAYER_INPUTS : MonoBehaviour
         IA_Jump.Enable();
         IA_Cam.Enable();
         IA_Fetch.Enable();
+        IA_Interact_Bark.Enable();
     }
 
     // Update is called once per frame
