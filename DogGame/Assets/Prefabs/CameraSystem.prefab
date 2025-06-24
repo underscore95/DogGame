@@ -267,6 +267,7 @@ MonoBehaviour:
     hozFollowSpd: 10
     vertFollowSpd: 15
     rotateSpd: 200
+    rotateSpdOnMouse: 50
     rotateSmoothness: 20
     yRotDivisor: 0.5
     minYRot: -40
