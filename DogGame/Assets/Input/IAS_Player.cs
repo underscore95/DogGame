@@ -392,6 +392,17 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
                     ""action"": ""Fetch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c95e2ede-ac34-41d6-9a9c-f00f46e39823"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fetch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
