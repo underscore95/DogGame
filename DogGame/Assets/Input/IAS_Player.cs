@@ -119,9 +119,9 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Interact"",
+                    ""name"": ""Fetch"",
                     ""type"": ""Button"",
-                    ""id"": ""9b7d4704-456a-4c98-b155-0be7148e78c6"",
+                    ""id"": ""190ec18d-85f7-40d5-bae6-54597fde587d"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -373,23 +373,23 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""34f058cb-19fa-4338-95e0-4cd0bdd5362d"",
+                    ""id"": ""27efc197-88c6-4426-b1bf-95760dc8e4c5"",
                     ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Interact"",
+                    ""action"": ""Fetch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""557be2cc-de4e-4f22-98de-e5741cca857c"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""id"": ""6a5d89fb-1bcc-482b-86cd-d74c349a7edf"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Interact"",
+                    ""action"": ""Fetch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -403,7 +403,7 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
         m_Movement_Move_Axis = m_Movement.FindAction("Move_Axis", throwIfNotFound: true);
         m_Movement_Jump = m_Movement.FindAction("Jump", throwIfNotFound: true);
         m_Movement_Camera_Axis = m_Movement.FindAction("Camera_Axis", throwIfNotFound: true);
-        m_Movement_Interact = m_Movement.FindAction("Interact", throwIfNotFound: true);
+        m_Movement_Fetch = m_Movement.FindAction("Fetch", throwIfNotFound: true);
     }
 
     ~@IAS_Player()
@@ -487,7 +487,7 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
     private readonly InputAction m_Movement_Move_Axis;
     private readonly InputAction m_Movement_Jump;
     private readonly InputAction m_Movement_Camera_Axis;
-    private readonly InputAction m_Movement_Interact;
+    private readonly InputAction m_Movement_Fetch;
     /// <summary>
     /// Provides access to input actions defined in input action map "Movement".
     /// </summary>
@@ -512,9 +512,9 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Camera_Axis => m_Wrapper.m_Movement_Camera_Axis;
         /// <summary>
-        /// Provides access to the underlying input action "Movement/Interact".
+        /// Provides access to the underlying input action "Movement/Fetch".
         /// </summary>
-        public InputAction @Interact => m_Wrapper.m_Movement_Interact;
+        public InputAction @Fetch => m_Wrapper.m_Movement_Fetch;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -550,9 +550,9 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
             @Camera_Axis.started += instance.OnCamera_Axis;
             @Camera_Axis.performed += instance.OnCamera_Axis;
             @Camera_Axis.canceled += instance.OnCamera_Axis;
-            @Interact.started += instance.OnInteract;
-            @Interact.performed += instance.OnInteract;
-            @Interact.canceled += instance.OnInteract;
+            @Fetch.started += instance.OnFetch;
+            @Fetch.performed += instance.OnFetch;
+            @Fetch.canceled += instance.OnFetch;
         }
 
         /// <summary>
@@ -573,9 +573,9 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
             @Camera_Axis.started -= instance.OnCamera_Axis;
             @Camera_Axis.performed -= instance.OnCamera_Axis;
             @Camera_Axis.canceled -= instance.OnCamera_Axis;
-            @Interact.started -= instance.OnInteract;
-            @Interact.performed -= instance.OnInteract;
-            @Interact.canceled -= instance.OnInteract;
+            @Fetch.started -= instance.OnFetch;
+            @Fetch.performed -= instance.OnFetch;
+            @Fetch.canceled -= instance.OnFetch;
         }
 
         /// <summary>
@@ -638,11 +638,11 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnCamera_Axis(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "Interact" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Fetch" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnInteract(InputAction.CallbackContext context);
+        void OnFetch(InputAction.CallbackContext context);
     }
 }

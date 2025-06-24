@@ -18,7 +18,6 @@ public class PLAYER_AUDIO : MonoBehaviour
 
     public void PlayFootstep()
     {
-        Debug.Log("footseo");
         AudioClip clip = Footsteps[Random.Range(0, Footsteps.Length)];
         AS.PlayOneShot(clip);
     }
