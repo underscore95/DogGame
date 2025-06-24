@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b915b90610bbc524a965ff406d26d6ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lerpSpd: 60
+  lerpSpd: 90
   turnSpd: 6
   alignToSlope: 1
 --- !u!1 &914697518968547289
@@ -2160,6 +2160,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Footsteps:
+  - {fileID: 8300000, guid: 0f672c80c3800dd4f8f0198189e43ec9, type: 3}
+  - {fileID: 8300000, guid: 884653f9a7e193847a26ef9bf04ac14b, type: 3}
   - {fileID: 8300000, guid: 8eeed0615b5e10a48aaeb9d18c3fd922, type: 3}
   - {fileID: 8300000, guid: 1cb9669961cae774dad5132201db8528, type: 3}
   - {fileID: 8300000, guid: 4ec0ae5822df18d4fba98cb4227df408, type: 3}
