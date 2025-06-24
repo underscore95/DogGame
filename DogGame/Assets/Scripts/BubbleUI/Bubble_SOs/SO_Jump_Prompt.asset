@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c83b77ff093dca4cb66a7d310a028b3, type: 3}
+  m_Name: SO_Jump_Prompt
+  m_EditorClassIdentifier: 
+  bubbleName: Jump
+  sprites:
+  - {fileID: 842775008, guid: 19adecf65666fcd4fb7e4852e93a5be3, type: 3}
+  - {fileID: -778712221, guid: 19adecf65666fcd4fb7e4852e93a5be3, type: 3}
+  - {fileID: -1311035590, guid: 19adecf65666fcd4fb7e4852e93a5be3, type: 3}
+  - {fileID: -698812351, guid: 19adecf65666fcd4fb7e4852e93a5be3, type: 3}
+  - {fileID: -1658445740, guid: 19adecf65666fcd4fb7e4852e93a5be3, type: 3}
+  - {fileID: 1637329805, guid: 19adecf65666fcd4fb7e4852e93a5be3, type: 3}
+  - {fileID: -1003639729, guid: 19adecf65666fcd4fb7e4852e93a5be3, type: 3}
+  animFPS: 4
