@@ -45,11 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fe81bd42e05fec40b463d5d03a7b3b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayObject: {fileID: 6636661755673944588}
   image: {fileID: 3994742952242945064}
   spritesData:
-  - {fileID: 11400000, guid: af283a5b35759df489136cd3cdc876a0, type: 2}
-  animFPS: 4
+  - {fileID: 11400000, guid: c718e422b704c83419b8c16e0c9163f5, type: 2}
 --- !u!1 &5646232980965792098
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,7 +260,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 842775008, guid: 19adecf65666fcd4fb7e4852e93a5be3, type: 3}
+  m_Sprite: {fileID: 1736135191, guid: bac93222b05dc6445a370ef5c63a8d54, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

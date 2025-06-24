@@ -3,11 +3,12 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 // Manages NPC logic
-public class NPC : MonoBehaviour
+public class NPC : MonoBehaviour, I_Interactable
 {
     [SerializeField] private float _interactDistance = 5.0f;
     [SerializeField] private InputActionReference _tradeInput;
     [SerializeField] private TextMeshProUGUI _tradeText;
+    [SerializeField] private UI_BUBBLE_DISPLAY _display;
 
     [Header("Clothing Item")]
     [SerializeField] private GameObject _clothingObject;
@@ -41,6 +42,7 @@ public class NPC : MonoBehaviour
 
         bool playerIsNearby = Vector3.SqrMagnitude(_playerClothing.transform.position - transform.position) < _interactDistance * _interactDistance;
         _tradeText.enabled = playerIsNearby;
+        _display.SetBubbleVisability(playerIsNearby);
 
         if (!playerIsNearby) return;
 
@@ -60,5 +62,15 @@ public class NPC : MonoBehaviour
 
         if (onCompleteID == 444) return;
         QR.QUESTS.Game_Quests[onCompleteID].DoComplete();
+    }
+
+    public void InteractableInRange()
+    {
+        _display.SetBubbleVisability(true);
+    }
+
+    public void InteractableAction()
+    {
+        _display.SetBubbleVisability(false);
     }
 }

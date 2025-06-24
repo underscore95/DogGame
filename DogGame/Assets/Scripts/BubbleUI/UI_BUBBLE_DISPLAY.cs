@@ -1,51 +1,53 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class UI_BUBBLE_DISPLAY : MonoBehaviour
 {
-    [SerializeField] GameObject displayObject;
+    //[SerializeField] GameObject displayObject;
 
     [Header("UI Element")]
     [SerializeField] Image image;
     [SerializeField] SO_UI_BUBBLE_SPRITES[] spritesData;
     private Sprite[] sprites;
-    //[SerializeField] int animFPS;
-
-    int dataIndex;
-    int spriteIndex;
+    int animFPS;
+    int spriteIndex = 0;
+    int spritesDataIndex = 0;
     Coroutine coroutineAnimation;
     bool isPlaying;
+    Color alpha0 = new(0, 0, 0, 0);
 
     private void Start()
     {
-        SetBubbleSprites(0);
-        SetBubbleVisability(true);
+        SetBubbleVisability(false);
     }
 
     public void SetBubbleVisability(bool isVisable)
     {
-        displayObject.SetActive(isVisable);
         if (isVisable) 
-        { 
-            StartUIAnimation(); 
-        } else
         {
+            StartUIAnimation();
+            image.color = Color.white;
+        }
+        else
+        {
+            image.color = alpha0;
             StopUIAnimation();
         }
+
     }
 
     /// <summary>
     /// Sets the displayed sprites from spritesData based on the index, spritesData is defined in the inspector.
     /// </summary>
-    /// <param name="spritesDataIndex">Index of the sprite data to be loaded</param>
-    public void SetBubbleSprites(int spritesDataIndex)
+    /// <param name="i">Index of the sprite data to be loaded</param>
+    public void SetSpriteDataIndex(int i)
     {
-        if (spritesDataIndex < spritesData.Length) // validaton
+        if (i < spritesData.Length) // validaton
         {
-            dataIndex = spritesDataIndex;
-            sprites = spritesData[spritesDataIndex].sprites;
+            spritesDataIndex = i;
         }
         else Debug.LogWarning("spriteDataIndex provided was out of bounds of the array, sprites were not updated");
     }
@@ -53,26 +55,28 @@ public class UI_BUBBLE_DISPLAY : MonoBehaviour
     void StartUIAnimation()
     {
         isPlaying = true;
+        animFPS = spritesData[spritesDataIndex].animFPS;
+        sprites = spritesData[spritesDataIndex].sprites;
         coroutineAnimation = StartCoroutine(PlayUIAnimation());
     }
 
     private void StopUIAnimation()
     {
         isPlaying = false;
-        StopCoroutine(coroutineAnimation);
+        if (coroutineAnimation != null) 
+            StopCoroutine(coroutineAnimation);
     }
 
     IEnumerator PlayUIAnimation()
     {
-        float delay = 1f / Mathf.Clamp(spritesData[dataIndex].animFPS, 1, 60);
+        float delay = 1f / Mathf.Clamp(animFPS, 1, 60);
         yield return new WaitForSeconds(delay);
         if (spriteIndex >=  sprites.Length) { spriteIndex = 0; }
         image.sprite = sprites[spriteIndex];
         spriteIndex++;
         if (isPlaying == true) 
         {
-            coroutineAnimation = StartCoroutine(PlayUIAnimation()); 
+            coroutineAnimation = StartCoroutine(PlayUIAnimation());
         }
     }
-
 }

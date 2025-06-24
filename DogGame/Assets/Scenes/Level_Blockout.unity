@@ -992,6 +992,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1524336480 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8456232906985070961, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+  m_PrefabInstance: {fileID: 1635681585}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fe81bd42e05fec40b463d5d03a7b3b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1535806275
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1078,74 +1089,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1448629464834942011, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
-      propertyPath: IA_Fetch.m_Name
-      value: IA_Fetch
-      objectReference: {fileID: 0}
-    - target: {fileID: 2104165378362470035, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.562
-      objectReference: {fileID: 0}
-    - target: {fileID: 2104165378362470035, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.958
-      objectReference: {fileID: 0}
-    - target: {fileID: 2600823512536965752, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
-      propertyPath: Loop
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2600823512536965752, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
-      propertyPath: m_Resource
+    - target: {fileID: 1038854566644563555, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+      propertyPath: playerBubbleDisplay
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2600823512536965752, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2600823512536965752, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
-      propertyPath: rolloffMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2600823512536965752, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: 24300002, guid: 2c142f621ca03cf49bbaf53cf62111a5, type: 2}
-    - target: {fileID: 2600823512536965752, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
-      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4012885195248227180, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
-      propertyPath: 'Footsteps.Array.data[5]'
-      value: 
-      objectReference: {fileID: 8300000, guid: b4465a32d3d543d48a3df09867701af8, type: 3}
-    - target: {fileID: 4012885195248227180, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
-      propertyPath: 'Footsteps.Array.data[6]'
-      value: 
-      objectReference: {fileID: 8300000, guid: b4465a32d3d543d48a3df09867701af8, type: 3}
-    - target: {fileID: 5974559657752370896, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
-      propertyPath: maxBounces
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5988850283860379430, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
-      propertyPath: GST.accelSpd
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 5988850283860379430, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
-      propertyPath: GST.decelSpd
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 5988850283860379430, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
-      propertyPath: GST.maxSpeed
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6191511677263429023, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
-      propertyPath: m_Radius
-      value: 1.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6191511677263429023, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
-      propertyPath: m_Center.y
-      value: 0.9
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1524336480}
     - target: {fileID: 7052354485770815753, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.97
@@ -1191,8 +1138,7 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 5970742338793385138, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
@@ -1256,9 +1202,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 365844199168856561, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.931
+      objectReference: {fileID: 0}
+    - target: {fileID: 365844199168856561, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.152
+      objectReference: {fileID: 0}
+    - target: {fileID: 365844199168856561, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5086304815664400207, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
+      propertyPath: 'spritesData.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: c718e422b704c83419b8c16e0c9163f5, type: 2}
     - target: {fileID: 5170976752668250826, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
       propertyPath: m_Name
       value: NPC_BarStaff
+      objectReference: {fileID: 0}
+    - target: {fileID: 6338218965214351009, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
+      propertyPath: m_Sprite
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7817785984601880353, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
       propertyPath: _activated

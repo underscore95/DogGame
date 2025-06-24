@@ -13,5 +13,12 @@ MonoBehaviour:
   m_Name: SO_Interact_Prompt
   m_EditorClassIdentifier: 
   bubbleName: 
-  sprites: []
+  sprites:
+  - {fileID: 513398606, guid: 6c23188ea41ce3e4f9512fa526adbc28, type: 3}
+  - {fileID: -1387865503, guid: 6c23188ea41ce3e4f9512fa526adbc28, type: 3}
+  - {fileID: 540592934, guid: 6c23188ea41ce3e4f9512fa526adbc28, type: 3}
+  - {fileID: -732719131, guid: 6c23188ea41ce3e4f9512fa526adbc28, type: 3}
+  - {fileID: 2117796296, guid: 6c23188ea41ce3e4f9512fa526adbc28, type: 3}
+  - {fileID: -1820036917, guid: 6c23188ea41ce3e4f9512fa526adbc28, type: 3}
+  - {fileID: -788856777, guid: 6c23188ea41ce3e4f9512fa526adbc28, type: 3}
   animFPS: 4
