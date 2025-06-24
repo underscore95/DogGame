@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PLAYER_CAMERACONTROLLER : MonoBehaviour
 {
+
     float xfollow;
     float yfollow;
     float zfollow;
@@ -34,6 +35,7 @@ public class PLAYER_CAMERACONTROLLER : MonoBehaviour
     void Update()
     {
         FreeCamCountdown();
+        
     }
 
     //Enables a Flag to re-enable Auto-Rotation of the Camera if a Timer reaches 0

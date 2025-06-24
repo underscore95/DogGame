@@ -414,6 +414,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7147293687306619107, guid: 2be53dc8272dd09429411045f51dd285, type: 3}
+      propertyPath: lookAt
+      value: 
+      objectReference: {fileID: 1104502631}
     - target: {fileID: 7683753117331016418, guid: 2be53dc8272dd09429411045f51dd285, type: 3}
       propertyPath: m_Name
       value: CameraSystem
@@ -831,6 +835,11 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &1104502631 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5170976752668250826, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
+  m_PrefabInstance: {fileID: 1042654806}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1300979470
 GameObject:
   m_ObjectHideFlags: 0
@@ -997,12 +1006,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5974559657752370896, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
-      propertyPath: skinWidth
-      value: 0.075
-      objectReference: {fileID: 0}
-    - target: {fileID: 5974559657752370896, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
       propertyPath: maxBounces
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5988850283860379430, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+      propertyPath: GST.accelSpd
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5988850283860379430, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+      propertyPath: GST.decelSpd
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5988850283860379430, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+      propertyPath: GST.maxSpeed
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7052354485770815753, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
       propertyPath: m_LocalPosition.x
