@@ -1087,6 +1087,18 @@ PrefabInstance:
       value: 0.958
       objectReference: {fileID: 0}
     - target: {fileID: 2600823512536965752, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2600823512536965752, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2600823512536965752, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2600823512536965752, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
       propertyPath: rolloffMode
       value: 1
       objectReference: {fileID: 0}
@@ -1098,6 +1110,14 @@ PrefabInstance:
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4012885195248227180, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+      propertyPath: 'Footsteps.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: b4465a32d3d543d48a3df09867701af8, type: 3}
+    - target: {fileID: 4012885195248227180, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+      propertyPath: 'Footsteps.Array.data[6]'
+      value: 
+      objectReference: {fileID: 8300000, guid: b4465a32d3d543d48a3df09867701af8, type: 3}
     - target: {fileID: 5974559657752370896, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
       propertyPath: maxBounces
       value: 4
@@ -1159,7 +1179,8 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5970742338793385138, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
