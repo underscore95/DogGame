@@ -1741,10 +1741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Footsteps:
-  - {fileID: 8300000, guid: 0f672c80c3800dd4f8f0198189e43ec9, type: 3}
-  - {fileID: 8300000, guid: 884653f9a7e193847a26ef9bf04ac14b, type: 3}
   - {fileID: 8300000, guid: 8eeed0615b5e10a48aaeb9d18c3fd922, type: 3}
-  - {fileID: 8300000, guid: 1afdc86ace510f74d9c79a291ec41282, type: 3}
   - {fileID: 8300000, guid: 1cb9669961cae774dad5132201db8528, type: 3}
   - {fileID: 8300000, guid: 4ec0ae5822df18d4fba98cb4227df408, type: 3}
   - {fileID: 8300000, guid: c6e0e2f48b1b9cb47a8e6bef9a7c7bd0, type: 3}
