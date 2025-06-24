@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -62,5 +63,10 @@ public class PlayerClothing : MonoBehaviour
         yield return new WaitForSeconds(_clothingEquipDuration);
         pos.ApplyToTransform(_poofEffect.transform);
         _poofEffect.Play();
+    }
+
+    public bool HasClothingItem(ClothingItemType type)
+    {
+        return _wornClothing.ContainsKey(type);
     }
 }

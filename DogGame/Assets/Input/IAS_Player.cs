@@ -117,6 +117,15 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Fetch"",
+                    ""type"": ""Button"",
+                    ""id"": ""190ec18d-85f7-40d5-bae6-54597fde587d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -361,6 +370,28 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
                     ""action"": ""Camera_Axis"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""27efc197-88c6-4426-b1bf-95760dc8e4c5"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fetch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6a5d89fb-1bcc-482b-86cd-d74c349a7edf"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fetch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -372,6 +403,7 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
         m_Movement_Move_Axis = m_Movement.FindAction("Move_Axis", throwIfNotFound: true);
         m_Movement_Jump = m_Movement.FindAction("Jump", throwIfNotFound: true);
         m_Movement_Camera_Axis = m_Movement.FindAction("Camera_Axis", throwIfNotFound: true);
+        m_Movement_Fetch = m_Movement.FindAction("Fetch", throwIfNotFound: true);
     }
 
     ~@IAS_Player()
@@ -455,6 +487,7 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
     private readonly InputAction m_Movement_Move_Axis;
     private readonly InputAction m_Movement_Jump;
     private readonly InputAction m_Movement_Camera_Axis;
+    private readonly InputAction m_Movement_Fetch;
     /// <summary>
     /// Provides access to input actions defined in input action map "Movement".
     /// </summary>
@@ -478,6 +511,10 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Movement/Camera_Axis".
         /// </summary>
         public InputAction @Camera_Axis => m_Wrapper.m_Movement_Camera_Axis;
+        /// <summary>
+        /// Provides access to the underlying input action "Movement/Fetch".
+        /// </summary>
+        public InputAction @Fetch => m_Wrapper.m_Movement_Fetch;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -513,6 +550,9 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
             @Camera_Axis.started += instance.OnCamera_Axis;
             @Camera_Axis.performed += instance.OnCamera_Axis;
             @Camera_Axis.canceled += instance.OnCamera_Axis;
+            @Fetch.started += instance.OnFetch;
+            @Fetch.performed += instance.OnFetch;
+            @Fetch.canceled += instance.OnFetch;
         }
 
         /// <summary>
@@ -533,6 +573,9 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
             @Camera_Axis.started -= instance.OnCamera_Axis;
             @Camera_Axis.performed -= instance.OnCamera_Axis;
             @Camera_Axis.canceled -= instance.OnCamera_Axis;
+            @Fetch.started -= instance.OnFetch;
+            @Fetch.performed -= instance.OnFetch;
+            @Fetch.canceled -= instance.OnFetch;
         }
 
         /// <summary>
@@ -594,5 +637,12 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnCamera_Axis(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Fetch" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnFetch(InputAction.CallbackContext context);
     }
 }

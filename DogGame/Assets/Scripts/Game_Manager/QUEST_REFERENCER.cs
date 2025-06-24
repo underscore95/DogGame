@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class QUEST_REFERENCER : MonoBehaviour
 {
+    [HideInInspector]
     public GameObject GM;
+    [HideInInspector]
     public QUEST_EVENTS QEVENTS;
+    [HideInInspector]
     public PROGRESSION_TRACKER QUESTS;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

@@ -8,6 +8,8 @@ public class PLAYER_INPUTS : MonoBehaviour
     public IAS_Player IAS;
     public InputActionAsset IAA;
     public InputAction IA_Move;
+    public InputAction IA_Fetch;
+
     public InputAction IA_Jump;
     public InputAction IA_Cam;
     public Vector3 InputDirection;
@@ -19,9 +21,11 @@ public class PLAYER_INPUTS : MonoBehaviour
         IA_Move = IAS.Movement.Move_Axis;
         IA_Jump = IAS.Movement.Jump;
         IA_Cam = IAS.Movement.Camera_Axis;
+        IA_Fetch = IAS.Movement.Fetch;
         IA_Move.Enable();
         IA_Jump.Enable();
         IA_Cam.Enable();
+        IA_Fetch.Enable();
     }
 
     // Update is called once per frame

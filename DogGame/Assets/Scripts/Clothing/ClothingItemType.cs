@@ -3,5 +3,5 @@
 // Must add a transform in PlayerClothing.cs for each value
 public enum ClothingItemType
 {
-    Hat
+    Hat, Glasses, Lei, Shirt
 }

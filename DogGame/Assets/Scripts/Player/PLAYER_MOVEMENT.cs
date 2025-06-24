@@ -13,7 +13,7 @@ public class PLAYER_MOVEMENT : MonoBehaviour
     [SerializeField]
     public float speedTarget;
 
-
+    int[] layerMasks;
     float gravityStr;
     public bool JumpBuffer;
 
@@ -107,7 +107,7 @@ public class PLAYER_MOVEMENT : MonoBehaviour
         collidableMask = LayerMask.GetMask("Ground", "Default");
         walkableMask = LayerMask.GetMask("Ground", "Default");
         SetColliderOffets();
-       
+      
         
     }
 
@@ -177,7 +177,7 @@ public class PLAYER_MOVEMENT : MonoBehaviour
             }
 
             bool hit2 = Physics.Raycast(transform.position, -transform.up, out GroundCastInfos[0], length, walkableMask, QueryTriggerInteraction.Ignore);
-            isGrounded = hit2 && Vector3.Angle(Vector3.up, GroundCastInfos[0].normal) < maxSlopeAngle;
+            isGrounded = hit2 && Vector3.Angle(Vector3.up, GroundCastInfos[0].normal) < maxSlopeAngle && GroundCastInfos[0].collider.tag != "Non-WalkableDynamic";
             WinningGroundCast = GroundCastInfos[0];
             if (WinningGroundCast.rigidbody != null)
             {
@@ -447,7 +447,7 @@ public class PLAYER_MOVEMENT : MonoBehaviour
         //Collide and Slide Movement
         float length = velocity.magnitude * Time.deltaTime;
         lastFrameVel = CollideAndSlide((velocity + addedVel) * Time.deltaTime, transform.position, 0, velocity + addedVel, grounded);
-       // lastFrameVel = Vector3.ClampMagnitude(lastFrameVel, length);
+      lastFrameVel = Vector3.ClampMagnitude(lastFrameVel, length);
         transform.position += lastFrameVel;
         CollisionDetection();
         lastFrameVel /= Time.deltaTime;

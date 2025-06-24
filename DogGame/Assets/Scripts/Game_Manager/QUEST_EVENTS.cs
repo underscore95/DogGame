@@ -1,12 +1,15 @@
+using System.Collections;
 using UnityEngine;
 
 public class QUEST_EVENTS : MonoBehaviour
 {
     PROGRESSION_TRACKER PT;
+    ENTITIES ENT;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         PT = GetComponent<PROGRESSION_TRACKER>();
+        ENT = GetComponent<ENTITIES>();
     }
 
     // Update is called once per frame
@@ -14,10 +17,20 @@ public class QUEST_EVENTS : MonoBehaviour
     {
         
     }
+    public void ActivateNPCAndAddQuest(int npcId, int questID)
+    {
+        NPC _npc = ENT.FindNPC(npcId);
+        _npc._activated = true;
+        _npc._hasTraded = false;
+        _npc.AttachQuest(questID);
+    }
 
     public void BeginGoToBar()
     {
+        ActivateNPCAndAddQuest(0, 0);
     }
+
+
 
     public void EndGoToBar() 
     {
@@ -26,11 +39,59 @@ public class QUEST_EVENTS : MonoBehaviour
 
     public void BeginGoToShirtMan()
     {
+        ActivateNPCAndAddQuest(1, 1);
+
 
     }
 
     public void EndGoToShirtMan()
     {
-       // PT.Game_Quests[2].OnActivate();
+        PT.Game_Quests[2].OnActivate();
+    }
+
+    public void BeginGoToSunglassesLady()
+    {
+        ActivateNPCAndAddQuest(2, 2);
+
+    }
+
+    public void EndGoToSunglassesLady()
+    {
+        PT.Game_Quests[3].OnActivate();
+    }
+
+    public void BeginGoToMuscleGuy()
+    {
+        ActivateNPCAndAddQuest(3, 3);
+
+    }
+
+    public void EndGoToMuscleGuy()
+    {
+        PT.Game_Quests[4].OnActivate();
+
+    }
+
+    public void BeginGoToFlowerLady()
+    {
+        ActivateNPCAndAddQuest(4, 4 );
+
+    }
+
+    public void EndGoToFlowerLady()
+    {
+        PT.Game_Quests[5].OnActivate();
+
+
+    }
+
+    public void BeginGetTheBeer()
+    {
+        ActivateNPCAndAddQuest(0, 5);
+    }
+
+    public void EndGetTheBeer()
+    {
+        Debug.Log("GAME IS FINISHED");
     }
 }
