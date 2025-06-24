@@ -11,6 +11,7 @@ public class PLAYER_CAMERASTATS : MonoBehaviour
         public float vertFollowSpd;
 
         public float rotateSpd;
+        public float rotateSpdOnMouse;
         public float rotateSmoothness;
         public float yRotDivisor;
 

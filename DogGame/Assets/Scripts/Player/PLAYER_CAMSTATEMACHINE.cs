@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PLAYER_CAMSTATEMACHINE : MonoBehaviour
 {
@@ -42,7 +43,7 @@ public class PLAYER_CAMSTATEMACHINE : MonoBehaviour
     void DefaultCameraUpdateLoop()
     {
         CC.FollowTarget(CS.CST.hozFollowSpd, DefineVerticalFollowSpeed(), TARGET.transform.position);
-        CC.RotateAroundTarget(PI.CamDirection, CS.CST.rotateSpd, CS.CST.rotateSmoothness, CS.CST.yRotDivisor, CS.CST.minYRot, CS.CST.maxYRot);
+        CC.RotateAroundTarget(PI.CamDirection, Gamepad.current == null ? CS.CST.rotateSpdOnMouse : CS.CST.rotateSpd, CS.CST.rotateSmoothness, CS.CST.yRotDivisor, CS.CST.minYRot, CS.CST.maxYRot);
         CC.RotAssistance(PI.InputDirection, CS.CST.rotAssistStr, CS.CST.rotAssistSmooth, PM.speedProg);
         CC.OffsetAssistance(PI.InputDirection, CS.CST.moveOffsetAmount, CS.CST.moveOffsetSpd, PM.speedProg, DYNAMICOFFSET);
         CC.SlopeRotation(PM.DotUpSlope(transform.forward), PM.currentSlopeAngle, CS.CST.slopeRotSpd);
