@@ -9,6 +9,8 @@ public class FETCHABLE : MonoBehaviour
     Rigidbody rb;
     public float scale;
     Bounds bounds;
+    Vector3 vel;
+    Vector3 lastFramePos;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,6 +29,13 @@ public class FETCHABLE : MonoBehaviour
             bounds = col.bounds;
             scale = bounds.extents.x;
         }
+
+        if (fetched)
+        {
+            vel = (transform.position - lastFramePos)/Time.deltaTime/2;
+            lastFramePos = transform.position;
+            Debug.Log(vel);
+        }
     }
 
     public void BeginFetch()
@@ -35,6 +44,7 @@ public class FETCHABLE : MonoBehaviour
         rb.isKinematic = true;
         fetched = true;
         canFetch = false;
+        lastFramePos = transform.position;
     }
 
     public void EndFetch()
@@ -43,6 +53,7 @@ public class FETCHABLE : MonoBehaviour
         rb.isKinematic = false;
         fetched = false;
         StartCoroutine(fetchCooldown());
+        rb.linearVelocity = vel;
     }
 
     IEnumerator fetchCooldown()

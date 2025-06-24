@@ -825,13 +825,13 @@ MonoBehaviour:
   AST:
     airMoveStr: 25
     airDragStr: 10
-    jumpStr: 18
+    jumpStr: 13
     jumpVelModifier: 1
     heaviness: 50
-    jumpBufferTime: 0.5
-    jumpCutOffStr: 0.5
-    jumpMaxCutOffVel: 14
-    jumpMinCutOffVel: 10
+    jumpBufferTime: 0.2
+    jumpCutOffStr: 0.7
+    jumpMaxCutOffVel: 10
+    jumpMinCutOffVel: 3
 --- !u!114 &219177004786903394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -858,10 +858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdPoint: {fileID: 1095057805438804696}
-  holdPos: {x: 0, y: 0, z: 0}
   dropPoint: {fileID: 1408918598383618889}
-  offset: 0.2
-  radius: 0
 --- !u!135 &6191511677263429023
 SphereCollider:
   m_ObjectHideFlags: 0
