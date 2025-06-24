@@ -1087,6 +1087,18 @@ PrefabInstance:
       value: 0.958
       objectReference: {fileID: 0}
     - target: {fileID: 2600823512536965752, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2600823512536965752, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2600823512536965752, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2600823512536965752, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
       propertyPath: rolloffMode
       value: 1
       objectReference: {fileID: 0}
@@ -1159,7 +1171,8 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5970742338793385138, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
