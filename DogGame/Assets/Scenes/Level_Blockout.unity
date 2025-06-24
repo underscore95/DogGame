@@ -1086,6 +1086,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.958
       objectReference: {fileID: 0}
+    - target: {fileID: 2600823512536965752, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+      propertyPath: rolloffMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2600823512536965752, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 2c142f621ca03cf49bbaf53cf62111a5, type: 2}
+    - target: {fileID: 2600823512536965752, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5974559657752370896, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
       propertyPath: maxBounces
       value: 4

@@ -66,11 +66,9 @@ public class PLAYER_ANIMATION : MonoBehaviour
 
     void SetAnimation(int anim, float crossfadeTime)
     {
-        Debug.Log("DESIREDANIM: " + anim + " STOREDANIM: " + storedAnim);
         if (anim == storedAnim) { }
         else
         {
-            Debug.Log("change that anim");
             storedAnim = anim;
             ANIM.CrossFadeInFixedTime(anim, 0.1f);
         }
