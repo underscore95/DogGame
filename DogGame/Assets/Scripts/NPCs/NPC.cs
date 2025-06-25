@@ -1,12 +1,23 @@
+using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 // Manages NPC logic
 public class NPC : MonoBehaviour, I_Interactable
 {
     [SerializeField] private float _interactDistance = 5.0f;
     [SerializeField] private UI_BUBBLE_DISPLAY _display;
+
+    [Header("Finish Game")]
+    [SerializeField] private bool _canFinishGameByInteracting = false;
+    [SerializeField] private Image _outroImage;
+    [SerializeField] private float _fadeDuration = 2.0f;
+    [SerializeField] private float _waitDuration = 1.0f; // after fade duration
+    [SerializeField] private string _menuScene = "Menu";
 
     [Header("Clothing Item")]
     [SerializeField] private bool _hasClothing = true; // can't trade for clothing if this is false
@@ -19,12 +30,19 @@ public class NPC : MonoBehaviour, I_Interactable
     public bool _activated;
     public int id;
     public int onCompleteID = 444;
+    private float _secondsSinceGameFinish = -1;
 
     private void Awake()
     {
         _playerClothing = FindAnyObjectByType<PlayerClothing>();
         QR = GetComponent<QUEST_REFERENCER>();
 
+        transform.localPosition = new Vector3(37 + id * 5, -1.5f, -33);
+
+        if (_canFinishGameByInteracting)
+        {
+            Assert.IsNotNull(_outroImage, "must have an image to display for outro, in level blockout scene this is in the game finish canvas");
+        }
     }
 
     public void AttachQuest(int id)
@@ -34,12 +52,35 @@ public class NPC : MonoBehaviour, I_Interactable
 
     private void Update()
     {
+        if (_secondsSinceGameFinish >= 0)
+        {
+            _secondsSinceGameFinish += Time.deltaTime;
+            Color c = _outroImage.color;
+            c.a = Mathf.InverseLerp(0.0f, _fadeDuration, _secondsSinceGameFinish);
+            _outroImage.color = c;
+            if (_secondsSinceGameFinish >= _waitDuration + _fadeDuration)
+            {
+                SceneManager.LoadScene(_menuScene, LoadSceneMode.Single);
+            }
+        }
+    }
 
+    private void HandleFinishingGame()
+    {
+        if (!_canFinishGameByInteracting || _secondsSinceGameFinish >= 0) return;
+
+        foreach (ClothingItemType type in Enum.GetValues(typeof(ClothingItemType)))
+        {
+            if (!_playerClothing.HasClothingItem(type)) return;
+        }
+
+        _secondsSinceGameFinish = 0;
     }
 
     private void HandleTradingForClothing()
     {
-        if (!_activated) { 
+        if (!_activated)
+        {
             return;
         }
 
@@ -58,6 +99,8 @@ public class NPC : MonoBehaviour, I_Interactable
 
     public void InteractableAction()
     {
+        HandleFinishingGame();
+
         _display.SetBubbleVisibility(false);
         if (_hasTraded) return;
         if (_hasClothing)
@@ -68,7 +111,7 @@ public class NPC : MonoBehaviour, I_Interactable
 
     public void OnEnterInteractRange()
     {
-        if (_hasTraded) return;
+        if (_hasTraded || !_activated) return;
         _display.SetBubbleVisibility(true);
     }
 
