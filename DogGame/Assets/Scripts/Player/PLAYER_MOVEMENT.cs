@@ -33,7 +33,7 @@ public class PLAYER_MOVEMENT : MonoBehaviour
 
     #region Velocity and Direction Values
     Vector3 desiredDir;
-    Vector3 finalDir;
+    public Vector3 finalDir;
     public Vector3 targetDir;
      
     [SerializeField]
@@ -188,7 +188,10 @@ public class PLAYER_MOVEMENT : MonoBehaviour
     }
 
     
-
+    public bool CanSprint(float minActivation)
+    {
+        return speedProg > minActivation;
+    }    
 
    
 
@@ -312,7 +315,7 @@ public class PLAYER_MOVEMENT : MonoBehaviour
 
 
     //Lerp to Desired Direction of Movement
-    public void LerpTurn(Vector3 desiredDir, float turnSpd, float minActivation, bool ProjectToCam, bool ProjectToGround)
+    public void LerpTurn(Vector3 desiredDir, float turnSpd, float minActivation, bool ProjectToCam, bool ProjectToGround, bool lerp)
     {
         //Project the Input Direction to the Camera if wanted
         Vector3 dir = ProjectToCam ? ProjectVecToCamera(desiredDir) : desiredDir;
@@ -326,7 +329,16 @@ public class PLAYER_MOVEMENT : MonoBehaviour
             //At slow speeds, Movement will be more accurate to Input Direction
             if (speedProg < minActivation)
             { finalDir = dir; }
-            finalDir = Vector3.Lerp(finalDir, dir, turnSpd * Time.deltaTime);
+            if (lerp)
+            {
+                finalDir = Vector3.Lerp(finalDir, dir, turnSpd * Time.deltaTime);
+            }
+            else
+            {
+               // finalDir = Vector3.MoveTowards(finalDir, dir, turnSpd * Time.deltaTime).normalized ;
+                finalDir = Vector3.RotateTowards(finalDir, dir, turnSpd * Time.deltaTime, turnSpd * Time.deltaTime);
+
+            }
             dirNoZero = finalDir;
         }
     }
@@ -357,8 +369,14 @@ public class PLAYER_MOVEMENT : MonoBehaviour
     //DONE
     public bool IsSkidding(Vector3 InputDir, float minAngle, float minVel)
     {
+        Vector3 finaldir = dirNoZero;
+        finaldir.y = 0;
+        finaldir.Normalize();
+        Vector3 inputdir = ProjectVecToCamera(InputDir).normalized;
         //Check the Angle of Input compared to that of Current Movement to allow beginning a Skid State
-        return Vector3.Angle(dirNoZero, InputDir) > minAngle && speedProg > minVel;
+       
+
+        return Vector3.Angle(finaldir, inputdir) > minAngle && speedProg > minVel;
     }
 
     //DONE

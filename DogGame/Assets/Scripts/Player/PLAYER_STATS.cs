@@ -18,6 +18,9 @@ public class PLAYER_STATS : MonoBehaviour
         public float minSkidVel;
         public float minSkidAngle;
         public float skidStr;
+        public float sprintMaxSpeed;
+        public float minSprintActivation;
+        public float sprintTurnSpd;
 
 
     }

@@ -31,7 +31,15 @@ public class PLAYER_CAMERASTATS : MonoBehaviour
         public float slopeRotSpd;
 
         public float camDesiredDistance;
+
+        public float defaultFOV;
+        public float sprintFOV;
+        public float FOVChangeSpd;
+        public float distChangeSpd;
     }
 
     public CameraStats CST;
+    public CameraStats DEFAULT_CST;
+
+    public CameraStats SPRINT_CST;
 }

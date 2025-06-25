@@ -121,7 +121,7 @@ MonoBehaviour:
   lerpSpd: 90
   turnSpd: 6
   slopeAlignspd: 12
-  alignToSlope: 1
+  alignToSlope: 0
 --- !u!1 &914697518968547289
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,6 +640,15 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  IA_Sprint:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: e6c8be95-5d18-44c9-a37b-1201869d4a80
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   IA_Jump:
     m_Name: IA_Jump
     m_Type: 0
@@ -677,6 +686,7 @@ MonoBehaviour:
   speedTarget: 0
   JumpBuffer: 0
   maxBounces: 4
+  finalDir: {x: 0, y: 0, z: 0}
   targetDir: {x: 0, y: 0, z: 0}
   moveSpd: 0
   speedProg: 0
@@ -743,9 +753,12 @@ MonoBehaviour:
     angDrag: 0
     angDragMinAngle: 0
     angDragMinVel: 0
-    minSkidVel: 2
-    minSkidAngle: 127
+    minSkidVel: 0.8
+    minSkidAngle: 75
     skidStr: 90
+    sprintMaxSpeed: 16
+    minSprintActivation: 0.8
+    sprintTurnSpd: 2.5
   AST:
     airMoveStr: 25
     airDragStr: 10

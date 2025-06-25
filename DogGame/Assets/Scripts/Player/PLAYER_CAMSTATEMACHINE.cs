@@ -11,9 +11,12 @@ public class PLAYER_CAMSTATEMACHINE : MonoBehaviour
     [SerializeField] GameObject TARGET;
     [SerializeField] GameObject DYNAMICOFFSET;
     [SerializeField] GameObject DESIREDPOINT;
-
+  
     PLAYER_MOVEMENT PM;
     PLAYER_INPUTS PI;
+    PLAYER_STATES PS;
+
+    bool sprint;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,11 +27,19 @@ public class PLAYER_CAMSTATEMACHINE : MonoBehaviour
         CS = GetComponent<PLAYER_CAMERASTATS>();
         PM = TARGET.GetComponent<PLAYER_MOVEMENT>();
         PI = TARGET.GetComponent<PLAYER_INPUTS>();
+        PS = TARGET.GetComponent<PLAYER_STATES>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (PS.GState == PLAYER_STATES.GrndStates.Running)
+        { if (!sprint) { CS.CST = CS.SPRINT_CST; sprint = true; } }
+        else
+        { if (sprint) { CS.CST = CS.DEFAULT_CST; sprint = false; } }    
+           
+
         SetCamDesiredPoint();
         switch (CSS.CStates)
         {
@@ -49,6 +60,7 @@ public class PLAYER_CAMSTATEMACHINE : MonoBehaviour
         CC.SlopeRotation(PM.DotUpSlope(transform.forward), PM.currentSlopeAngle, CS.CST.slopeRotSpd);
         CC.AdjustForCollision(TARGET.transform.position, CS.CST.camDesiredDistance, DESIREDPOINT.transform.position);
         CC.ApplyRot();
+        CC.SetFOVAndDist(CS.CST.defaultFOV, CS.CST.FOVChangeSpd, CS.CST.camDesiredDistance, CS.CST.distChangeSpd) ;
     }
 
     float DefineVerticalFollowSpeed()

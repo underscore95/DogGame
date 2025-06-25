@@ -66,6 +66,26 @@ public class PLAYER_STATEMACHINE : MonoBehaviour
     {
         bool attemptMove = PC.TryingToMove(PI.InputDirection);
         bool attemptJump = PI.IA_Jump.WasPerformedThisFrame();
+        bool attempSprint = PI.IA_Sprint.WasPerformedThisFrame();
+        bool sprinting = PSS.GState == PLAYER_STATES.GrndStates.Running;
+        if (attempSprint)
+        {
+            if (PSS.GState == PLAYER_STATES.GrndStates.Running) { PSS.GState = PLAYER_STATES.GrndStates.Idle; }
+            else if (PM.CanSprint(PS.GST.minSprintActivation))
+            {
+                PSS.GState = PLAYER_STATES.GrndStates.Running;
+            }
+        }
+
+        if (sprinting && PI.InputDirection == Vector3.zero)
+        {
+            PSS.GState = PLAYER_STATES.GrndStates.Walking;
+        }
+
+        bool lerpOrslerp = !sprinting;
+        float turnSpd = sprinting ? PS.GST.sprintTurnSpd : PS.GST.turnSpd;
+        float moveSpd = PSS.GState != PLAYER_STATES.GrndStates.Running ? PS.GST.maxSpeed : PS.GST.sprintMaxSpeed;
+
         if (!PM.isGrounded)
         { PSS.StateGrp = PLAYER_STATES.StateGroup.AirStates; PSS.AState = PLAYER_STATES.AirStates.Falling; PM.ApplyMovement(false); }
 
@@ -76,13 +96,14 @@ public class PLAYER_STATEMACHINE : MonoBehaviour
         else
         {
             PM.CheckGround();
-            if (PM.IsSkidding(PI.InputDirection, PS.GST.minSkidAngle, PS.GST.minSkidVel))
-            { PSS.GState = PLAYER_STATES.GrndStates.Skidding; Debug.Log("skid!"); }
+            if (PM.IsSkidding(PI.InputDirection, PS.GST.minSkidAngle, PS.GST.minSkidVel) && sprinting)
+            { PSS.GState = PLAYER_STATES.GrndStates.Walking; Debug.Log("skid!"); 
+            }
             else
             {
                 PSS.GState = MovementState();
-                PM.Accelerate(attemptMove ? PS.GST.accelSpd : PS.GST.decelSpd, attemptMove ? PS.GST.maxSpeed : 0);
-                PM.LerpTurn(PI.InputDirection, PS.GST.turnSpd, PS.GST.minTurnVel, true, true);
+                PM.Accelerate(attemptMove ? PS.GST.accelSpd : PS.GST.decelSpd, attemptMove ? moveSpd : 0);
+                PM.LerpTurn(PI.InputDirection, turnSpd, PS.GST.minTurnVel, true, true, lerpOrslerp);
                 PM.ApplyMovement(true);
             }
         }
@@ -90,12 +111,14 @@ public class PLAYER_STATEMACHINE : MonoBehaviour
 
     PLAYER_STATES.GrndStates MovementState()
     {
+        if (PSS.GState == PLAYER_STATES.GrndStates.Running) { return PLAYER_STATES.GrndStates.Running; }
+
         if (PM.speedProg < 0.1)
             return PLAYER_STATES.GrndStates.Idle;
-        else if (PM.speedProg < 0.6)
+        else if (PM.speedProg > 0.1)
             return PLAYER_STATES.GrndStates.Walking;
         else
-            return PLAYER_STATES.GrndStates.Running;
+            return PLAYER_STATES.GrndStates.Idle;
     }
 
     bool LockedGrndMovementState()
@@ -107,7 +130,7 @@ public class PLAYER_STATEMACHINE : MonoBehaviour
     {
         bool attemptMove = PC.TryingToMove(PI.InputDirection);
         bool attemptJump = PI.IA_Jump.WasPerformedThisFrame();
-        PM.LerpTurn(PI.InputDirection, PS.GST.turnSpd, PS.GST.minTurnVel, true, true);
+        PM.LerpTurn(PI.InputDirection, PS.GST.turnSpd, PS.GST.minTurnVel, true, true, true);
 
 
         if (attemptJump)

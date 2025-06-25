@@ -12,7 +12,7 @@ public class PLAYER_CAMERACONTROLLER : MonoBehaviour
     public float freeCamTime;
     bool freeCam;
     float freeCamTimer;
-   
+    float desiredDist;
     Vector3 rotEular;
     Vector3 smoothedRot;
     float xAssist;
@@ -54,6 +54,12 @@ public class PLAYER_CAMERACONTROLLER : MonoBehaviour
         }
     }
 
+    public void SetFOVAndDist(float FOV, float FOVspd, float Dist, float distSpd)
+    {
+        Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, FOV, FOVspd * Time.deltaTime);
+        desiredDist = Mathf.Lerp(desiredDist, Dist, distSpd * Time.deltaTime);
+    }
+
     //Detects Walls by Firing Rays between the Player and Camera
     public void AdjustForCollision(Vector3 targetPos, float desiredDistance, Vector3 desiredPoint)
     {
@@ -69,7 +75,7 @@ public class PLAYER_CAMERACONTROLLER : MonoBehaviour
 
         CamToPlayer = CamToPlayer && !cameraOccluded;
         //Position the Camera Wants to move to without any obtrusions
-        Vector3 desiredPos = new Vector3(Camera.main.transform.localPosition.x, Camera.main.transform.localPosition.y, desiredDistance);
+        Vector3 desiredPos = new Vector3(Camera.main.transform.localPosition.x, Camera.main.transform.localPosition.y, desiredDist);
         
         //If a Ray from PlayerToCam hits but to from CamToPlayer, then the Camera is INSIDE an object
         //If they both hit, then there is just a full Object between you and the Camera.

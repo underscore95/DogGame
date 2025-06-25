@@ -135,6 +135,15 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Sprint"",
+                    ""type"": ""Button"",
+                    ""id"": ""470912cc-b8d1-459d-a95b-b76aa1feea7b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -423,6 +432,28 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
                     ""action"": ""Interact/Bark"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""88e36f2c-837a-4dbe-b4a7-0e8cf4eab2c9"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7e593680-fbd2-4b3d-83e2-e21e079cc18b"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -436,6 +467,7 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
         m_Movement_Camera_Axis = m_Movement.FindAction("Camera_Axis", throwIfNotFound: true);
         m_Movement_Fetch = m_Movement.FindAction("Fetch", throwIfNotFound: true);
         m_Movement_InteractBark = m_Movement.FindAction("Interact/Bark", throwIfNotFound: true);
+        m_Movement_Sprint = m_Movement.FindAction("Sprint", throwIfNotFound: true);
     }
 
     ~@IAS_Player()
@@ -521,6 +553,7 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
     private readonly InputAction m_Movement_Camera_Axis;
     private readonly InputAction m_Movement_Fetch;
     private readonly InputAction m_Movement_InteractBark;
+    private readonly InputAction m_Movement_Sprint;
     /// <summary>
     /// Provides access to input actions defined in input action map "Movement".
     /// </summary>
@@ -552,6 +585,10 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Movement/InteractBark".
         /// </summary>
         public InputAction @InteractBark => m_Wrapper.m_Movement_InteractBark;
+        /// <summary>
+        /// Provides access to the underlying input action "Movement/Sprint".
+        /// </summary>
+        public InputAction @Sprint => m_Wrapper.m_Movement_Sprint;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -593,6 +630,9 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
             @InteractBark.started += instance.OnInteractBark;
             @InteractBark.performed += instance.OnInteractBark;
             @InteractBark.canceled += instance.OnInteractBark;
+            @Sprint.started += instance.OnSprint;
+            @Sprint.performed += instance.OnSprint;
+            @Sprint.canceled += instance.OnSprint;
         }
 
         /// <summary>
@@ -619,6 +659,9 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
             @InteractBark.started -= instance.OnInteractBark;
             @InteractBark.performed -= instance.OnInteractBark;
             @InteractBark.canceled -= instance.OnInteractBark;
+            @Sprint.started -= instance.OnSprint;
+            @Sprint.performed -= instance.OnSprint;
+            @Sprint.canceled -= instance.OnSprint;
         }
 
         /// <summary>
@@ -694,5 +737,12 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnInteractBark(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Sprint" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSprint(InputAction.CallbackContext context);
     }
 }
