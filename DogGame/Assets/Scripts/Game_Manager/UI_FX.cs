@@ -4,10 +4,10 @@ using UnityEngine.UI;
 
 public class UI_FX : MonoBehaviour
 {
-    Vector3 defaultScale;
-    Vector3 defaultPos;
-    Quaternion defaultRot;
-    Color defaultColor;
+      Vector3 defaultScale;
+    public Vector3 defaultPos;
+    public Quaternion defaultRot;
+    public Color defaultColor;
     float moveBackTime;
     float scaleBackTime;
     float rotBackTime;
@@ -36,9 +36,8 @@ public class UI_FX : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (pi.IA_Fetch.WasPressedThisFrame())
-        // { ScalePulse(new Vector3(10f, 5f, 5f),new Vector3(0, 0, 90), 5, 5); ColorPulse(5f, Color.white); }
-        { MoveIn(Vector3.down * 800f, 5f); }
+        
+       // { MoveIn(Vector3.down * 800f, 5f); ColorPulse(3f, Color.white, 0f); }
         MoveTowardsDefault();
     }
 
@@ -47,13 +46,25 @@ public class UI_FX : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, defaultPos, moveBackTime * Time.deltaTime);
         transform.localScale = Vector3.Lerp(transform.localScale, defaultScale, scaleBackTime * Time.deltaTime);
         transform.rotation = Quaternion.Lerp(transform.rotation, defaultRot, rotBackTime * Time.deltaTime) ;
-        if (img != null) { img.color = Color.Lerp(img.color, defaultColor, colorBackTime * Time.deltaTime); }
+        if (img != null) { img.color = Color.Lerp(img.color, defaultColor, colorBackTime * Time.deltaTime);}
     }
 
-    public void ColorPulse(float pulseSpd, Color color)
+    public void ChangeDefaultColor(Color col, float alpha)
+    {
+        defaultColor = col;
+        defaultColor.a = alpha;
+    }
+    public void ChangeDefaultPos(Vector3 pos)
+    {
+        defaultPos = pos ;
+    }
+
+
+    public void ColorPulse(float pulseSpd, Color color, float alpha)
     {
         img.color = color;
         colorBackTime = pulseSpd;
+        img.color = new Color(img.color.r, img.color.g, img.color.b, alpha);
     }
 
     public void MoveIn(Vector3 pos, float spd)
