@@ -104,8 +104,8 @@ public class PLAYER_MOVEMENT : MonoBehaviour
     {
         col = GetComponent<CapsuleCollider>();
        // layerMasks = LayerMask.GetMask("Ground");
-        collidableMask = LayerMask.GetMask("Ground", "Default");
-        walkableMask = LayerMask.GetMask("Ground", "Default");
+        collidableMask = LayerMask.GetMask("Ground", "Default", "LevelBounds");
+        walkableMask = LayerMask.GetMask("Ground", "Default", "LevelBounds");
         SetColliderOffets();
       
         
