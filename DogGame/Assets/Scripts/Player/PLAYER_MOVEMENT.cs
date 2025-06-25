@@ -16,7 +16,7 @@ public class PLAYER_MOVEMENT : MonoBehaviour
     int[] layerMasks;
     float gravityStr;
     public bool JumpBuffer;
-
+    public bool cutscene;
     bool GroundUnstick;
 
     #region Velocity Inheritance
@@ -382,7 +382,7 @@ public class PLAYER_MOVEMENT : MonoBehaviour
     //DONE
     public void Accelerate(float amount, float target)
     {
-      
+        if (cutscene) target = 0;
         //Increase/Decrease MoveSpd per-frame
         moveSpd = Mathf.MoveTowards(moveSpd, target, amount * Time.deltaTime);
         //Clamped to stop MoveSpd becoming a negative as this will reverse controls.
@@ -527,6 +527,7 @@ public class PLAYER_MOVEMENT : MonoBehaviour
 
     public void ApplyJump(Vector3 direction, float strength, float airMoveAmount, float velModifier, bool add, float airDragAmount, float gravStr)
     {
+        if (cutscene) return;
         JumpBuffer = false;
         if (add)
         {

@@ -98,8 +98,17 @@ public class PLAYER_CAMERACONTROLLER : MonoBehaviour
     public void DoCutscene(Vector3 pos, Transform lookat, float spd)
     {
         Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, pos, spd * Time.deltaTime);
-       // Camera.main.transform.rotation = Quaternion.Lerp(Camera.main.transform.rotation, Quaternion.LookRotation(lookat.transform.position), spd * Time.deltaTime);
-        Camera.main.transform.LookAt(lookat);
+        Vector3 dir = lookat.position - Camera.main.transform.position;
+        Camera.main.transform.rotation = Quaternion.Lerp(Camera.main.transform.rotation, Quaternion.LookRotation(dir), spd * Time.deltaTime);
+       // Camera.main.transform.LookAt(lookat);
+    }
+
+    public void EndCutscene(GameObject point, float transitionSpd)
+    {
+        
+        Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, point.transform.position, transitionSpd * Time.deltaTime);
+        Camera.main.transform.rotation = Quaternion.Lerp(Camera.main.transform.rotation, point.transform.rotation, transitionSpd * Time.deltaTime);
+
     }
 
 
