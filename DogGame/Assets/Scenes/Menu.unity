@@ -649,10 +649,10 @@ MonoBehaviour:
         z: 6.868886
       Rotation:
         value:
-          x: 0.051684424
-          y: 0.36486658
-          z: -0.14378512
-          w: 0.9184372
+          x: 0.051684417
+          y: 0.3648666
+          z: -0.14378513
+          w: 0.91843724
     - Position:
         x: 8.21
         y: -3.1599998
@@ -1287,7 +1287,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 30, y: 155}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1076871341
