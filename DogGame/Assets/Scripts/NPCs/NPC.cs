@@ -6,11 +6,10 @@ using UnityEngine.InputSystem;
 public class NPC : MonoBehaviour, I_Interactable
 {
     [SerializeField] private float _interactDistance = 5.0f;
-    [SerializeField] private InputActionReference _tradeInput;
-    [SerializeField] private TextMeshProUGUI _tradeText;
     [SerializeField] private UI_BUBBLE_DISPLAY _display;
 
     [Header("Clothing Item")]
+    [SerializeField] private bool _hasClothing = true; // can't trade for clothing if this is false
     [SerializeField] private GameObject _clothingObject;
     [SerializeField] private ClothingItemType _clothingItemType;
     QUEST_REFERENCER QR;
@@ -24,10 +23,8 @@ public class NPC : MonoBehaviour, I_Interactable
     private void Awake()
     {
         _playerClothing = FindAnyObjectByType<PlayerClothing>();
-
-        _tradeText.text = string.Format(_tradeText.text, _tradeInput.action.GetBindingDisplayString());
         QR = GetComponent<QUEST_REFERENCER>();
-       
+
     }
 
     public void AttachQuest(int id)
@@ -37,28 +34,19 @@ public class NPC : MonoBehaviour, I_Interactable
 
     private void Update()
     {
-        
-        if (_hasTraded) return;
 
-        bool playerIsNearby = Vector3.SqrMagnitude(_playerClothing.transform.position - transform.position) < _interactDistance * _interactDistance;
-        _tradeText.enabled = playerIsNearby;
-        _display.SetBubbleVisability(playerIsNearby);
-
-        if (!playerIsNearby) return;
-
-        HandleTrading();
     }
 
-    private void HandleTrading()
+    private void HandleTradingForClothing()
     {
-        if (!_activated) { return; }
-        if (!_tradeInput.action.WasPressedThisFrame()) return;
+        if (!_activated) { 
+            return;
+        }
 
         _playerClothing.WearClothing(_clothingItemType, _clothingObject);
         _clothingObject = null;
 
         _hasTraded = true;
-        _tradeText.enabled = false;
 
         if (onCompleteID == 444) return;
         QR.QUESTS.Game_Quests[onCompleteID].DoComplete();
@@ -66,11 +54,26 @@ public class NPC : MonoBehaviour, I_Interactable
 
     public void InteractableInRange()
     {
-        _display.SetBubbleVisability(true);
     }
 
     public void InteractableAction()
     {
-        _display.SetBubbleVisability(false);
+        _display.SetBubbleVisibility(false);
+        if (_hasTraded) return;
+        if (_hasClothing)
+        {
+            HandleTradingForClothing();
+        }
+    }
+
+    public void OnEnterInteractRange()
+    {
+        if (_hasTraded) return;
+        _display.SetBubbleVisibility(true);
+    }
+
+    public void OnExitInteractRange()
+    {
+        _display.SetBubbleVisibility(false);
     }
 }

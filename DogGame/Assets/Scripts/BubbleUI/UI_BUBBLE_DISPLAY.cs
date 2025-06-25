@@ -21,15 +21,14 @@ public class UI_BUBBLE_DISPLAY : MonoBehaviour
 
     private void Start()
     {
-        SetBubbleVisability(false);
+        SetBubbleVisibility(false);
     }
 
-    public void SetBubbleVisability(bool isVisable)
+    public void SetBubbleVisibility(bool isVisible)
     {
-        if (isVisable) 
+        if (isVisible) 
         {
             StartUIAnimation();
-            image.color = Color.white;
         }
         else
         {
@@ -76,6 +75,7 @@ public class UI_BUBBLE_DISPLAY : MonoBehaviour
         spriteIndex++;
         if (isPlaying == true) 
         {
+            image.color = Color.white;
             coroutineAnimation = StartCoroutine(PlayUIAnimation());
         }
     }

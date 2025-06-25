@@ -641,7 +641,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   IA_Sprint:
-    m_Name: 
+    m_Name: IA_Sprint
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: e6c8be95-5d18-44c9-a37b-1201869d4a80
@@ -2262,8 +2262,43 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8862473298286692175, guid: a30cd445da1288d4d93acae9a722184c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3909139063915225145}
   m_SourcePrefab: {fileID: 100100000, guid: a30cd445da1288d4d93acae9a722184c, type: 3}
+--- !u!1 &1099993981860666394 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8862473298286692175, guid: a30cd445da1288d4d93acae9a722184c, type: 3}
+  m_PrefabInstance: {fileID: 8484256340386782037}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &3909139063915225145
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099993981860666394}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &6747625871754828657 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2889696647706738724, guid: a30cd445da1288d4d93acae9a722184c, type: 3}
