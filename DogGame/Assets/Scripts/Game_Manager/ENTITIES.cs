@@ -9,10 +9,12 @@ public class ENTITIES : MonoBehaviour
     public bool[] COLLECTED;
     public NPC[] NPCS;
     public PICKUPS[] COLLECTIBLES;
+    UI_HOTDOGMANAGER HDM;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        HDM = GetComponentInChildren<UI_HOTDOGMANAGER>();
         OBJ_NPCS = GameObject.FindGameObjectsWithTag("NPC");
         NPCS = new NPC[OBJ_NPCS.Length];
 
@@ -35,7 +37,7 @@ public class ENTITIES : MonoBehaviour
     public void NotifyPickup(int id)
     {
         COLLECTED[id] = true;
-       
+       // HDM.CollectHotDog(id);
     }
 
     public NPC FindNPC(int id)

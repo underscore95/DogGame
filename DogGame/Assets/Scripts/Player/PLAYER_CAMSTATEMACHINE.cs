@@ -11,15 +11,19 @@ public class PLAYER_CAMSTATEMACHINE : MonoBehaviour
     [SerializeField] GameObject TARGET;
     [SerializeField] GameObject DYNAMICOFFSET;
     [SerializeField] GameObject DESIREDPOINT;
-  
+
     PLAYER_MOVEMENT PM;
     PLAYER_INPUTS PI;
     PLAYER_STATES PS;
-
+    bool cutscene;
     bool sprint;
+    GameObject CameraParent;
+    GameObject targetObject;
+    Transform targetPos;
     // Start is called before the first frame update
     void Start()
     {
+        CameraParent = Camera.main.transform.parent.gameObject;
         DESIREDPOINT = GameObject.Find("CamDesiredPoint");
         DYNAMICOFFSET = GameObject.Find("DynamicOffset");
         CC = GetComponent<PLAYER_CAMERACONTROLLER>();
@@ -37,19 +41,32 @@ public class PLAYER_CAMSTATEMACHINE : MonoBehaviour
         if (PS.GState == PLAYER_STATES.GrndStates.Running)
         { if (!sprint) { CS.CST = CS.SPRINT_CST; sprint = true; } }
         else
-        { if (sprint) { CS.CST = CS.DEFAULT_CST; sprint = false; } }    
-           
+        { if (sprint) { CS.CST = CS.DEFAULT_CST; sprint = false; } }
+
 
         SetCamDesiredPoint();
         switch (CSS.CStates)
         {
 
             case PLAYER_CAMERASTATES.CameraStates.Default:
-                DefaultCameraUpdateLoop(); break; 
+                DefaultCameraUpdateLoop(); break;
             case PLAYER_CAMERASTATES.CameraStates.FixedFollow:
+                WhileCutscene();
                 break;
         }
     }
+
+    void WhileCutscene()
+    {
+        if (cutscene)
+        {
+            CC.DoCutscene(targetPos.transform.position, targetObject.transform, 5f);
+        }
+        else { CSS.CStates = PLAYER_CAMERASTATES.CameraStates.Default; Camera.main.transform.parent = CameraParent.transform; Camera.main.transform.localRotation = Quaternion.identity;
+            Camera.main.transform.localPosition = Vector3.zero + (Vector3.forward * CS.CST.camDesiredDistance) + (Vector3.up * 2) ;
+        }
+    }
+
 
     void DefaultCameraUpdateLoop()
     {
@@ -60,7 +77,7 @@ public class PLAYER_CAMSTATEMACHINE : MonoBehaviour
         CC.SlopeRotation(PM.DotUpSlope(transform.forward), PM.currentSlopeAngle, CS.CST.slopeRotSpd);
         CC.AdjustForCollision(TARGET.transform.position, CS.CST.camDesiredDistance, DESIREDPOINT.transform.position);
         CC.ApplyRot();
-        CC.SetFOVAndDist(CS.CST.defaultFOV, CS.CST.FOVChangeSpd, CS.CST.camDesiredDistance, CS.CST.distChangeSpd) ;
+        CC.SetFOVAndDist(CS.CST.defaultFOV, CS.CST.FOVChangeSpd, CS.CST.camDesiredDistance, CS.CST.distChangeSpd);
     }
 
     float DefineVerticalFollowSpeed()
@@ -71,8 +88,27 @@ public class PLAYER_CAMSTATEMACHINE : MonoBehaviour
 
     void SetCamDesiredPoint()
     {
-        Vector3 pos = new Vector3(Camera.main.transform.localPosition.x, Camera.main.transform.localPosition.y, CS.CST.camDesiredDistance); 
+        Vector3 pos = new Vector3(Camera.main.transform.localPosition.x, Camera.main.transform.localPosition.y, CS.CST.camDesiredDistance);
         DESIREDPOINT.transform.localPosition = pos;
         DESIREDPOINT.transform.rotation = Camera.main.transform.rotation;
     }
+
+    public void StartCutscene(float time, GameObject target, Transform targetP)
+    {
+        targetObject = target;
+        targetPos = targetP;
+        cutscene = true;
+        CSS.CStates = PLAYER_CAMERASTATES.CameraStates.FixedFollow;
+        Vector3 pos = Camera.main.transform.position;
+        Camera.main.transform.parent = null; 
+        Camera.main.transform.position = pos;
+        StartCoroutine(StopCutscene(time));
+    }
+
+    IEnumerator StopCutscene(float time)
+    {
+        yield return new WaitForSeconds(time);
+        cutscene = false;
+    }
+
 }
