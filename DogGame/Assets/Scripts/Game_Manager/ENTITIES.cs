@@ -5,21 +5,38 @@ using UnityEngine;
 public class ENTITIES : MonoBehaviour
 {
     public GameObject[] OBJ_NPCS;
+    public GameObject[] OBJ_COLLECTIBLES;
+    public bool[] COLLECTED;
     public NPC[] NPCS;
+    public PICKUPS[] COLLECTIBLES;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         OBJ_NPCS = GameObject.FindGameObjectsWithTag("NPC");
         NPCS = new NPC[OBJ_NPCS.Length];
 
+        OBJ_COLLECTIBLES = GameObject.FindGameObjectsWithTag("Pickup");
+        COLLECTED = new bool[OBJ_COLLECTIBLES.Length];
+
        for (int i = 0; i < OBJ_NPCS.Length; i++)
         {
             NPCS[i] = OBJ_NPCS[i].GetComponent<NPC>();
         }
+
+       for (int i = 0;i < OBJ_COLLECTIBLES.Length; i++)
+        {
+            COLLECTIBLES[i] = OBJ_COLLECTIBLES[i].GetComponent<PICKUPS>();
+        }    
      
       
     }
 
+    public void NotifyPickup(int id)
+    {
+        COLLECTED[id] = true;
+       
+    }
 
     public NPC FindNPC(int id)
     {

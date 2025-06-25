@@ -364,7 +364,7 @@ MonoBehaviour:
     moveOffsetSpd: 2
     slopeRotSpd: 1
     camDesiredDistance: -6
-    defaultFOV: 70
+    defaultFOV: 75
     sprintFOV: 0
     FOVChangeSpd: 3
     distChangeSpd: 2
