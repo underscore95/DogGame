@@ -19,6 +19,19 @@ public class PlayerClothing : MonoBehaviour
     [SerializeField] private List<ClothingTransform> _clothingTransforms = new();
     private readonly Dictionary<ClothingItemType, GameObject> _wornClothing = new();
 
+    private void Awake()
+    {
+        _poofEffect.transform.parent = null;
+    }
+
+    private void OnDestroy()
+    {
+        if (_poofEffect)
+        {
+            Destroy(_poofEffect.gameObject);
+        }
+    }
+
     /// <summary>
     /// Make the player wear a piece of clothing, replacing the existing piece of clothing the player is wearing, if any
     /// </summary>
@@ -55,13 +68,13 @@ public class PlayerClothing : MonoBehaviour
         clothingObject.transform.SetParent(parentTransform, true);
         InterpolatedTransform.StartInterpolation(clothingObject, destination, _clothingEquipDuration);
 
-        StartCoroutine(PlayPoofEffect(destination));
+        StartCoroutine(PlayPoofEffect());
     }
 
-    private IEnumerator PlayPoofEffect(InterpolatedTransform.LocalTransform pos)
+    private IEnumerator PlayPoofEffect()
     {
         yield return new WaitForSeconds(_clothingEquipDuration);
-        pos.ApplyToTransform(_poofEffect.transform);
+        _poofEffect.transform.position = transform.position;
         _poofEffect.Play();
     }
 
