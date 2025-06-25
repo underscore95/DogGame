@@ -2468,7 +2468,7 @@ GameObject:
   - component: {fileID: 1782201733}
   - component: {fileID: 1782201734}
   m_Layer: 0
-  m_Name: wevents
+  m_Name: W
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2719,6 +2719,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1835173233 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7612869006608100558, guid: 1d1335b78f7c62c48a01a8e917c12f41, type: 3}
+  m_PrefabInstance: {fileID: 2146526412}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1835173239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835173233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04a110c7083feff4d8e9fd1c8c4da83f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bridge: {fileID: 2016945733}
 --- !u!1 &1844764048 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7457519423139187349, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
@@ -3104,7 +3122,7 @@ PrefabInstance:
     - target: {fileID: 6182493329023116294, guid: 1d1335b78f7c62c48a01a8e917c12f41, type: 3}
       propertyPath: Game_Quests.Array.data[4].completeQuestEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1782201734}
+      objectReference: {fileID: 1835173239}
     - target: {fileID: 6182493329023116294, guid: 1d1335b78f7c62c48a01a8e917c12f41, type: 3}
       propertyPath: Game_Quests.Array.data[4].completeQuestEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
@@ -3298,6 +3316,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7612869006608100558, guid: 1d1335b78f7c62c48a01a8e917c12f41, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1835173239}
     - targetCorrespondingSourceObject: {fileID: 8322608296221953152, guid: 1d1335b78f7c62c48a01a8e917c12f41, type: 3}
       insertIndex: -1
       addedObject: {fileID: 573379608}
