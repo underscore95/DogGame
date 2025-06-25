@@ -435,6 +435,17 @@ public partial class @IAS_Player: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""bbdc960b-b0bf-4641-a3ec-5364fa46653d"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact/Bark"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""88e36f2c-837a-4dbe-b4a7-0e8cf4eab2c9"",
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",

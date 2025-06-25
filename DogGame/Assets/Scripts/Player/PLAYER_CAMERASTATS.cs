@@ -37,7 +37,7 @@ public class PLAYER_CAMERASTATS : MonoBehaviour
         public float FOVChangeSpd;
         public float distChangeSpd;
     }
-
+    public float cutsceneTargetSpd;
     public CameraStats CST;
     public CameraStats DEFAULT_CST;
 

@@ -24,7 +24,7 @@ public class PLAYER_CAMERACONTROLLER : MonoBehaviour
     public float occlusionAdjustSpd;
     float zDist;
     bool cameraOccluded;
-
+    Vector3 fwd;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +34,7 @@ public class PLAYER_CAMERACONTROLLER : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        fwd = transform.forward;
         FreeCamCountdown();
         
     }
@@ -92,6 +93,16 @@ public class PLAYER_CAMERACONTROLLER : MonoBehaviour
         Camera.main.transform.localPosition = desiredPos;
 
     }
+
+
+    public void DoCutscene(Vector3 pos, Transform lookat, float spd)
+    {
+        Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, pos, spd * Time.deltaTime);
+       // Camera.main.transform.rotation = Quaternion.Lerp(Camera.main.transform.rotation, Quaternion.LookRotation(lookat.transform.position), spd * Time.deltaTime);
+        Camera.main.transform.LookAt(lookat);
+    }
+
+
 
     //Follow Target
     public void FollowTarget(float xSpd, float ySpd, Vector3 TARGETtransform)
