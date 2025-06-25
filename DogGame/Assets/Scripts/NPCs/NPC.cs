@@ -88,6 +88,14 @@ public class NPC : MonoBehaviour, I_Interactable
         _clothingObject = null;
 
         _hasTraded = true;
+    }
+
+    private void HandleQuesting()
+    {
+        if (!_activated)
+        {
+            return;
+        }
 
         if (onCompleteID == 444) return;
         QR.QUESTS.Game_Quests[onCompleteID].DoComplete();
@@ -107,6 +115,7 @@ public class NPC : MonoBehaviour, I_Interactable
         {
             HandleTradingForClothing();
         }
+        HandleQuesting();
     }
 
     public void OnEnterInteractRange()

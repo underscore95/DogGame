@@ -2089,7 +2089,7 @@ PrefabInstance:
       objectReference: {fileID: 991198392}
     - target: {fileID: 7817785984601880353, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
       propertyPath: _hasClothing
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7817785984601880353, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
       propertyPath: _waitDuration
