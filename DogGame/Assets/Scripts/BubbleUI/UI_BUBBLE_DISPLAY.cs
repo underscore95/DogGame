@@ -1,3 +1,4 @@
+using NUnit.Framework.Constraints;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,9 +19,12 @@ public class UI_BUBBLE_DISPLAY : MonoBehaviour
     Coroutine coroutineAnimation;
     bool isPlaying;
     Color alpha0 = new(0, 0, 0, 0);
+    public UI_FX FX;
+    public bool hidden;
 
     private void Start()
     {
+        FX = GetComponent<UI_FX>();
         SetBubbleVisibility(false);
     }
 
@@ -29,13 +33,36 @@ public class UI_BUBBLE_DISPLAY : MonoBehaviour
         if (isVisible) 
         {
             StartUIAnimation();
+            if (hidden) { OnAppear(); }
+            hidden = false;
         }
         else
         {
-            image.color = alpha0;
+            //image.color = alpha0;
             StopUIAnimation();
+            if (!hidden) { OnDisappear(); }
+            hidden = true;
+
         }
 
+    }
+
+    public void OnInteract()
+    {
+        Debug.Log("on the interact");
+        FX.ScalePulse(new Vector3(0.5f, 0.5f, 0.5f), Vector3.zero, 10f, 0f);
+    }
+
+    public void OnAppear()
+    {
+        FX.EndFadeOut(14f, 1);
+        FX.MoveIn(Vector3.down * 1f, 9f);
+
+    }
+
+    public void OnDisappear()
+    {
+        FX.BeginFadeOut(0, 14f);
     }
 
     /// <summary>
