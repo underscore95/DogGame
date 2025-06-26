@@ -384,3 +384,5 @@ MonoBehaviour:
   TARGET: {fileID: 0}
   DYNAMICOFFSET: {fileID: 6835146855744279024}
   DESIREDPOINT: {fileID: 4739669207154843839}
+  endCustsceneTime: 1
+  endCustsceneSpd: 5

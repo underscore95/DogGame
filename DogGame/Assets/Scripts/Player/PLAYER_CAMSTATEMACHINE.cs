@@ -20,6 +20,9 @@ public class PLAYER_CAMSTATEMACHINE : MonoBehaviour
     GameObject CameraParent;
     GameObject targetObject;
     Transform targetPos;
+    public float endCustsceneTime;
+    public float endCustsceneSpd;
+    bool cutsceneTransition;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,24 +61,48 @@ public class PLAYER_CAMSTATEMACHINE : MonoBehaviour
 
     void WhileCutscene()
     {
+        DefaultCameraUpdateLoop();
+
         if (cutscene)
         {
-            CC.DoCutscene(targetPos.transform.position, targetObject.transform, 5f);
+            CC.DoCutscene(targetPos.transform.position, targetObject.transform, 3f);
         }
-        else { CSS.CStates = PLAYER_CAMERASTATES.CameraStates.Default; Camera.main.transform.parent = CameraParent.transform; Camera.main.transform.localRotation = Quaternion.identity;
-            Camera.main.transform.localPosition = Vector3.zero + (Vector3.forward * CS.CST.camDesiredDistance) + (Vector3.up * 2) ;
+        else { 
+            if (cutsceneTransition) 
+            { CC.EndCutscene(DESIREDPOINT, endCustsceneSpd); } 
+            else { AttachCamBack(); }
+
         }
     }
 
+    IEnumerator EndCutscene()
+    {
+        cutsceneTransition = true;
+        yield return new WaitForSeconds(endCustsceneTime);
+        cutsceneTransition = false;
+        PM.cutscene = false;
+    }
+
+    void AttachCamBack()
+    {
+        Camera.main.transform.parent = CameraParent.transform; Camera.main.transform.localRotation = Quaternion.identity;
+        Camera.main.transform.localPosition = DESIREDPOINT.transform.localPosition;
+        Camera.main.transform.localRotation = DESIREDPOINT.transform.localRotation;
+        CSS.CStates = PLAYER_CAMERASTATES.CameraStates.Default;
+    }
 
     void DefaultCameraUpdateLoop()
     {
         CC.FollowTarget(CS.CST.hozFollowSpd, DefineVerticalFollowSpeed(), TARGET.transform.position);
         CC.RotateAroundTarget(PI.CamDirection, Gamepad.current == null ? CS.CST.rotateSpdOnMouse : CS.CST.rotateSpd, CS.CST.rotateSmoothness, CS.CST.yRotDivisor, CS.CST.minYRot, CS.CST.maxYRot);
         CC.RotAssistance(PI.InputDirection, CS.CST.rotAssistStr, CS.CST.rotAssistSmooth, PM.speedProg);
-        CC.OffsetAssistance(PI.InputDirection, CS.CST.moveOffsetAmount, CS.CST.moveOffsetSpd, PM.speedProg, DYNAMICOFFSET);
+
+        CC.OffsetAssistance(PI.InputDirection, PM.cutscene ? 0 : CS.CST.moveOffsetAmount, CS.CST.moveOffsetSpd, PM.speedProg, DYNAMICOFFSET);
         CC.SlopeRotation(PM.DotUpSlope(transform.forward), PM.currentSlopeAngle, CS.CST.slopeRotSpd);
-        CC.AdjustForCollision(TARGET.transform.position, CS.CST.camDesiredDistance, DESIREDPOINT.transform.position);
+        if (CSS.CStates != PLAYER_CAMERASTATES.CameraStates.FixedFollow)
+        {
+            CC.AdjustForCollision(TARGET.transform.position, CS.CST.camDesiredDistance, DESIREDPOINT.transform.position);
+        }
         CC.ApplyRot();
         CC.SetFOVAndDist(CS.CST.defaultFOV, CS.CST.FOVChangeSpd, CS.CST.camDesiredDistance, CS.CST.distChangeSpd);
     }
@@ -89,19 +116,28 @@ public class PLAYER_CAMSTATEMACHINE : MonoBehaviour
     void SetCamDesiredPoint()
     {
         Vector3 pos = new Vector3(Camera.main.transform.localPosition.x, Camera.main.transform.localPosition.y, CS.CST.camDesiredDistance);
-        DESIREDPOINT.transform.localPosition = pos;
-        DESIREDPOINT.transform.rotation = Camera.main.transform.rotation;
+        if (Camera.main.transform.parent != null)
+        {
+            DESIREDPOINT.transform.localPosition = pos;
+            DESIREDPOINT.transform.rotation = Camera.main.transform.rotation;
+        }
+        else
+        {
+            Vector3 posi = DESIREDPOINT.transform.localPosition;
+            DESIREDPOINT.transform.localPosition = new Vector3(posi.x, posi.y, CS.DEFAULT_CST.camDesiredDistance);
+        }
     }
 
     public void StartCutscene(float time, GameObject target, Transform targetP)
     {
+        PM.cutscene = true;
         targetObject = target;
         targetPos = targetP;
         cutscene = true;
         CSS.CStates = PLAYER_CAMERASTATES.CameraStates.FixedFollow;
         Vector3 pos = Camera.main.transform.position;
         Camera.main.transform.parent = null; 
-        Camera.main.transform.position = pos;
+      //  Camera.main.transform.position = pos;
         StartCoroutine(StopCutscene(time));
     }
 
@@ -109,6 +145,7 @@ public class PLAYER_CAMSTATEMACHINE : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         cutscene = false;
+        StartCoroutine(EndCutscene());
     }
 
 }

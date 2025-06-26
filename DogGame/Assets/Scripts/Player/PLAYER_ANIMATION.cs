@@ -9,6 +9,8 @@ public class PLAYER_ANIMATION : MonoBehaviour
     private static readonly int Idle = Animator.StringToHash("Idle");
     private static readonly int Walk = Animator.StringToHash("Walk");
     private static readonly int Run = Animator.StringToHash("Run");
+    private static readonly int Bark = Animator.StringToHash("Bark");
+
     int storedAnim;
     PLAYER_STATES PS;
    
@@ -34,6 +36,17 @@ public class PLAYER_ANIMATION : MonoBehaviour
         }
     }
 
+    public void PlayBarkAnim()
+    {
+        ANIM.Play(Bark, 1);
+        StartCoroutine(StopBark());
+    }
+
+    IEnumerator StopBark()
+    {
+        yield return new WaitForSeconds(0.3f);
+        ANIM.Play(Idle,1);
+    }
 
    int GroundedAnims()
         {
@@ -44,7 +57,7 @@ public class PLAYER_ANIMATION : MonoBehaviour
             case PLAYER_STATES.GrndStates.Walking:
                 return Walk;
             case PLAYER_STATES.GrndStates.Running:
-                return Walk ;
+                return Run ;
            
         }
         return Idle;

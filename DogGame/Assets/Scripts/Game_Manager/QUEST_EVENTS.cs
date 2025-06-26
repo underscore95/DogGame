@@ -5,9 +5,15 @@ public class QUEST_EVENTS : MonoBehaviour
 {
     PROGRESSION_TRACKER PT;
     ENTITIES ENT;
+    GameObject CS_OBJ;
+    PLAYER_CAMSTATEMACHINE CS;
+    WORLD_EVENTS WE;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        CS_OBJ = GameObject.Find("CameraSystem");
+        WE = GetComponent<WORLD_EVENTS>();
+        CS = CS_OBJ.GetComponent<PLAYER_CAMSTATEMACHINE>();
         PT = GetComponent<PROGRESSION_TRACKER>();
         ENT = GetComponent<ENTITIES>();
     }
@@ -87,6 +93,7 @@ public class QUEST_EVENTS : MonoBehaviour
 
     public void BeginGetTheBeer()
     {
+        CS.StartCutscene(4f, WE.Bridge, Camera.main.transform);
         ActivateNPCAndAddQuest(0, 5);
     }
 
