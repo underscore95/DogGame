@@ -12,7 +12,7 @@ public class NPC_BarkReact : MonoBehaviour, I_Interactable
     public void InteractableAction()
     {
         animator.SetTrigger("Dance");
-        print("dance!!");
+        //print("dance!!");
         Invoke(nameof(ResetAnimTrigger), 4f);
     }
 
