@@ -17,7 +17,9 @@ public class UI_BUTTON : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoint
     [SerializeField] AudioClip selectSound;
     [SerializeField] AudioClip clickSound;
 
-    public UnityEvent EventOnClick;
+
+    public UnityEvent[] EventsOnClick;
+
 
     bool invokeButton;
     AudioSource aSrc;
@@ -34,10 +36,6 @@ public class UI_BUTTON : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoint
        
     }
 
-   void Awake()
-    {
-
-    }
 
     void Update()
     {
@@ -50,7 +48,14 @@ public class UI_BUTTON : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoint
         float time = transitional ? 2f: 0f;
         aSrc.PlayOneShot(clickSound);
         invokeDelayb = true;
-        EventOnClick.Invoke();
+        //EventOnClick.Invoke();
+        Debug.Log("SHOULD BE INVOKING RIGHT ABOUT NOW");
+        Debug.Log(EventsOnClick.Length);
+        for (int i = 0; i < EventsOnClick.Length; i++)
+        {
+            EventsOnClick[i].Invoke();
+            Debug.Log(EventsOnClick[i]);
+        }
     }
 
     

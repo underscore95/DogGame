@@ -57,7 +57,8 @@ public class NPC : MonoBehaviour, I_Interactable
     {
         if (_secondsSinceGameFinish >= 0)
         {
-            _secondsSinceGameFinish += Time.deltaTime;
+            Debug.Log("ending the game");
+            _secondsSinceGameFinish += Time.unscaledDeltaTime;
             Color c = _outroImage.color;
             c.a = Mathf.InverseLerp(0.0f, _fadeDuration, _secondsSinceGameFinish);
             _outroImage.color = c;

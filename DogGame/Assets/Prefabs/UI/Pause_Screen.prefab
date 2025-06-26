@@ -387,6 +387,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3183047534628447839, guid: 34705bdc1329df044b99dc83c8cd6590, type: 3}
+      propertyPath: EventsOnClick.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183047534628447839, guid: 34705bdc1329df044b99dc83c8cd6590, type: 3}
       propertyPath: EventOnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
@@ -395,15 +399,43 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8618865128905312997}
     - target: {fileID: 3183047534628447839, guid: 34705bdc1329df044b99dc83c8cd6590, type: 3}
+      propertyPath: EventsOnClick.Array.data[0].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183047534628447839, guid: 34705bdc1329df044b99dc83c8cd6590, type: 3}
       propertyPath: EventOnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: UnPauseGame
       objectReference: {fileID: 0}
+    - target: {fileID: 3183047534628447839, guid: 34705bdc1329df044b99dc83c8cd6590, type: 3}
+      propertyPath: EventsOnClick.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183047534628447839, guid: 34705bdc1329df044b99dc83c8cd6590, type: 3}
+      propertyPath: EventsOnClick.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8618865128905312997}
     - target: {fileID: 3183047534628447839, guid: 34705bdc1329df044b99dc83c8cd6590, type: 3}
       propertyPath: EventOnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PAUSE_SCREENMANAGER, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3183047534628447839, guid: 34705bdc1329df044b99dc83c8cd6590, type: 3}
+      propertyPath: EventsOnClick.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183047534628447839, guid: 34705bdc1329df044b99dc83c8cd6590, type: 3}
+      propertyPath: EventsOnClick.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UnPauseGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183047534628447839, guid: 34705bdc1329df044b99dc83c8cd6590, type: 3}
+      propertyPath: EventsOnClick.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PAUSE_SCREENMANAGER, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183047534628447839, guid: 34705bdc1329df044b99dc83c8cd6590, type: 3}
       propertyPath: EventOnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183047534628447839, guid: 34705bdc1329df044b99dc83c8cd6590, type: 3}
+      propertyPath: EventsOnClick.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4208911613167572520, guid: 34705bdc1329df044b99dc83c8cd6590, type: 3}
