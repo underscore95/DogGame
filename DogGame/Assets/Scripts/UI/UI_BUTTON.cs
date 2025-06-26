@@ -1,42 +1,79 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.Events;
+using UnityEngine.UIElements;
+using System.Collections;
 
 public class UI_BUTTON : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public bool clicked;
     public bool hovered;
     public bool selected;
+    public bool transitional;
+    public float selectRotate;
+    public float selectScale;
 
-    UI_FX FX;
-    Button BTON;
+    [SerializeField] AudioClip selectSound;
+    [SerializeField] AudioClip clickSound;
 
+    public UnityEvent EventOnClick;
+
+    bool invokeButton;
+    AudioSource aSrc;
+    public UI_FX FX;
+    UnityEngine.UI.Button BTON;
+    bool invokeDelayb;
     void Start()
     {
-        BTON = GetComponent<Button>();
+        aSrc = GetComponent<AudioSource>();
+        BTON = GetComponent<UnityEngine.UI.Button>();
+        BTON.onClick.AddListener(OnClick);
         FX= GetComponent<UI_FX>();
+       
     }
+
+   
 
     void Update()
     {
-      //  if (hovered)
-     //   { FX.ScalePulse(Vector3.one * 1.5f, new Vector3(0, 0, 60), 10f, 10f, false); }
-      //  else
-     //   {
-     //       FX.ScalePulse(Vector3.one, Vector3.zero, 10f, 10f, false );
-      //  }
+     
     }
+
+    public void OnClick()
+    {
+        float time = transitional ? 2f: 0f;
+        aSrc.PlayOneShot(clickSound);
+        invokeDelayb = true;
+        EventOnClick.Invoke();
+    }
+
+    
+
+    
 
     public void OnSelect(BaseEventData eventData)
     {
         selected = true;
-        Debug.Log("selected");
+        hovered = true;
+        FX.OverrideScaleRotation(Vector3.one * selectScale, new Vector3(0, 0, selectRotate));
+       
+        aSrc.PlayOneShot(selectSound);
+    }
+    private void OnEnable()
+    {
+        if (FX != null)
+        {
+            FX.MoveIn(Vector3.down * 100f, 8f);
+            FX.ColorPulse(6f, Color.white, 0f);
+        }
     }
 
     public void OnDeselect(BaseEventData eventData)
     {
         selected = false;   
-        Debug.Log("deselected");
+        FX.StopOverrideScaleRotation();
+        hovered = false;
     }
 
    
@@ -45,14 +82,13 @@ public class UI_BUTTON : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoint
     {
         
         hovered = true;
-        FX.OverrideScaleRotation(Vector3.one * 1.5f, new Vector3(0, 0, 50));
-        Debug.Log("pointer enter");
+        BTON.Select();
+        FX.OverrideScaleRotation(Vector3.one * selectScale, new Vector3(0, 0, selectRotate));
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         FX.StopOverrideScaleRotation();
         hovered = false;
-        Debug.Log("pointer exit");
     }
 }

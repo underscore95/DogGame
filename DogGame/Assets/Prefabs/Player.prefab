@@ -531,6 +531,15 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  IA_Pause:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: f7581fca-aaf2-4912-9761-efbb7d65cbc0
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   IA_Jump:
     m_Name: IA_Jump
     m_Type: 0
@@ -637,7 +646,7 @@ MonoBehaviour:
     angDragMinAngle: 0
     angDragMinVel: 0
     minSkidVel: 0.8
-    minSkidAngle: 75
+    minSkidAngle: 300
     skidStr: 90
     sprintMaxSpeed: 16
     minSprintActivation: 0.8

@@ -7,6 +7,7 @@ public class PICKUPS : MonoBehaviour
     [SerializeField] float RotSpeed;
     [SerializeField] float PickupRotSpd;
     [SerializeField] float FloatUpSpd;
+    [SerializeField] float DownScaleSpd;
     GameObject gm;
     ENTITIES nt;
     float rspd;
@@ -27,7 +28,9 @@ public class PICKUPS : MonoBehaviour
         eular.y += rspd * Time.deltaTime;
         transform.rotation = Quaternion.Euler(eular);
         if (destroy)
-        { transform.position = new Vector3(transform.position.x, transform.position.y + (FloatUpSpd * Time.deltaTime), transform.position.z); }
+        { transform.position = new Vector3(transform.position.x, transform.position.y + (FloatUpSpd * Time.deltaTime), transform.position.z);
+            transform.localScale = Vector3.Lerp(transform.localScale, Vector3.zero, DownScaleSpd * Time.deltaTime);
+        }
     }
 
     private void OnTriggerEnter(Collider other)

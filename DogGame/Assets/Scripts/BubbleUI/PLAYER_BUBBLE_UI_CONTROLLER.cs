@@ -35,7 +35,10 @@ public class PLAYER_BUBBLE_UI_CONTROLLER : MonoBehaviour
         {
             if (!playerBubbleDisplay.hidden)
             {
-                playerBubbleDisplay.FX.ScalePulse(new Vector3(2f, 2f, 2f), Vector3.zero, 8f, 0f, true);
+                if (Time.timeScale != 0)
+                {
+                    playerBubbleDisplay.FX.ScalePulse(new Vector3(2f, 2f, 2f), Vector3.zero, 8f, 0f, true);
+                }
             }
             Invoke(nameof(HideBubble), 1f);
         }
