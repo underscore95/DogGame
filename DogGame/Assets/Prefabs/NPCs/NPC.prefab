@@ -50,6 +50,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactDistance: 5
   _display: {fileID: 5086304815664400207}
+  _smokePuffPrefab: {fileID: 2936288741786059528, guid: 2e01ce9cc047e7a4ba1bdf7ccf3299d2, type: 3}
+  _canFinishGameByInteracting: 0
+  _outroImage: {fileID: 0}
+  _fadeDuration: 2
+  _waitDuration: 1
+  _menuScene: Menu
   _hasClothing: 1
   _clothingObject: {fileID: 5482821459904701822}
   _clothingItemType: 0
@@ -72,6 +78,7 @@ MonoBehaviour:
   GM: {fileID: 0}
   QEVENTS: {fileID: 0}
   QUESTS: {fileID: 0}
+  EN: {fileID: 0}
 --- !u!65 &7951402829884530088
 BoxCollider:
   m_ObjectHideFlags: 0

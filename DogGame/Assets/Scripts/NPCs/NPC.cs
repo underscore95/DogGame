@@ -11,6 +11,7 @@ public class NPC : MonoBehaviour, I_Interactable
 {
     [SerializeField] private float _interactDistance = 5.0f;
     [SerializeField] private UI_BUBBLE_DISPLAY _display;
+    [SerializeField] private GameObject _smokePuffPrefab;
 
     [Header("Finish Game")]
     [SerializeField] private bool _canFinishGameByInteracting = false;
@@ -84,6 +85,7 @@ public class NPC : MonoBehaviour, I_Interactable
             return;
         }
 
+        Instantiate(_smokePuffPrefab).transform.position = transform.position;
         _playerClothing.WearClothing(_clothingItemType, _clothingObject);
         _clothingObject = null;
 
