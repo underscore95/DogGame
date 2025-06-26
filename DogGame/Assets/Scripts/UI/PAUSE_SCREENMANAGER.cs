@@ -7,8 +7,9 @@ public class PAUSE_SCREENMANAGER : MonoBehaviour
     GameObject player;
     PLAYER_INPUTS PI;
     public bool isPaused;
+    public bool enableFromStart;
     [SerializeField] GameObject enable;
-
+    public bool StopTimeScale;
     [SerializeField] GameObject BG;
     UI_FX BGFX;
     public Button[] Buttons;
@@ -17,10 +18,19 @@ public class PAUSE_SCREENMANAGER : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Cursor.visible = false;
+        if (enableFromStart)
+        { Cursor.visible = true; 
+        }
+        else { Cursor.visible = false; }
         BGFX = BG. GetComponent<UI_FX>();
+          if (!enableFromStart)
+          {
         player = GameObject.Find("Player");
+
         PI = player.GetComponent<PLAYER_INPUTS>();
+            StartCoroutine(Delay());
+
+        }
 
         UI_Buttons = new UI_BUTTON[Buttons.Length];
         for (int i = 0; i < Buttons.Length; i++) 
@@ -28,7 +38,6 @@ public class PAUSE_SCREENMANAGER : MonoBehaviour
             UI_Buttons[i] = Buttons[i].GetComponent<UI_BUTTON>();
         }
         //enable.SetActive(false);
-      StartCoroutine(Delay());
     }
 
     IEnumerator Delay()
@@ -45,9 +54,12 @@ public class PAUSE_SCREENMANAGER : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PI.IA_Pause.WasPressedThisFrame())
+        if (!enableFromStart)
         {
-          if (!isPaused) { PauseGame(); }   else { UnPauseGame(); }
+            if (PI.IA_Pause.WasPressedThisFrame())
+            {
+                if (!isPaused) { PauseGame(); } else { UnPauseGame(); }
+            }
         }
         CheckForSelect();
     }
@@ -55,7 +67,7 @@ public class PAUSE_SCREENMANAGER : MonoBehaviour
     void CheckForSelect()
     {
         bool one = false;
-        for (int i = 0; i < Buttons.Length; i++) 
+        for (int i = 0; i < UI_Buttons.Length; i++) 
         {
             if (UI_Buttons[i].selected) { one = true; }
         }
@@ -66,8 +78,11 @@ public class PAUSE_SCREENMANAGER : MonoBehaviour
     {
         if (fadingOut) { return; }
         Cursor.visible = true;
-        isPaused =  true;
-        Time.timeScale = 0f;
+        isPaused = true;
+        if (StopTimeScale)
+        {
+            Time.timeScale = 0f;
+        }
         enable.SetActive(true);
         Buttons[0].Select();
         AllObjFadein();

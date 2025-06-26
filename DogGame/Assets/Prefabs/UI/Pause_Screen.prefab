@@ -117,6 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPaused: 0
   enable: {fileID: 8974041594346173384}
+  StopTimeScale: 1
   BG: {fileID: 7942785562594562617}
   Buttons:
   - {fileID: 7513338320702659983}
