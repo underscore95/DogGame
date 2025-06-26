@@ -15,22 +15,9 @@ public class PlayerClothing : MonoBehaviour
     }
 
     [SerializeField] private float _clothingEquipDuration = 0.5f;
-    [SerializeField] private VisualEffect _poofEffect;
+    [SerializeField] private GameObject _poofEffectPrefab;
     [SerializeField] private List<ClothingTransform> _clothingTransforms = new();
     private readonly Dictionary<ClothingItemType, GameObject> _wornClothing = new();
-
-    private void Awake()
-    {
-        _poofEffect.transform.parent = null;
-    }
-
-    private void OnDestroy()
-    {
-        if (_poofEffect)
-        {
-            Destroy(_poofEffect.gameObject);
-        }
-    }
 
     /// <summary>
     /// Make the player wear a piece of clothing, replacing the existing piece of clothing the player is wearing, if any
@@ -74,8 +61,7 @@ public class PlayerClothing : MonoBehaviour
     private IEnumerator PlayPoofEffect()
     {
         yield return new WaitForSeconds(_clothingEquipDuration);
-        _poofEffect.transform.position = transform.position;
-        _poofEffect.Play();
+        Instantiate(_poofEffectPrefab).transform.position = transform.position;
     }
 
     public bool HasClothingItem(ClothingItemType type)
