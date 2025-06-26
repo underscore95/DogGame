@@ -49,7 +49,11 @@ public class PLAYER_MODEL : MonoBehaviour
             // transform.rotation = Quaternion.LookRotation(rot);
             Vector3 dir = PM.finalDir;
             dir.y = 0;
-            transform.rotation = Quaternion.LookRotation(dir) ;
+            if (dir != Vector3.zero)
+            {
+                transform.rotation = Quaternion.LookRotation(dir);
+
+            }
         }
 
         slopeAlign = Vector3.Lerp(slopeAlign, PM.WinningGroundCast.normal, slopeAlignspd * Time.deltaTime) ;

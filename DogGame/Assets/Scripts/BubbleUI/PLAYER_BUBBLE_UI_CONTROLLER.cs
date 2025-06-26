@@ -7,12 +7,14 @@ public class PLAYER_BUBBLE_UI_CONTROLLER : MonoBehaviour
 {
     [SerializeField] UI_BUBBLE_DISPLAY playerBubbleDisplay;
     [SerializeField] PLAYER_AUDIO PA;
+    PLAYER_ANIMATION PANIM;
     PLAYER_INPUTS PI;
     private bool _interactInput = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        PANIM = GetComponentInParent<PLAYER_ANIMATION>();
         PI = GetComponentInParent<PLAYER_INPUTS>();
         playerBubbleDisplay.SetSpriteDataIndex(0);
         Invoke(nameof(ShowBubble), 0.5f);
@@ -20,10 +22,11 @@ public class PLAYER_BUBBLE_UI_CONTROLLER : MonoBehaviour
 
     private void Update()
     {
-        if (PI.IA_Interact_Bark.WasPressedThisFrame())
+        if (PI.IA_Interact_Bark.WasPressedThisFrame() && !_interactInput)
         {
             StartCoroutine(InputBuffer());
             PA.PlayBark();
+            PANIM.PlayBarkAnim();
         }
 
         if (PI.IA_Move.WasPressedThisFrame())
