@@ -38,7 +38,12 @@ public class UI_FX : MonoBehaviour
         defaultColorStatic = defaultColor;
     }
 
-   
+    private void Awake()
+    {
+        
+    }
+
+
 
     private T TryGetComponent<T>()
     {

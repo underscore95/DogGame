@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class QUEST_EVENTS : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class QUEST_EVENTS : MonoBehaviour
     GameObject CS_OBJ;
     PLAYER_CAMSTATEMACHINE CS;
     WORLD_EVENTS WE;
+    bool endGame;
+    float secondsTilGameFinish;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,7 +24,9 @@ public class QUEST_EVENTS : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+
+
     }
     public void ActivateNPCAndAddQuest(int npcId, int questID)
     {
@@ -100,5 +105,11 @@ public class QUEST_EVENTS : MonoBehaviour
     public void EndGetTheBeer()
     {
         Debug.Log("GAME IS FINISHED");
+    }
+
+    public void EndGame()
+    {
+        endGame = true;
+
     }
 }

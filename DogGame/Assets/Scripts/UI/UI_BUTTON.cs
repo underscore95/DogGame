@@ -24,6 +24,7 @@ public class UI_BUTTON : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoint
     public UI_FX FX;
     UnityEngine.UI.Button BTON;
     bool invokeDelayb;
+    public bool dontInteract;
     void Start()
     {
         aSrc = GetComponent<AudioSource>();
@@ -33,11 +34,15 @@ public class UI_BUTTON : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoint
        
     }
 
-   
+   void Awake()
+    {
+
+    }
 
     void Update()
     {
-     
+     if (dontInteract)
+        { BTON.interactable = false; }
     }
 
     public void OnClick()

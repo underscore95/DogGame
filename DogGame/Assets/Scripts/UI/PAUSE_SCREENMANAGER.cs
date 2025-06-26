@@ -18,7 +18,6 @@ public class PAUSE_SCREENMANAGER : MonoBehaviour
     void Start()
     {
         Cursor.visible = false;
-        enable.SetActive(false);
         BGFX = BG. GetComponent<UI_FX>();
         player = GameObject.Find("Player");
         PI = player.GetComponent<PLAYER_INPUTS>();
@@ -28,7 +27,20 @@ public class PAUSE_SCREENMANAGER : MonoBehaviour
         {
             UI_Buttons[i] = Buttons[i].GetComponent<UI_BUTTON>();
         }
+        //enable.SetActive(false);
+      StartCoroutine(Delay());
     }
+
+    IEnumerator Delay()
+    {
+        yield return new WaitForSecondsRealtime(0.1f);
+        enable.SetActive(false);
+        UnPauseGame();
+        AllObjFadeout();
+
+    }
+
+
 
     // Update is called once per frame
     void Update()

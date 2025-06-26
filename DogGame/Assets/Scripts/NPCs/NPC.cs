@@ -80,6 +80,12 @@ public class NPC : MonoBehaviour, I_Interactable
         _secondsSinceGameFinish = 0;
     }
 
+    public void EndGame()
+    {
+        _secondsSinceGameFinish = 0;
+
+    }
+
     private void HandleTradingForClothing()
     {
         if (!_activated)

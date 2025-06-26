@@ -23,7 +23,7 @@ public class ImageAnimation : MonoBehaviour
     void Update()
     {
         if (sprites == null || sprites.Length == 0) return;
-        _secondsSinceLastFrame += Time.deltaTime;
+        _secondsSinceLastFrame += Time.unscaledDeltaTime;
         if (_secondsSinceLastFrame < 1.0f / fps) return;
         _secondsSinceLastFrame = 0;
 
