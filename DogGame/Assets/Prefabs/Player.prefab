@@ -1094,6 +1094,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 384788738359294595, guid: fff66a588bf982749baef596d0ba1426, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 0e7b5dc692006dc4abf8c6eff249e8c6, type: 2}
     - target: {fileID: 919132149155446097, guid: fff66a588bf982749baef596d0ba1426, type: 3}
       propertyPath: m_Name
       value: dogrigged (1)
