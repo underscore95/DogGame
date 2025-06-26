@@ -49,12 +49,10 @@ public class UI_BUTTON : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoint
         aSrc.PlayOneShot(clickSound);
         invokeDelayb = true;
         //EventOnClick.Invoke();
-        Debug.Log("SHOULD BE INVOKING RIGHT ABOUT NOW");
         Debug.Log(EventsOnClick.Length);
         for (int i = 0; i < EventsOnClick.Length; i++)
         {
             EventsOnClick[i].Invoke();
-            Debug.Log(EventsOnClick[i]);
         }
     }
 
