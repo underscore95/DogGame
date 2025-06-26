@@ -50,7 +50,7 @@ public class UI_BUBBLE_DISPLAY : MonoBehaviour
     public void OnInteract()
     {
         Debug.Log("on the interact");
-        FX.ScalePulse(new Vector3(0.5f, 0.5f, 0.5f), Vector3.zero, 10f, 0f);
+        FX.ScalePulse(new Vector3(0.5f, 0.5f, 0.5f), Vector3.zero, 10f, 0f, true);
     }
 
     public void OnAppear()

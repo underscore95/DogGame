@@ -466,9 +466,17 @@ public class PLAYER_MOVEMENT : MonoBehaviour
         float length = velocity.magnitude * Time.deltaTime;
         lastFrameVel = CollideAndSlide((velocity + addedVel) * Time.deltaTime, transform.position, 0, velocity + addedVel, grounded);
       lastFrameVel = Vector3.ClampMagnitude(lastFrameVel, length);
-        transform.position += lastFrameVel;
+        if (Time.timeScale != 0)
+        {
+            transform.position += lastFrameVel;
+        }
         CollisionDetection();
-        lastFrameVel /= Time.deltaTime;
+        if (lastFrameVel != Vector3.zero) 
+        {
+            lastFrameVel /= Time.deltaTime;
+
+
+        }
 
     }
 

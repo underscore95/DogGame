@@ -29,16 +29,21 @@ public class PLAYER_STATEMACHINE : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool attemptMove = PC.TryingToMove(PI.InputDirection);
-
-        switch (PSS.StateGrp)
+        if (Time.timeScale > 0.9)
         {
-            case PLAYER_STATES.StateGroup.GroundStates:
-                GroundUpdateLoop();
-                break;
-            case PLAYER_STATES.StateGroup.AirStates:
-                AirUpdateLoop();
-                break;
+
+
+            bool attemptMove = PC.TryingToMove(PI.InputDirection);
+
+            switch (PSS.StateGrp)
+            {
+                case PLAYER_STATES.StateGroup.GroundStates:
+                    GroundUpdateLoop();
+                    break;
+                case PLAYER_STATES.StateGroup.AirStates:
+                    AirUpdateLoop();
+                    break;
+            }
         }
     }
     
