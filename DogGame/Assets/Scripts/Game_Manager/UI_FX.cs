@@ -13,8 +13,11 @@ public class UI_FX : MonoBehaviour
     float rotBackTime;
     float colorBackTime;
     public PLAYER_INPUTS pi;
-    Image img;
+    public Image img;
     public bool isImg;
+    bool fadeOut;
+
+    float fadeoutalpha;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -41,8 +44,24 @@ public class UI_FX : MonoBehaviour
         MoveTowardsDefault();
     }
 
+    public void BeginFadeOut(float alpha, float spd)
+    {
+        fadeOut = true;
+        colorBackTime = spd;
+        fadeoutalpha = alpha;
+    }
+    public void EndFadeOut(float spd, float alpha) 
+    {
+        fadeOut = false;
+        colorBackTime = spd;
+        defaultColor.a = alpha;
+    }
+
     void MoveTowardsDefault()
     {
+        if (fadeOut)
+        { defaultColor.a = fadeoutalpha; }    
+
         transform.position = Vector3.Lerp(transform.position, defaultPos, moveBackTime * Time.deltaTime);
         transform.localScale = Vector3.Lerp(transform.localScale, defaultScale, scaleBackTime * Time.deltaTime);
         transform.rotation = Quaternion.Lerp(transform.rotation, defaultRot, rotBackTime * Time.deltaTime) ;
@@ -75,7 +94,7 @@ public class UI_FX : MonoBehaviour
 
     public void ScalePulse(Vector3 scale, Vector3 euler, float scaleSpd, float rotSpd)
     {
-        transform.localScale += scale;
+        transform.localScale = new Vector3(transform.localScale.x * scale.x, transform.localScale.y * scale.y, transform.localScale.z * scale.z);
         if (euler != Vector3.zero)
         {
             transform.rotation = Quaternion.Euler(euler);

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7320161672466367352}
   - component: {fileID: 2743785455019906502}
+  - component: {fileID: 4920314510151546360}
   m_Layer: 0
   m_Name: BubbleUI
   m_TagString: Untagged
@@ -48,6 +49,26 @@ MonoBehaviour:
   image: {fileID: 3994742952242945064}
   spritesData:
   - {fileID: 11400000, guid: c718e422b704c83419b8c16e0c9163f5, type: 2}
+  FX: {fileID: 0}
+  hidden: 0
+--- !u!114 &4920314510151546360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2565793719588711573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3971ed9e3c2f748addaebb7943b712, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultPos: {x: 0, y: 0, z: 0}
+  defaultRot: {x: 0, y: 0, z: 0, w: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
+  pi: {fileID: 0}
+  img: {fileID: 3994742952242945064}
+  isImg: 0
 --- !u!1 &5646232980965792098
 GameObject:
   m_ObjectHideFlags: 0

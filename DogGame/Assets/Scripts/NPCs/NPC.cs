@@ -114,6 +114,7 @@ public class NPC : MonoBehaviour, I_Interactable
         HandleFinishingGame();
 
         _display.SetBubbleVisibility(false);
+        _display.OnInteract();
         if (_hasTraded) return;
         if (_hasClothing)
         {

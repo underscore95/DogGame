@@ -9,12 +9,13 @@ public class PLAYER_BUBBLE_UI_CONTROLLER : MonoBehaviour
     [SerializeField] PLAYER_AUDIO PA;
     PLAYER_ANIMATION PANIM;
     PLAYER_INPUTS PI;
+    UI_FX FX;
     private bool _interactInput = false;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         PANIM = GetComponentInParent<PLAYER_ANIMATION>();
+       
         PI = GetComponentInParent<PLAYER_INPUTS>();
         playerBubbleDisplay.SetSpriteDataIndex(0);
         Invoke(nameof(ShowBubble), 0.5f);
@@ -27,10 +28,15 @@ public class PLAYER_BUBBLE_UI_CONTROLLER : MonoBehaviour
             StartCoroutine(InputBuffer());
             PA.PlayBark();
             PANIM.PlayBarkAnim();
+
         }
 
         if (PI.IA_Move.WasPressedThisFrame())
         {
+            if (!playerBubbleDisplay.hidden)
+            {
+                playerBubbleDisplay.FX.ScalePulse(new Vector3(2f, 2f, 2f), Vector3.zero, 8f, 0f);
+            }
             Invoke(nameof(HideBubble), 1f);
         }
     }
@@ -77,6 +83,7 @@ public class PLAYER_BUBBLE_UI_CONTROLLER : MonoBehaviour
         {
             _interactInput = false;
             other.GetComponent<I_Interactable>().InteractableAction(); // trigger interact effect on interactable
+            playerBubbleDisplay.OnInteract();
         }
     }
 }
