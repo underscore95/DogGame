@@ -23,6 +23,7 @@ public class NPC : MonoBehaviour, I_Interactable
     [Header("Clothing Item")]
     [SerializeField] private bool _hasClothing = true; // can't trade for clothing if this is false
     [SerializeField] private GameObject _clothingObject;
+    [SerializeField] private GameObject _clothingPrefab;
     [SerializeField] private ClothingItemType _clothingItemType;
     QUEST_REFERENCER QR;
 
@@ -35,6 +36,7 @@ public class NPC : MonoBehaviour, I_Interactable
 
     private void Awake()
     {
+        _activated = true;
         _playerClothing = FindAnyObjectByType<PlayerClothing>();
         QR = GetComponent<QUEST_REFERENCER>();
 
@@ -86,8 +88,8 @@ public class NPC : MonoBehaviour, I_Interactable
         }
 
         Instantiate(_smokePuffPrefab).transform.position = transform.position;
-        _playerClothing.WearClothing(_clothingItemType, _clothingObject);
-        _clothingObject = null;
+        Destroy(_clothingObject);
+        _playerClothing.WearClothing(_clothingItemType, _clothingPrefab);
 
         _hasTraded = true;
     }
