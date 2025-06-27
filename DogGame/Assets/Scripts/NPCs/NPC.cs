@@ -43,6 +43,7 @@ public class NPC : MonoBehaviour, I_Interactable
     [SerializeField] AudioClip failedTrade;
     AudioSource AS;
     CLOTHTRACKER_UI CLOTHUI;
+    public int MoneyGiveAmount;
 
     private PlayerClothing _playerClothing;
     public bool _hasTraded = false;
@@ -167,6 +168,10 @@ public class NPC : MonoBehaviour, I_Interactable
         AS.PlayOneShot(successfulTrade);
 
         AS.PlayOneShot(succesfulTradeFX);
+        if (MoneyGiveAmount > 0)
+        {
+            QR.EN.AddMoney(MoneyGiveAmount);
+        }
         if (_hasClothing)
         {
 

@@ -16,7 +16,11 @@ public class CLOTHTRACKER_UI : MonoBehaviour
     [SerializeField] Sprite LeiStamped;
     [SerializeField] Sprite ShirtStamped;
 
-
+    public bool hatObtained;
+    public bool glassesObtained;
+    public bool leiObtained;
+    public bool shirtObtained;
+    public bool allItemsObtained;
 
     public float fadeinSpd;
     public float fadeoutSpd;

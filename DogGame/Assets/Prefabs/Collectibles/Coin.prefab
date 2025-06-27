@@ -297,7 +297,7 @@ MonoBehaviour:
   DownScaleSpd: 0
   sound: {fileID: 8300000, guid: ad895aa47541a4c42859dbc12662f496, type: 3}
   id: 0
-  MoneyAmnt: 1
+  MoneyAmnt: 5
 --- !u!135 &1052852342420395132
 SphereCollider:
   m_ObjectHideFlags: 0

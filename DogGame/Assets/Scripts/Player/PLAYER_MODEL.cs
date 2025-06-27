@@ -58,6 +58,10 @@ public class PLAYER_MODEL : MonoBehaviour
 
         slopeAlign = Vector3.Lerp(slopeAlign, PM.WinningGroundCast.normal, slopeAlignspd * Time.deltaTime) ;
         Vector3 desiredSlopeRot = Vector3.Cross(transform.right, slopeAlign);
-        transform.rotation = Quaternion.LookRotation(desiredSlopeRot);
+        if (desiredSlopeRot != Vector3.zero) 
+        {
+            transform.rotation = Quaternion.LookRotation(desiredSlopeRot);
+
+        }
     }
 }

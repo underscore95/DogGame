@@ -14,8 +14,8 @@ public class COINCOUNTER_UI : MonoBehaviour
     public float startDelay;
     public float addMoneyDelay;
     public float appearTime;
-    int MoneyAmount;
-    int ActualMoney;
+    float MoneyAmount;
+    float ActualMoney;
     bool open;
     AudioSource AS;
     [SerializeField] AudioClip pickupSound;
@@ -36,7 +36,7 @@ public class COINCOUNTER_UI : MonoBehaviour
     }
    
 
-    public void MoneyAdded(int CurrentMoney)
+    public void MoneyAdded(float CurrentMoney)
     {
         ActualMoney = CurrentMoney;
         if (!open)
@@ -50,7 +50,7 @@ public class COINCOUNTER_UI : MonoBehaviour
     {
         yield return new WaitForSeconds(startDelay);
         OpenAnim();
-        StartCoroutine(DelayAddMoney(addMoneyDelay));
+        StartCoroutine(DelayAddMoney(addMoneyDelay, 1));
     }
 
     void OpenAnim()
@@ -70,10 +70,14 @@ public class COINCOUNTER_UI : MonoBehaviour
         Text.BeginFadeOut(0f, fadeoutSpd);
     }
 
-    IEnumerator DelayAddMoney(float time)
+    IEnumerator DelayAddMoney(float time, float depth)
     {
         yield return new WaitForSeconds(time);
         MoneyAmount++;
+        float pitch = Mathf.Pow(2, depth / 12);
+        Debug.Log(pitch);
+        Debug.Log(depth);
+        AS.pitch = pitch;
         AS.PlayOneShot(pickupSound);
         Text.text.text = (MoneyAmount.ToString() + "/20");
         Text.ColorPulse(4f, Color.green, 1f);
@@ -86,7 +90,7 @@ public class COINCOUNTER_UI : MonoBehaviour
         }
         else
         {
-            StartCoroutine(DelayAddMoney(time * 0.75f));
+            StartCoroutine(DelayAddMoney(time * 0.75f, depth + 1));
         }
     }
 

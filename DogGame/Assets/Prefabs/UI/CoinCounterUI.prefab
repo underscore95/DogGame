@@ -389,7 +389,7 @@ MonoBehaviour:
   moveInSpd: 5
   moveInAmount: 50
   startDelay: 0
-  addMoneyDelay: 0.5
+  addMoneyDelay: 0.25
   appearTime: 1
   pickupSound: {fileID: 8300000, guid: a7998e5cd24eb7141bc36c26c24e550b, type: 3}
 --- !u!82 &3603185402737406149

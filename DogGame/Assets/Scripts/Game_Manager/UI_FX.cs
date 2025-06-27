@@ -122,7 +122,7 @@ public class UI_FX : MonoBehaviour
         if (isText) {
             storedColor = Color.Lerp(storedColor, defaultColor, colorBackTime * timeScale);
 
-            text.color = storedColor; text.alpha = storedColor.a; Debug.Log(text.alpha); Debug.Log(storedColor.a); }
+            text.color = storedColor; text.alpha = storedColor.a; }
         else
         if (img != null)
         {
@@ -150,7 +150,6 @@ public class UI_FX : MonoBehaviour
 
     public void ColorPulse(float pulseSpd, Color color, float alpha)
     {
-        Debug.Log("pulsing");
         if (isText)
         {
             text.color = color;

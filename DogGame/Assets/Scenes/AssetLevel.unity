@@ -14581,10 +14581,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1593275203480012176, guid: 741b45af0a0c46647a871ea0aaa6d31e, type: 3}
-      propertyPath: MoneyAmnt
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 1593275203480012176, guid: 741b45af0a0c46647a871ea0aaa6d31e, type: 3}
       propertyPath: DownScaleSpd
       value: 4.5
       objectReference: {fileID: 0}
@@ -31002,6 +30998,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7817785984601880353, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
+      propertyPath: MoneyGiveAmount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817785984601880353, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
       propertyPath: RequiredItemName
       value: BeachBall
       objectReference: {fileID: 0}
@@ -41565,6 +41565,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -50
       objectReference: {fileID: 0}
+    - target: {fileID: 9202846647530555656, guid: 1d1335b78f7c62c48a01a8e917c12f41, type: 3}
+      propertyPath: pickupSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 29efafdf223e6f448a208794067200b5, type: 3}
     - target: {fileID: 9204756731750992646, guid: 1d1335b78f7c62c48a01a8e917c12f41, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
