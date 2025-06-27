@@ -385,7 +385,7 @@ MonoBehaviour:
   Image: {fileID: 7208189733965295300}
   Text: {fileID: 333879019132853161}
   fadeinSpd: 7
-  fadeoutSpd: 5
+  fadeoutSpd: 11
   moveInSpd: 5
   moveInAmount: 50
   startDelay: 0
