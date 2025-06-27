@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7991213494729019119}
   - component: {fileID: -5150302468605922256}
   m_Layer: 0
-  m_Name: HatGuyPrefab
+  m_Name: HatGuyPrefab2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,7 +102,7 @@ PrefabInstance:
     - target: {fileID: 3850846727285769996, guid: f0257f7e70648074995fbd4bb9269750, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: e36c790529148ad46a620612447c0113, type: 2}
+      objectReference: {fileID: 2100000, guid: e778b792ce00fea48acc25bdfa283878, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

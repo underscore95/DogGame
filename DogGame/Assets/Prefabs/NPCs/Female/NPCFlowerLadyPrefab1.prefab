@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3981008640672606761}
   - component: {fileID: 6131553224238554834}
   m_Layer: 0
-  m_Name: NPCFemalePrefab
+  m_Name: NPCFlowerLadyPrefab1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,6 +99,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: npcfemale
       objectReference: {fileID: 0}
+    - target: {fileID: 7018099953410918352, guid: 684ebab014d5f7343b426644f92fd97d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 392eb15c3afdca348bf4d53947fd1192, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
