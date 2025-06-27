@@ -11,7 +11,7 @@ public class ENTITIES : MonoBehaviour
     public PICKUPS[] COLLECTIBLES;
     UI_HOTDOGMANAGER HDM;
     COINCOUNTER_UI CCUI;
-    public int Money;
+    public float Money;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -43,7 +43,7 @@ public class ENTITIES : MonoBehaviour
        // HDM.CollectHotDog(id);
     }
 
-    public void AddMoney(int amount)
+    public void AddMoney(float amount)
     {
         Money += amount;
         CCUI.MoneyAdded(Money);

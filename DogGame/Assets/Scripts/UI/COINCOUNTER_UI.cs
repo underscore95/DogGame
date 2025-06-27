@@ -27,7 +27,7 @@ public class COINCOUNTER_UI : MonoBehaviour
         BG.BeginFadeOut(0f, 88f);
         Image.BeginFadeOut(0f, 66f);
         Text.BeginFadeOut(0f, 88f);
-        Text.text.text = (MoneyAmount.ToString() + "/20");
+        Text.text.text = ("£" + (MoneyAmount / 10).ToString());
     }
 
     // Update is called once per frame
@@ -79,7 +79,12 @@ public class COINCOUNTER_UI : MonoBehaviour
         Debug.Log(depth);
         AS.pitch = pitch;
         AS.PlayOneShot(pickupSound);
-        Text.text.text = (MoneyAmount.ToString() + "/20");
+        string money = (MoneyAmount / 10).ToString();
+        if (money.Length < 4 && money.Length > 2) 
+        {
+            money = (MoneyAmount / 10).ToString() + "0";
+        }
+        Text.text.text = ("£" + money);
         Text.ColorPulse(4f, Color.green, 1f);
         Image.ColorPulse(4f, Color.green, 1f);
        //  Text.ScalePulse(Vector3.one * 1.5f, Vector3.zero, 10f, 0f, true);

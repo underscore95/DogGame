@@ -70,6 +70,7 @@ MonoBehaviour:
   successfulTrade: {fileID: 8300000, guid: 44fc6d9039328d64095025e98ad31e8a, type: 3}
   succesfulTradeFX: {fileID: 8300000, guid: ad895aa47541a4c42859dbc12662f496, type: 3}
   failedTrade: {fileID: 8300000, guid: 9fd4cf4817cceff4c9e3715c4389bde6, type: 3}
+  MoneyGiveAmount: 0
   _hasTraded: 0
   _activated: 0
   id: 0
@@ -247,14 +248,14 @@ PrefabInstance:
     - target: {fileID: 3994742952242945064, guid: 51a4030aa5e5bad45818b0f2f137aeb8, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 827366045, guid: 5d0aaea280bcdba4daa90a75ba62a10e, type: 3}
+      objectReference: {fileID: 1927671299, guid: afc50440fe274c448878b680d3989ebe, type: 3}
     - target: {fileID: 4920314510151546360, guid: 51a4030aa5e5bad45818b0f2f137aeb8, type: 3}
       propertyPath: pi
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5788103722898133528, guid: 51a4030aa5e5bad45818b0f2f137aeb8, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5788103722898133528, guid: 51a4030aa5e5bad45818b0f2f137aeb8, type: 3}
       propertyPath: m_SizeDelta.y
@@ -349,6 +350,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: BubbleUI
       objectReference: {fileID: 0}
+    - target: {fileID: 2743785455019906502, guid: 51a4030aa5e5bad45818b0f2f137aeb8, type: 3}
+      propertyPath: dontUseAnim
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994742952242945064, guid: 51a4030aa5e5bad45818b0f2f137aeb8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1302324747, guid: a71536ae183a5c24c8dca67272e439d9, type: 3}
+    - target: {fileID: 5788103722898133528, guid: 51a4030aa5e5bad45818b0f2f137aeb8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7320161672466367352, guid: 51a4030aa5e5bad45818b0f2f137aeb8, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -363,11 +376,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7320161672466367352, guid: 51a4030aa5e5bad45818b0f2f137aeb8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.547
       objectReference: {fileID: 0}
     - target: {fileID: 7320161672466367352, guid: 51a4030aa5e5bad45818b0f2f137aeb8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.19
+      value: 0.521
       objectReference: {fileID: 0}
     - target: {fileID: 7320161672466367352, guid: 51a4030aa5e5bad45818b0f2f137aeb8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -405,16 +418,48 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8099126036972404119, guid: 51a4030aa5e5bad45818b0f2f137aeb8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.332
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7773411185606522110, guid: 51a4030aa5e5bad45818b0f2f137aeb8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 565420084145878211}
   m_SourcePrefab: {fileID: 100100000, guid: 51a4030aa5e5bad45818b0f2f137aeb8, type: 3}
 --- !u!4 &365844199168856561 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7320161672466367352, guid: 51a4030aa5e5bad45818b0f2f137aeb8, type: 3}
   m_PrefabInstance: {fileID: 6955190726251598473}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &821195909760984695 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7773411185606522110, guid: 51a4030aa5e5bad45818b0f2f137aeb8, type: 3}
+  m_PrefabInstance: {fileID: 6955190726251598473}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &565420084145878211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821195909760984695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da4d0e1f64d7cc540aba163af05ee601, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 1302324747, guid: a71536ae183a5c24c8dca67272e439d9, type: 3}
+  - {fileID: -1228592744, guid: a71536ae183a5c24c8dca67272e439d9, type: 3}
+  - {fileID: 1548085368, guid: a71536ae183a5c24c8dca67272e439d9, type: 3}
+  - {fileID: -103125699, guid: a71536ae183a5c24c8dca67272e439d9, type: 3}
+  loop: 1
+  destroyOnEnd: 0
+  fps: 5
 --- !u!114 &5086304815664400207 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2743785455019906502, guid: 51a4030aa5e5bad45818b0f2f137aeb8, type: 3}

@@ -61,7 +61,7 @@ public class NPC : MonoBehaviour, I_Interactable
         QR = GetComponent<QUEST_REFERENCER>();
         AS = GetComponent<AudioSource>();
 
-        transform.localPosition = new Vector3(37 + id * 5, -1.5f, -33);
+       // transform.localPosition = new Vector3(37 + id * 5, -1.5f, -33);
 
         if (_canFinishGameByInteracting)
         {

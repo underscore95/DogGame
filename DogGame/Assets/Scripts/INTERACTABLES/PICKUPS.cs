@@ -16,7 +16,7 @@ public class PICKUPS : MonoBehaviour
     Vector3 eular;
     bool destroy;
     public int id;
-    public int MoneyAmnt;
+    public float MoneyAmnt;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
