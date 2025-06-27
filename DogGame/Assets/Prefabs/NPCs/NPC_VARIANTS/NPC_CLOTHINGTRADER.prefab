@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 278234818016662363, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 278234818016662363, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 278234818016662363, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 278234818016662363, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -62,15 +62,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 365844199168856561, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.37
+      value: 0.19999999
       objectReference: {fileID: 0}
     - target: {fileID: 365844199168856561, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.37
+      value: 0.19999999
       objectReference: {fileID: 0}
     - target: {fileID: 365844199168856561, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.37
+      value: 0.19999999
       objectReference: {fileID: 0}
     - target: {fileID: 365844199168856561, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -105,8 +105,20 @@ PrefabInstance:
       value: NPC_CLOTHINGTRADER
       objectReference: {fileID: 0}
     - target: {fileID: 6121392081338385615, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6121392081338385615, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6121392081338385615, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6121392081338385615, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.266
+      value: 0.948
       objectReference: {fileID: 0}
     - target: {fileID: 7004931684402222511, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
       propertyPath: m_SizeDelta.x
