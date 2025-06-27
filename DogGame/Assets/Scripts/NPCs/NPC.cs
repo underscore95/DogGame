@@ -3,6 +3,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -44,6 +45,7 @@ public class NPC : MonoBehaviour, I_Interactable
     AudioSource AS;
     CLOTHTRACKER_UI CLOTHUI;
     public int MoneyGiveAmount;
+    [SerializeField] UnityEvent EventOnInteract;
 
     private PlayerClothing _playerClothing;
     public bool _hasTraded = false;
@@ -141,7 +143,8 @@ public class NPC : MonoBehaviour, I_Interactable
     public void InteractableAction()
     {
         HandleFinishingGame();
-
+        if (EventOnInteract != null)
+        { EventOnInteract.Invoke(); }
 
         if (_hasTraded) return;
 

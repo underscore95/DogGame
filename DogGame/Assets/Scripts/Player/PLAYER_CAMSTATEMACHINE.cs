@@ -65,7 +65,7 @@ public class PLAYER_CAMSTATEMACHINE : MonoBehaviour
 
         if (cutscene)
         {
-            CC.DoCutscene(targetPos.transform.position, targetObject.transform, 3f);
+            CC.DoCutscene(targetPos.transform.position, targetObject.transform, 6f);
         }
         else { 
             if (cutsceneTransition) 
