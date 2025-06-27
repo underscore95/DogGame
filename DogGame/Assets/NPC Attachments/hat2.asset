@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 873abb54113a9cb46a853a067f7894d3, type: 3}
-  m_Name: hairfemale2
+  m_Name: hat2
   m_EditorClassIdentifier: 
   _bone: {fileID: 11400000, guid: 485703fe4b06127428adeed62e2ec8d9, type: 2}
-  _prefab: {fileID: 7943324643761129725, guid: e0504994635398b46919dee725fd4b6f, type: 3}
-  _isRestrictedToSpecificBodyTypes: 1
-  _allowedTypes: 0100000003000000
+  _prefab: {fileID: 2101512693528942432, guid: a1f18f920e29bea43af55e77973bf3aa, type: 3}
+  _isRestrictedToSpecificBodyTypes: 0
+  _allowedTypes: 

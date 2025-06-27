@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 873abb54113a9cb46a853a067f7894d3, type: 3}
-  m_Name: hairfemale2
+  m_Name: leafskirt
   m_EditorClassIdentifier: 
-  _bone: {fileID: 11400000, guid: 485703fe4b06127428adeed62e2ec8d9, type: 2}
-  _prefab: {fileID: 7943324643761129725, guid: e0504994635398b46919dee725fd4b6f, type: 3}
+  _bone: {fileID: 11400000, guid: 5bc3b07d20f71f14995efa32abe1a380, type: 2}
+  _prefab: {fileID: 5937682169482658497, guid: f85efae1e3143e64aa74da563f4b83c1, type: 3}
   _isRestrictedToSpecificBodyTypes: 1
-  _allowedTypes: 0100000003000000
+  _allowedTypes: 01000000

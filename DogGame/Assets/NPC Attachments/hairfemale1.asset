@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bone: {fileID: 11400000, guid: 485703fe4b06127428adeed62e2ec8d9, type: 2}
   _prefab: {fileID: 1085944515507920171, guid: 1f7a9df398ac0ff4cb72f4dc0db64d00, type: 3}
+  _isRestrictedToSpecificBodyTypes: 1
+  _allowedTypes: 0100000003000000

@@ -2609,6 +2609,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6131553224238554834, guid: 220de86a5113f5f4e95b15cf10106cd6, type: 3}
+      propertyPath: _attachments.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6131553224238554834, guid: 220de86a5113f5f4e95b15cf10106cd6, type: 3}
+      propertyPath: '_attachments.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 32f5a1906dbab4944b84d459a4c0d775, type: 2}
+    - target: {fileID: 6131553224238554834, guid: 220de86a5113f5f4e95b15cf10106cd6, type: 3}
+      propertyPath: '_attachments.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 978918c0655c02f45903b369a48b430e, type: 2}
+    - target: {fileID: 6131553224238554834, guid: 220de86a5113f5f4e95b15cf10106cd6, type: 3}
+      propertyPath: '_attachments.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 88eb25567c03f5d42be70e0e742a6296, type: 2}
+    - target: {fileID: 6131553224238554834, guid: 220de86a5113f5f4e95b15cf10106cd6, type: 3}
+      propertyPath: '_attachments.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: c32bb0e912d00aa4cac5d60834ae95a0, type: 2}
+    - target: {fileID: 6131553224238554834, guid: 220de86a5113f5f4e95b15cf10106cd6, type: 3}
+      propertyPath: '_attachments.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 009bf52fcb30c8740a31a28649d725c2, type: 2}
     - target: {fileID: 8272054260243223327, guid: 220de86a5113f5f4e95b15cf10106cd6, type: 3}
       propertyPath: m_Name
       value: NPCFemalePrefab
