@@ -8,7 +8,7 @@ public class NPCBone : ScriptableObject
     public enum NPCBodyType
     {
         // if adding value, make sure to add bone name in all the scriptable objs
-        Male, Female
+        Male, Female, ShirtGuy, SunglassesLady, HatGuy
     }
 
     [Serializable]
