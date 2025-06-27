@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 873abb54113a9cb46a853a067f7894d3, type: 3}
-  m_Name: hairfemale2
+  m_Script: {fileID: 11500000, guid: 947ca6e57330fa342bbfe94354fccbc0, type: 3}
+  m_Name: Head
   m_EditorClassIdentifier: 
-  _bone: {fileID: 11400000, guid: 485703fe4b06127428adeed62e2ec8d9, type: 2}
-  _prefab: {fileID: 7943324643761129725, guid: e0504994635398b46919dee725fd4b6f, type: 3}
+  _bones:
+  - Type: 0
+    Name: CATRigHead009
+  - Type: 1
+    Name: CATRigHead003
