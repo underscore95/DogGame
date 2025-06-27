@@ -3701,7 +3701,9 @@ MonoBehaviour:
   pi: {fileID: 1844764056}
   img: {fileID: 0}
   isImg: 1
+  fadeOut: 0
   NotAffectedByTimescale: 0
+  fadeoutalpha: 0
   defaultAlpha: 0
   overrideScaleRotation: 0
 --- !u!114 &198417918
@@ -18181,17 +18183,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1ea4a4fbfde8b484fa98e908f57ad1ff, type: 3}
   m_PrefabInstance: {fileID: 1012730633}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1014103801 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7221905593968601247, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
-  m_PrefabInstance: {fileID: 1635681585}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1020457233
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18538,6 +18529,10 @@ PrefabInstance:
     - target: {fileID: 7817785984601880353, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
       propertyPath: id
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817785984601880353, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
+      propertyPath: requiresItem
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7817785984601880353, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
       propertyPath: _clothingObject
@@ -22594,6 +22589,31 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ead7253b91ba796479bc795c9b839750, type: 3}
+--- !u!1 &1234531026 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6522700596418851657, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
+  m_PrefabInstance: {fileID: 1645221752}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1234531030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234531026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da4d0e1f64d7cc540aba163af05ee601, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -3963041, guid: 5d0aaea280bcdba4daa90a75ba62a10e, type: 3}
+  - {fileID: 1492218954, guid: 5d0aaea280bcdba4daa90a75ba62a10e, type: 3}
+  - {fileID: -674950494, guid: 5d0aaea280bcdba4daa90a75ba62a10e, type: 3}
+  - {fileID: 827366045, guid: 5d0aaea280bcdba4daa90a75ba62a10e, type: 3}
+  loop: 1
+  destroyOnEnd: 0
+  fps: 5
 --- !u!1001 &1238108255
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22847,43 +22867,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: aec76cf6b8f585a458424e98fb87f916, type: 3}
   m_PrefabInstance: {fileID: 359270212}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1252892842 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8129831410648963106, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
-  m_PrefabInstance: {fileID: 1635681585}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1252892843 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8456232906985070961, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
   m_PrefabInstance: {fileID: 1635681585}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1252892842}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2fe81bd42e05fec40b463d5d03a7b3b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1252892845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1252892842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3971ed9e3c2f748addaebb7943b712, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultPos: {x: 0, y: 0, z: 0}
-  defaultRot: {x: 0, y: 0, z: 0, w: 0}
-  defaultColor: {r: 0, g: 0, b: 0, a: 0}
-  pi: {fileID: 0}
-  img: {fileID: 1014103801}
-  isImg: 0
-  NotAffectedByTimescale: 0
-  defaultAlpha: 0
-  overrideScaleRotation: 0
 --- !u!4 &1255504435 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: aec76cf6b8f585a458424e98fb87f916, type: 3}
@@ -29711,10 +29705,7 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 5970742338793385138, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8129831410648963106, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1252892845}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
 --- !u!1001 &1644098176
 PrefabInstance:
@@ -29854,6 +29845,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 365844199168856561, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 365844199168856561, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 365844199168856561, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 365844199168856561, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.428
+      objectReference: {fileID: 0}
+    - target: {fileID: 365844199168856561, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 2651981260776875889, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
+      propertyPath: pi
+      value: 
+      objectReference: {fileID: 1844764056}
+    - target: {fileID: 2651981260776875889, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
+      propertyPath: defaultColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2651981260776875889, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
+      propertyPath: defaultColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2651981260776875889, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
+      propertyPath: defaultColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5086304815664400207, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
+      propertyPath: hidden
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5170976752668250826, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
       propertyPath: m_Name
       value: NPC_BarStaff
@@ -29866,10 +29897,25 @@ PrefabInstance:
       propertyPath: _outroImage
       value: 
       objectReference: {fileID: 181504351}
+    - target: {fileID: 7817785984601880353, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
+      propertyPath: requiresItem
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817785984601880353, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
+      propertyPath: RequiredItemName
+      value: BeachBall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8443556685801435727, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
+      propertyPath: pi
+      value: 
+      objectReference: {fileID: 1844764056}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6522700596418851657, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1234531030}
   m_SourcePrefab: {fileID: 100100000, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
 --- !u!1001 &1645914191
 PrefabInstance:
@@ -30780,7 +30826,9 @@ MonoBehaviour:
   pi: {fileID: 0}
   img: {fileID: 0}
   isImg: 0
+  fadeOut: 0
   NotAffectedByTimescale: 0
+  fadeoutalpha: 0
   defaultAlpha: 0
   overrideScaleRotation: 0
 --- !u!4 &1689664663 stripped

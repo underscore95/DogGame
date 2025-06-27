@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -11,6 +12,8 @@ public class NPC : MonoBehaviour, I_Interactable
 {
     [SerializeField] private float _interactDistance = 5.0f;
     [SerializeField] private UI_BUBBLE_DISPLAY _display;
+    [SerializeField] private UI_BUBBLE_DISPLAY _thoughtBubble;
+
     [SerializeField] private GameObject _smokePuffPrefab;
 
     [Header("Finish Game")]
@@ -27,6 +30,19 @@ public class NPC : MonoBehaviour, I_Interactable
     [SerializeField] private ClothingItemType _clothingItemType;
     QUEST_REFERENCER QR;
 
+
+    [SerializeField] bool requiresItem;
+    [SerializeField] string RequiredItemName;
+    PLAYER_FETCHING PF;
+
+    [Header("Sounds")]
+    [SerializeField] AudioClip enterRangeCantTrade;
+    [SerializeField] AudioClip enterRangeCanTrade;
+    [SerializeField] AudioClip successfulTrade;
+    [SerializeField] AudioClip succesfulTradeFX;
+    [SerializeField] AudioClip failedTrade;
+    AudioSource AS;
+
     private PlayerClothing _playerClothing;
     public bool _hasTraded = false;
     public bool _activated;
@@ -38,7 +54,9 @@ public class NPC : MonoBehaviour, I_Interactable
     {
         _activated = true;
         _playerClothing = FindAnyObjectByType<PlayerClothing>();
+        PF = FindAnyObjectByType<PLAYER_FETCHING>();
         QR = GetComponent<QUEST_REFERENCER>();
+        AS = GetComponent<AudioSource>();
 
         transform.localPosition = new Vector3(37 + id * 5, -1.5f, -33);
 
@@ -57,7 +75,6 @@ public class NPC : MonoBehaviour, I_Interactable
     {
         if (_secondsSinceGameFinish >= 0)
         {
-            Debug.Log("ending the game");
             _secondsSinceGameFinish += Time.unscaledDeltaTime;
             Color c = _outroImage.color;
             c.a = Mathf.InverseLerp(0.0f, _fadeDuration, _secondsSinceGameFinish);
@@ -107,7 +124,6 @@ public class NPC : MonoBehaviour, I_Interactable
         {
             return;
         }
-
         if (onCompleteID == 444) return;
         QR.QUESTS.Game_Quests[onCompleteID].DoComplete();
     }
@@ -120,24 +136,63 @@ public class NPC : MonoBehaviour, I_Interactable
     {
         HandleFinishingGame();
 
-        _display.SetBubbleVisibility(false);
-        _display.OnInteract();
+
         if (_hasTraded) return;
+
+        if (CanTrade())
+        {
+            if (requiresItem)
+            {
+                PF.DropObject();
+                PF.heldFetch.canFetch = false;
+                Destroy(PF.heldObj, 1.5f);
+                PF.heldObj = null;
+                PF.heldFetch = null;
+            }
+        }
+        else
+        { AS.PlayOneShot(failedTrade); _display.OnInteract(false); _thoughtBubble.OnInteract(false); _thoughtBubble.FX.MoveIn(Vector3.down * 0.5f, 12f);
+            return; }
+           
+
+        _display.SetBubbleVisibility(false);
+        _display.OnInteract(true);
+        _thoughtBubble.OnInteract(true);
+        _thoughtBubble.SetBubbleVisibility(false);
+        AS.PlayOneShot(successfulTrade);
+
+        AS.PlayOneShot(succesfulTradeFX);
         if (_hasClothing)
         {
+
             HandleTradingForClothing();
         }
         HandleQuesting();
     }
 
+    public bool CanTrade()
+    {
+        if (!requiresItem) return true;
+        if (PF.heldObj == null) return false;
+        if (!PF.fetching) return false;
+        if (requiresItem && PF.heldObj.name == RequiredItemName) { return true; }
+        return false;
+    }
+
+
     public void OnEnterInteractRange()
     {
         if (_hasTraded || !_activated) return;
+
+        AS.PlayOneShot(CanTrade() ? enterRangeCanTrade : enterRangeCantTrade);
         _display.SetBubbleVisibility(true);
+        _thoughtBubble.SetBubbleVisibility(true);
     }
 
     public void OnExitInteractRange()
     {
         _display.SetBubbleVisibility(false);
+        _thoughtBubble.SetBubbleVisibility(false) ;
+
     }
 }

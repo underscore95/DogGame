@@ -51,6 +51,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c718e422b704c83419b8c16e0c9163f5, type: 2}
   FX: {fileID: 0}
   hidden: 0
+  appearSpd: 10
+  disappearSpd: 7
+  moveinSpd: 14
+  pulseSpd: 10
+  colorPulseSpd: 7
 --- !u!114 &4920314510151546360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,6 +74,11 @@ MonoBehaviour:
   pi: {fileID: 0}
   img: {fileID: 3994742952242945064}
   isImg: 0
+  fadeOut: 0
+  NotAffectedByTimescale: 0
+  fadeoutalpha: 0
+  defaultAlpha: 0
+  overrideScaleRotation: 0
 --- !u!1 &5646232980965792098
 GameObject:
   m_ObjectHideFlags: 0

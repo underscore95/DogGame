@@ -42,7 +42,7 @@ public class FETCHABLE : MonoBehaviour
         col.enabled = false;
         rb.isKinematic = true;
         fetched = true;
-        canFetch = false;
+       // canFetch = false;
         lastFramePos = transform.position;
     }
 
@@ -53,13 +53,14 @@ public class FETCHABLE : MonoBehaviour
         fetched = false;
         StartCoroutine(fetchCooldown());
         rb.linearVelocity = vel;
+        
     }
 
     IEnumerator fetchCooldown()
     {
-        canFetch = false;
+       // canFetch = false;
         yield return new WaitForSeconds(0.4f);
-        canFetch = true;
+       // canFetch = true;
     }
 
 

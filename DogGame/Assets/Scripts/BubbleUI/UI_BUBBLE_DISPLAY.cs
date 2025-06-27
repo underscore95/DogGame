@@ -21,6 +21,12 @@ public class UI_BUBBLE_DISPLAY : MonoBehaviour
     Color alpha0 = new(0, 0, 0, 0);
     public UI_FX FX;
     public bool hidden;
+    public bool dontUseAnim;
+    public float appearSpd;
+    public float disappearSpd;
+    public float moveinSpd;
+    public float pulseSpd;
+    public float colorPulseSpd;
 
     private void Start()
     {
@@ -47,21 +53,30 @@ public class UI_BUBBLE_DISPLAY : MonoBehaviour
 
     }
 
-    public void OnInteract()
+    public void OnInteract(bool successful)
     {
-        FX.ScalePulse(new Vector3(0.5f, 0.5f, 0.5f), Vector3.zero, 10f, 0f, true);
+        if (successful)
+        {
+            FX.ScalePulse(new Vector3(0.5f, 0.5f, 0.5f), Vector3.zero, 10f, 0f, true);
+            FX.ColorPulse(colorPulseSpd, Color.green, 1f);
+        }
+        else
+        {
+            FX.ScalePulse(new Vector3(0.5f, 0.5f, 0.5f), Vector3.zero, pulseSpd, 0f, true);
+            FX.ColorPulse(colorPulseSpd, Color.red, 1f);
+        }
     }
 
     public void OnAppear()
     {
         FX.EndFadeOut(14f);
-        FX.MoveIn(Vector3.down * 1f, 9f);
+        FX.MoveIn(Vector3.down * 1f, appearSpd);
 
     }
 
     public void OnDisappear()
     {
-        FX.BeginFadeOut(0, 14f);
+        FX.BeginFadeOut(0, disappearSpd);
     }
 
     /// <summary>
@@ -79,10 +94,13 @@ public class UI_BUBBLE_DISPLAY : MonoBehaviour
 
     void StartUIAnimation()
     {
-        isPlaying = true;
-        animFPS = spritesData[spritesDataIndex].animFPS;
-        sprites = spritesData[spritesDataIndex].sprites;
-        coroutineAnimation = StartCoroutine(PlayUIAnimation());
+        if (!dontUseAnim)
+        {
+            isPlaying = true;
+            animFPS = spritesData[spritesDataIndex].animFPS;
+            sprites = spritesData[spritesDataIndex].sprites;
+            coroutineAnimation = StartCoroutine(PlayUIAnimation());
+        }
     }
 
     private void StopUIAnimation()

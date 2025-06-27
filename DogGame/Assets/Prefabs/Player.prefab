@@ -686,6 +686,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b312f0671c512dc40af360d45ac0596c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heldObj: {fileID: 0}
+  heldFetch: {fileID: 0}
+  fetching: 0
   holdPoint: {fileID: 1095057805438804696}
   dropPoint: {fileID: 1408918598383618889}
 --- !u!135 &6191511677263429023
@@ -1172,6 +1175,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 22fbe2f0d8b0a064ca23c166df4a1756, type: 3}
   - {fileID: 8300000, guid: 40b590030ff145e418ec63a6e5cdcecb, type: 3}
   - {fileID: 8300000, guid: 8e9f8b70b6131a446892f79a50135d3d, type: 3}
+  MuffledBarks:
+  - {fileID: 8300000, guid: 6cd6f3c62de03a944a6638126aabb43d, type: 3}
+  - {fileID: 8300000, guid: ac547b6a1f701fb48af64e2a63b2cd73, type: 3}
+  - {fileID: 8300000, guid: ce1d5fbad7f73fb4b8d31e2c20670838, type: 3}
+  - {fileID: 8300000, guid: 73b5ceea8a775154ea3a0927dfa3d08c, type: 3}
   barkRate: 0.3
 --- !u!95 &7741340175945813560
 Animator:

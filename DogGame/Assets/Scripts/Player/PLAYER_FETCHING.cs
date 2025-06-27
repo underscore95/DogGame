@@ -7,10 +7,10 @@ public class PLAYER_FETCHING : MonoBehaviour
    
     PLAYER_INPUTS PI;
 
-    GameObject heldObj;
-    FETCHABLE heldFetch;
+    public GameObject heldObj;
+    public FETCHABLE heldFetch;
     bool grabInput;
-    bool fetching;
+    public bool fetching;
     public GameObject holdPoint;
     public GameObject dropPoint;
     Vector3 holdPos;
@@ -47,15 +47,18 @@ public class PLAYER_FETCHING : MonoBehaviour
         }
     }
 
-    void DropObject()
+    public void DropObject()
     {  
         heldObj.transform.position = dropPoint.transform.position;
         heldFetch.EndFetch();
-        fetching = false;       
+        fetching = false;   
+      //  heldFetch = null;
+      //  heldObj = null;
     }
 
     void MoveGrabbedObj()
     {
+        if (heldObj == null) return;
         holdPos = holdPoint.transform.position;
         heldObj.transform.SetPositionAndRotation(holdPoint.transform.position, holdPoint.transform.rotation);
     }

@@ -5,6 +5,8 @@ public class PLAYER_AUDIO : MonoBehaviour
 {
     public AudioClip[] Footsteps;
     public AudioClip[] Barks;
+    public AudioClip[] MuffledBarks;
+
     public float barkRate;
     bool barking;
     AudioSource AS;
@@ -20,10 +22,19 @@ public class PLAYER_AUDIO : MonoBehaviour
         
     }
 
-    public void PlayBark()
+    public void PlayBark(bool muffled)
     {
         if (barking) { return; }
-        AudioClip bark = Barks[Random.Range(0, Barks.Length)];
+        AudioClip bark;
+
+        if (muffled)
+        {
+            bark = MuffledBarks[Random.Range(0, MuffledBarks.Length)];
+        }
+        else
+        {
+           bark = Barks[Random.Range(0, Barks.Length)];
+        }
         AS.PlayOneShot(bark);
         Debug.Log("bark");
         StartCoroutine(BarkCooldown());

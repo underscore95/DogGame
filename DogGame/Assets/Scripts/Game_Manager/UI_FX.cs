@@ -16,13 +16,15 @@ public class UI_FX : MonoBehaviour
     public PLAYER_INPUTS pi;
     public Image img;
     public bool isImg;
-    bool fadeOut;
+    public bool fadeOut;
     public bool NotAffectedByTimescale;
-    float fadeoutalpha;
+    public float fadeoutalpha;
     public float defaultAlpha;
     public bool overrideScaleRotation;
     Vector3 overrideScale;
     Vector3 overrideRotation;
+    //Because of multi frame images
+    Color storedColor;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,7 +33,7 @@ public class UI_FX : MonoBehaviour
         { 
         img = GetComponent<Image>();
         }
-        if (img != null) { defaultColor = img.color; }
+        if (img != null) { defaultColor = img.color; storedColor = defaultColor; }
         defaultPos = transform.position;
         defaultScale = transform.localScale;
         defaultRot = transform.rotation;
@@ -84,14 +86,22 @@ public class UI_FX : MonoBehaviour
             transform.localScale = Vector3.Lerp(transform.localScale, defaultScale, scaleBackTime * timeScale);
             transform.rotation = Quaternion.Lerp(transform.rotation, defaultRot, rotBackTime * timeScale);
         }
-        if (img != null) { img.color = Color.Lerp(img.color, defaultColor, colorBackTime * timeScale);}
+        if (img != null)
+        {
+             storedColor = Color.Lerp(storedColor, defaultColor, colorBackTime * timeScale);
+          //  img.color = Color.Lerp(storedColor, defaultColor, colorBackTime * timeScale);
+
+              img.color = storedColor;
+        }
        
     }
 
     public void ChangeDefaultColor(Color col, float alpha)
     {
         defaultColor = col;
+        storedColor = col;
         defaultColor.a = alpha;
+        storedColor.a = alpha;
     }
     public void ChangeDefaultPos(Vector3 pos)
     {
@@ -101,9 +111,12 @@ public class UI_FX : MonoBehaviour
 
     public void ColorPulse(float pulseSpd, Color color, float alpha)
     {
+        Debug.Log("pulsing");
         img.color = color;
+        storedColor = color;
         colorBackTime = pulseSpd;
         img.color = new Color(img.color.r, img.color.g, img.color.b, alpha);
+        storedColor = img.color;
     }
 
     public void MoveIn(Vector3 pos, float spd)

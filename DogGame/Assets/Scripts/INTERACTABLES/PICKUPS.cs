@@ -8,6 +8,8 @@ public class PICKUPS : MonoBehaviour
     [SerializeField] float PickupRotSpd;
     [SerializeField] float FloatUpSpd;
     [SerializeField] float DownScaleSpd;
+    [SerializeField] AudioClip sound;
+    AudioSource AS;
     GameObject gm;
     ENTITIES nt;
     float rspd;
@@ -17,6 +19,7 @@ public class PICKUPS : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        AS = GetComponent<AudioSource>();
         gm = GameObject.Find("Game_Manager");
         nt = gm.GetComponent<ENTITIES>();
     }
@@ -35,10 +38,13 @@ public class PICKUPS : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.tag);
         if (other.tag == "Player")
         {
             rspd = PickupRotSpd;
+            if (!destroy)
+            {
+                AS.PlayOneShot(sound);
+            }
            StartCoroutine( Destroy());
         }
     }
