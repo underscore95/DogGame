@@ -42,6 +42,7 @@ public class NPC : MonoBehaviour, I_Interactable
     [SerializeField] AudioClip succesfulTradeFX;
     [SerializeField] AudioClip failedTrade;
     AudioSource AS;
+    CLOTHTRACKER_UI CLOTHUI;
 
     private PlayerClothing _playerClothing;
     public bool _hasTraded = false;
@@ -52,6 +53,7 @@ public class NPC : MonoBehaviour, I_Interactable
 
     private void Awake()
     {
+        CLOTHUI = GameObject.Find("ClothesCounterUI").GetComponent<CLOTHTRACKER_UI>();
         _activated = true;
         _playerClothing = FindAnyObjectByType<PlayerClothing>();
         PF = FindAnyObjectByType<PLAYER_FETCHING>();
@@ -113,9 +115,11 @@ public class NPC : MonoBehaviour, I_Interactable
 
         Instantiate(_smokePuffPrefab).transform.position = transform.position;
         Destroy(_clothingObject);
-        _playerClothing.WearClothing(_clothingItemType, _clothingPrefab);
+        CLOTHUI.CallStampPolaroid(_clothingItemType);
 
         _hasTraded = true;
+        _playerClothing.WearClothing(_clothingItemType, _clothingPrefab);
+
     }
 
     private void HandleQuesting()
@@ -126,6 +130,7 @@ public class NPC : MonoBehaviour, I_Interactable
         }
         if (onCompleteID == 444) return;
         QR.QUESTS.Game_Quests[onCompleteID].DoComplete();
+        
     }
 
     public void InteractableInRange()
