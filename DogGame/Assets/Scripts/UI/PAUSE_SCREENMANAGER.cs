@@ -19,13 +19,17 @@ public class PAUSE_SCREENMANAGER : MonoBehaviour
     GameObject CC;
     GameObject CLOTHTRACKOBJ;
     CLOTHTRACKER_UI CLOTHUI;
+    [SerializeField] bool menu;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        CC = GameObject.Find("CoinCounterUI");
-        CLOTHTRACKOBJ = GameObject.Find("ClothesCounterUI");
-        CLOTHUI = CLOTHTRACKOBJ.GetComponent<CLOTHTRACKER_UI>();
-        CCUI = CC.GetComponent<COINCOUNTER_UI>();
+        if (!menu)
+        {
+            CC = GameObject.Find("CoinCounterUI");
+            CLOTHTRACKOBJ = GameObject.Find("ClothesCounterUI");
+            CLOTHUI = CLOTHTRACKOBJ.GetComponent<CLOTHTRACKER_UI>();
+            CCUI = CC.GetComponent<COINCOUNTER_UI>();
+        }
 
         if (enableFromStart)
         { Cursor.visible = true; 
@@ -92,8 +96,11 @@ public class PAUSE_SCREENMANAGER : MonoBehaviour
         {
             Time.timeScale = 0f;
         }
-        CCUI.Show();
-        CLOTHUI.Show();
+        if (!menu)
+        {
+            CCUI.Show();
+            CLOTHUI.Show();
+        }
         enable.SetActive(true);
         Buttons[0].Select();
         AllObjFadein();
@@ -123,8 +130,11 @@ public class PAUSE_SCREENMANAGER : MonoBehaviour
 
     public void UnPauseGame()
     {
-        CCUI.Hide();
-        CLOTHUI.Hide();
+        if (!menu)
+        {
+            CCUI.Hide();
+            CLOTHUI.Hide();
+        }
         fadingOut = true;
         AllObjFadeout();
         StartCoroutine(UnPauseDelay());

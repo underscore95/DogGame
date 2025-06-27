@@ -84,6 +84,10 @@ public class COINCOUNTER_UI : MonoBehaviour
         {
             money = (MoneyAmount / 10).ToString() + "0";
         }
+        if (money.Length< 2)
+        {
+            money = (MoneyAmount / 10).ToString() + ".00";
+        }
         Text.text.text = ("£" + money);
         Text.ColorPulse(4f, Color.green, 1f);
         Image.ColorPulse(4f, Color.green, 1f);
