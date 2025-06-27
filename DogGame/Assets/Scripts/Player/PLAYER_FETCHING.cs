@@ -14,13 +14,16 @@ public class PLAYER_FETCHING : MonoBehaviour
     public GameObject holdPoint;
     public GameObject dropPoint;
     Vector3 holdPos;
-
+    [SerializeField] UI_BUBBLE_DISPLAY FETCHUI;
+    [SerializeField] UI_BUBBLE_DISPLAY FETCHBTONUI;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         PI = GetComponent<PLAYER_INPUTS>();
+      //  FETCHUI.SetBubbleVisibility(false);
+       // FETCHBTONUI.SetBubbleVisibility(false);
     }
 
     //Keeps input enabled for a few seconds
@@ -70,9 +73,16 @@ public class PLAYER_FETCHING : MonoBehaviour
         {
             if (grabInput)
             {
+
+
                 heldFetch = other.GetComponent<FETCHABLE>();
                 if (!heldFetch.canFetch) { return; }
                 heldFetch.BeginFetch();
+                FETCHBTONUI.FX.ScalePulse(Vector3.one * 1.8f, Vector3.zero, 10f, 0f, true);
+                FETCHUI.FX.ScalePulse(Vector3.one * 1.8f, Vector3.zero, 10f, 0f, true);
+
+                FETCHBTONUI.SetBubbleVisibility(false);
+                FETCHUI.SetBubbleVisibility(false);
                 heldObj = other.gameObject;
                 fetching = true;
                 grabInput = false;
@@ -80,11 +90,36 @@ public class PLAYER_FETCHING : MonoBehaviour
         }
     }
 
-  
 
-   
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.GetComponent<FETCHABLE>() != null)
+        {
+            if (!fetching)
+            {
+                Debug.Log("ENABLE FETCHING UI!");
+                FETCHBTONUI.SetBubbleVisibility(true);
+                FETCHUI.SetBubbleVisibility(true);
+            }
+        }
+    }
 
-    
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.GetComponent<FETCHABLE>() != null)
+        {
+            Debug.Log("DISABLE FETCHING UI!");
+
+            FETCHBTONUI.SetBubbleVisibility(false);
+            FETCHUI.SetBubbleVisibility(false);
+        }
+    }
+
+
+
+
+
+
 
 
 

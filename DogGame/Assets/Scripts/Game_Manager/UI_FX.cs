@@ -32,6 +32,7 @@ public class UI_FX : MonoBehaviour
     Vector3 rotAmount;
     Vector3 rotEular;
     float defaultRotStatic;
+    public bool overridePosChanges;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -104,9 +105,12 @@ public class UI_FX : MonoBehaviour
         float timeScale = NotAffectedByTimescale ? Time.unscaledDeltaTime :  Time.deltaTime;
 
         if (fadeOut)
-        { defaultColor.a = fadeoutalpha; }    
+        { defaultColor.a = fadeoutalpha; }
 
-        transform.position = Vector3.Lerp(transform.position, defaultPos, moveBackTime * timeScale);
+        if (!overridePosChanges)
+        {
+            transform.position = Vector3.Lerp(transform.position, defaultPos, moveBackTime * timeScale);
+        }
         if (!overrideScaleRotation)
         {
             transform.localScale = Vector3.Lerp(transform.localScale, defaultScale, scaleBackTime * timeScale);
@@ -172,7 +176,10 @@ public class UI_FX : MonoBehaviour
 
     public void MoveIn(Vector3 pos, float spd)
     {
-        transform.position += pos;
+        if (!overridePosChanges)
+        {
+            transform.position += pos;
+        }
         moveBackTime = spd;
     }
 

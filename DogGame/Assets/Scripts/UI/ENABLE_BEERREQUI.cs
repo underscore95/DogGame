@@ -18,7 +18,6 @@ public class ENABLE_BEERREQUI : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.tag);
 
         if (other.gameObject.tag == "Player")
         {

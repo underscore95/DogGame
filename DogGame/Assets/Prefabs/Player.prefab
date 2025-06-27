@@ -689,6 +689,8 @@ MonoBehaviour:
   fetching: 0
   holdPoint: {fileID: 6803995338039044266}
   dropPoint: {fileID: 2384598280501320048}
+  FETCHUI: {fileID: 0}
+  FETCHBTONUI: {fileID: 0}
 --- !u!135 &6191511677263429023
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1371,6 +1373,10 @@ PrefabInstance:
       propertyPath: 'spritesData.Array.data[2]'
       value: 
       objectReference: {fileID: 11400000, guid: f9841982fa3901b44a2ab539a7e87905, type: 2}
+    - target: {fileID: 4920314510151546360, guid: 51a4030aa5e5bad45818b0f2f137aeb8, type: 3}
+      propertyPath: overridePosChanges
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7320161672466367352, guid: 51a4030aa5e5bad45818b0f2f137aeb8, type: 3}
       propertyPath: m_LocalScale.y
       value: 1

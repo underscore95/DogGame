@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 8349791323985286468}
   - component: {fileID: 4161190067088167407}
   - component: {fileID: 1546173317019752267}
+  - component: {fileID: 8176495124826117161}
   m_Layer: 0
   m_Name: Fetchable
   m_TagString: Non-WalkableDynamic
@@ -206,3 +207,25 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8176495124826117161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5674583533411456676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fe81bd42e05fec40b463d5d03a7b3b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 0}
+  spritesData: []
+  FX: {fileID: 0}
+  hidden: 0
+  dontUseAnim: 0
+  appearSpd: 0
+  disappearSpd: 0
+  moveinSpd: 0
+  pulseSpd: 0
+  colorPulseSpd: 0
