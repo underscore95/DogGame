@@ -14,11 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubbleName: Jump
   sprites:
-  - {fileID: 842775008, guid: 19adecf65666fcd4fb7e4852e93a5be3, type: 3}
-  - {fileID: -778712221, guid: 19adecf65666fcd4fb7e4852e93a5be3, type: 3}
-  - {fileID: -1311035590, guid: 19adecf65666fcd4fb7e4852e93a5be3, type: 3}
-  - {fileID: -698812351, guid: 19adecf65666fcd4fb7e4852e93a5be3, type: 3}
-  - {fileID: -1658445740, guid: 19adecf65666fcd4fb7e4852e93a5be3, type: 3}
-  - {fileID: 1637329805, guid: 19adecf65666fcd4fb7e4852e93a5be3, type: 3}
-  - {fileID: -1003639729, guid: 19adecf65666fcd4fb7e4852e93a5be3, type: 3}
+  - {fileID: 911211425, guid: 59b040e54408ba84b8190f3ff171f9ec, type: 3}
+  - {fileID: -19885316, guid: 59b040e54408ba84b8190f3ff171f9ec, type: 3}
+  - {fileID: -1350531397, guid: 59b040e54408ba84b8190f3ff171f9ec, type: 3}
+  - {fileID: -2016880423, guid: 59b040e54408ba84b8190f3ff171f9ec, type: 3}
   animFPS: 4

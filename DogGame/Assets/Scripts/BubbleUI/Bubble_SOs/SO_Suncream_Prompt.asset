@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c83b77ff093dca4cb66a7d310a028b3, type: 3}
-  m_Name: SO_Beer_Prompt
+  m_Name: SO_Suncream_Prompt
   m_EditorClassIdentifier: 
   bubbleName: 
   sprites:
-  - {fileID: 1442310428, guid: 4503942107948694a995e063a2a27eb0, type: 3}
-  - {fileID: -582246076, guid: 4503942107948694a995e063a2a27eb0, type: 3}
-  - {fileID: -292042993, guid: 4503942107948694a995e063a2a27eb0, type: 3}
-  - {fileID: -666164471, guid: 4503942107948694a995e063a2a27eb0, type: 3}
-  animFPS: 4
+  - {fileID: 672448338, guid: 39424f1bf66cfb746af7c0201bb5cfba, type: 3}
+  - {fileID: 440392823, guid: 39424f1bf66cfb746af7c0201bb5cfba, type: 3}
+  - {fileID: 1899488331, guid: 39424f1bf66cfb746af7c0201bb5cfba, type: 3}
+  - {fileID: 1472703255, guid: 39424f1bf66cfb746af7c0201bb5cfba, type: 3}
+  animFPS: 0

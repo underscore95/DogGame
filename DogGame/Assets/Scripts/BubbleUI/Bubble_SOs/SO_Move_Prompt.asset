@@ -14,21 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubbleName: 
   sprites:
-  - {fileID: 1736135191, guid: bac93222b05dc6445a370ef5c63a8d54, type: 3}
-  - {fileID: -306991935, guid: bac93222b05dc6445a370ef5c63a8d54, type: 3}
-  - {fileID: -1604051082, guid: bac93222b05dc6445a370ef5c63a8d54, type: 3}
-  - {fileID: -2060744553, guid: bac93222b05dc6445a370ef5c63a8d54, type: 3}
-  - {fileID: -1008954207, guid: bac93222b05dc6445a370ef5c63a8d54, type: 3}
-  - {fileID: 462687491, guid: bac93222b05dc6445a370ef5c63a8d54, type: 3}
-  - {fileID: 190973475, guid: bac93222b05dc6445a370ef5c63a8d54, type: 3}
-  - {fileID: -558015572, guid: bac93222b05dc6445a370ef5c63a8d54, type: 3}
-  - {fileID: -530407550, guid: bac93222b05dc6445a370ef5c63a8d54, type: 3}
-  - {fileID: -2082307403, guid: bac93222b05dc6445a370ef5c63a8d54, type: 3}
-  - {fileID: -1128875022, guid: bac93222b05dc6445a370ef5c63a8d54, type: 3}
-  - {fileID: -1419953365, guid: bac93222b05dc6445a370ef5c63a8d54, type: 3}
-  - {fileID: -2071550424, guid: bac93222b05dc6445a370ef5c63a8d54, type: 3}
-  - {fileID: 1681900690, guid: bac93222b05dc6445a370ef5c63a8d54, type: 3}
-  - {fileID: -570411647, guid: bac93222b05dc6445a370ef5c63a8d54, type: 3}
-  - {fileID: -1838782797, guid: bac93222b05dc6445a370ef5c63a8d54, type: 3}
-  - {fileID: 1811223909, guid: bac93222b05dc6445a370ef5c63a8d54, type: 3}
+  - {fileID: -1777998385, guid: be5a5b75faee8f9439882c108c84cfdc, type: 3}
+  - {fileID: 484547761, guid: be5a5b75faee8f9439882c108c84cfdc, type: 3}
+  - {fileID: -1675333606, guid: be5a5b75faee8f9439882c108c84cfdc, type: 3}
+  - {fileID: 1842645733, guid: be5a5b75faee8f9439882c108c84cfdc, type: 3}
   animFPS: 4
