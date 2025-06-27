@@ -18763,6 +18763,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1ea4a4fbfde8b484fa98e908f57ad1ff, type: 3}
   m_PrefabInstance: {fileID: 1012730633}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1021334447 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2384598280501320048, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+  m_PrefabInstance: {fileID: 1635681585}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1021650088
 GameObject:
   m_ObjectHideFlags: 0
@@ -30338,21 +30343,17 @@ PrefabInstance:
       propertyPath: 'Footsteps.Array.data[6]'
       value: 
       objectReference: {fileID: 8300000, guid: b4465a32d3d543d48a3df09867701af8, type: 3}
+    - target: {fileID: 4566688278050132987, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+      propertyPath: dropPoint
+      value: 
+      objectReference: {fileID: 1705223949}
+    - target: {fileID: 4566688278050132987, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+      propertyPath: holdPoint
+      value: 
+      objectReference: {fileID: 1021334447}
     - target: {fileID: 5974559657752370896, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
       propertyPath: maxBounces
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5988850283860379430, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
-      propertyPath: GST.accelSpd
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 5988850283860379430, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
-      propertyPath: GST.decelSpd
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 5988850283860379430, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
-      propertyPath: GST.maxSpeed
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6191511677263429023, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
       propertyPath: m_Radius
@@ -31901,6 +31902,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1ea4a4fbfde8b484fa98e908f57ad1ff, type: 3}
   m_PrefabInstance: {fileID: 1703510404}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1705223949 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6803995338039044266, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+  m_PrefabInstance: {fileID: 1635681585}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1706423612 stripped
 Transform:
