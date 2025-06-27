@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UI_FX : MonoBehaviour
 {
@@ -25,15 +26,27 @@ public class UI_FX : MonoBehaviour
     Vector3 overrideRotation;
     //Because of multi frame images
     Color storedColor;
+    public bool isText;
+    public TextMeshProUGUI text;
+    bool rotating;
+    Vector3 rotAmount;
+    Vector3 rotEular;
+    float defaultRotStatic;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         overrideScaleRotation = false;
-        if (isImg) 
-        { 
-        img = GetComponent<Image>();
+        if (isImg)
+        {
+            img = GetComponent<Image>();
         }
         if (img != null) { defaultColor = img.color; storedColor = defaultColor; }
+        if (isText)
+        {
+            text = GetComponent<TextMeshProUGUI>();
+            { defaultColor = text.color; storedColor = defaultColor; }
+        }
         defaultPos = transform.position;
         defaultScale = transform.localScale;
         defaultRot = transform.rotation;
@@ -55,6 +68,8 @@ public class UI_FX : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (rotating)
+        { rotEular += (rotAmount * Time.unscaledDeltaTime); }
         
        // { MoveIn(Vector3.down * 800f, 5f); ColorPulse(3f, Color.white, 0f); }
         MoveTowardsDefault();
@@ -72,6 +87,17 @@ public class UI_FX : MonoBehaviour
         colorBackTime = spd;
         defaultColor.a = defaultColorStatic.a;
     }
+    public void Rotating(Vector3 axis, float amount)
+    {
+        rotating = true;
+        rotAmount = axis * amount;
+    }
+
+    public void EndRotating()
+    {
+        rotating = false;
+
+    }
 
     void MoveTowardsDefault()
     {
@@ -84,14 +110,27 @@ public class UI_FX : MonoBehaviour
         if (!overrideScaleRotation)
         {
             transform.localScale = Vector3.Lerp(transform.localScale, defaultScale, scaleBackTime * timeScale);
-            transform.rotation = Quaternion.Lerp(transform.rotation, defaultRot, rotBackTime * timeScale);
+            if (rotating)
+            {
+                transform.rotation = Quaternion.Euler(rotEular);
+            }
+            else
+            {
+                transform.rotation = Quaternion.Lerp(transform.rotation, defaultRot, rotBackTime * timeScale);
+            }
         }
+        if (isText) {
+            storedColor = Color.Lerp(storedColor, defaultColor, colorBackTime * timeScale);
+
+            text.color = storedColor; text.alpha = storedColor.a; Debug.Log(text.alpha); Debug.Log(storedColor.a); }
+        else
         if (img != null)
         {
              storedColor = Color.Lerp(storedColor, defaultColor, colorBackTime * timeScale);
           //  img.color = Color.Lerp(storedColor, defaultColor, colorBackTime * timeScale);
 
-              img.color = storedColor;
+            
+          img.color = storedColor; 
         }
        
     }
@@ -112,11 +151,24 @@ public class UI_FX : MonoBehaviour
     public void ColorPulse(float pulseSpd, Color color, float alpha)
     {
         Debug.Log("pulsing");
-        img.color = color;
-        storedColor = color;
-        colorBackTime = pulseSpd;
-        img.color = new Color(img.color.r, img.color.g, img.color.b, alpha);
-        storedColor = img.color;
+        if (isText)
+        {
+            text.color = color;
+            storedColor = color;
+            colorBackTime = pulseSpd;
+            text.color = new Color(text.color.r, text.color.g, text.color.b, alpha);
+            storedColor = text.color;
+
+        }
+        else
+        {
+
+            img.color = color;
+            storedColor = color;
+            colorBackTime = pulseSpd;
+            img.color = new Color(img.color.r, img.color.g, img.color.b, alpha);
+            storedColor = img.color;
+        }
     }
 
     public void MoveIn(Vector3 pos, float spd)

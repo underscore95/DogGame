@@ -16,6 +16,7 @@ public class PICKUPS : MonoBehaviour
     Vector3 eular;
     bool destroy;
     public int id;
+    public int MoneyAmnt;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -51,9 +52,14 @@ public class PICKUPS : MonoBehaviour
 
     IEnumerator Destroy()
     {
-        destroy = true;
-        yield return new WaitForSeconds(1f);
-        nt.NotifyPickup(id);
-        GameObject.Destroy(gameObject);
+        if (!destroy)
+        {
+            destroy = true;
+            nt.NotifyPickup(id);
+            nt.AddMoney(MoneyAmnt);
+            yield return new WaitForSeconds(1f);
+
+            GameObject.Destroy(gameObject);
+        }
     }
 }

@@ -15,9 +15,14 @@ public class PAUSE_SCREENMANAGER : MonoBehaviour
     public Button[] Buttons;
     UI_BUTTON[] UI_Buttons;
     bool fadingOut;
+    COINCOUNTER_UI CCUI;
+    GameObject CC;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        CC = GameObject.Find("CoinCounterUI");
+        CCUI = CC.GetComponent<COINCOUNTER_UI>();
+
         if (enableFromStart)
         { Cursor.visible = true; 
         }
@@ -83,6 +88,7 @@ public class PAUSE_SCREENMANAGER : MonoBehaviour
         {
             Time.timeScale = 0f;
         }
+        CCUI.Show();
         enable.SetActive(true);
         Buttons[0].Select();
         AllObjFadein();
@@ -112,6 +118,7 @@ public class PAUSE_SCREENMANAGER : MonoBehaviour
 
     public void UnPauseGame()
     {
+        CCUI.Hide();
         fadingOut = true;
         AllObjFadeout();
         StartCoroutine(UnPauseDelay());
