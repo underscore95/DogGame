@@ -48,6 +48,7 @@ public class CLOTHTRACKER_UI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
     }
    
 
@@ -72,11 +73,12 @@ public class CLOTHTRACKER_UI : MonoBehaviour
         yield return new WaitForSeconds(stampDelay);
         switch (cType)
         {
-            case ClothingItemType.Hat: StampPolaroid(Hat, HatStamped);
+            case ClothingItemType.Hat:
+                hatObtained = true; StampPolaroid(Hat, HatStamped); 
                 break;
-                case ClothingItemType.Glasses: StampPolaroid(Glasses, GlassesStamped); break;
-                case ClothingItemType.Lei: StampPolaroid(Lei, LeiStamped);  break;
-            case ClothingItemType.Shirt: StampPolaroid(Shirt, ShirtStamped); break;
+                case ClothingItemType.Glasses: glassesObtained = true; StampPolaroid(Glasses, GlassesStamped);  break;
+                case ClothingItemType.Lei: leiObtained = true; StampPolaroid(Lei, LeiStamped);  break;
+            case ClothingItemType.Shirt: shirtObtained = true; StampPolaroid(Shirt, ShirtStamped);  break;
 
 
         }
@@ -110,6 +112,11 @@ public class CLOTHTRACKER_UI : MonoBehaviour
         Polaroid.ScalePulse(Vector3.one * 1.75f, Vector3.zero, 4f, 0f, true);
         AS.PlayOneShot(stampSound);
         StartCoroutine(DelayedClose());
+
+        if (hatObtained && glassesObtained && shirtObtained && leiObtained)
+        {
+            allItemsObtained = true;
+        }
     }
 
     void CloseAnim()

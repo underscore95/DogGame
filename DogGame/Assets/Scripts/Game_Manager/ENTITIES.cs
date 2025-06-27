@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ENTITIES : MonoBehaviour
 {
@@ -12,10 +13,13 @@ public class ENTITIES : MonoBehaviour
     UI_HOTDOGMANAGER HDM;
     COINCOUNTER_UI CCUI;
     public float Money;
-
+    public float MoneyRequiredToWin;
+    CLOTHTRACKER_UI CC;
+    public UnityEvent WhenWinConditionReached;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        CC = GetComponentInChildren<CLOTHTRACKER_UI>();
         CCUI = GetComponentInChildren<COINCOUNTER_UI>();
         HDM = GetComponentInChildren<UI_HOTDOGMANAGER>();
         OBJ_NPCS = GameObject.FindGameObjectsWithTag("NPC");
@@ -63,6 +67,9 @@ public class ENTITIES : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Money >= MoneyRequiredToWin && CC.allItemsObtained)
+        {
+            WhenWinConditionReached.Invoke();
+        }
     }
 }

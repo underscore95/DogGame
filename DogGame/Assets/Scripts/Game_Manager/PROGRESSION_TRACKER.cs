@@ -6,8 +6,14 @@ public class PROGRESSION_TRACKER : MonoBehaviour
 {
     public GameObject QuestPopupUI;
     UI_QUESTPOPUP QUESTPOPUP;
-    [System.Serializable]
+    ENTITIES en;
+    public float requiredWinMoney;
 
+    
+
+   
+
+    [System.Serializable]
     public struct Game_Quest
     {
         public int id;
@@ -18,6 +24,8 @@ public class PROGRESSION_TRACKER : MonoBehaviour
         public UnityEvent[] activateQuestEvents;
         public UnityEvent[] completeQuestEvents;
         UI_QUESTPOPUP QPOPUP;
+        
+
 
         public void DoComplete()
         {

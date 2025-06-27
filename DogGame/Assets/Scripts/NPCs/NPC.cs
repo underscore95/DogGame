@@ -97,7 +97,7 @@ public class NPC : MonoBehaviour, I_Interactable
 
         foreach (ClothingItemType type in Enum.GetValues(typeof(ClothingItemType)))
         {
-            if (!_playerClothing.HasClothingItem(type)) return;
+           // if (!_playerClothing.HasClothingItem(type)) return;
         }
 
         _secondsSinceGameFinish = 0;
@@ -107,6 +107,14 @@ public class NPC : MonoBehaviour, I_Interactable
     {
         _secondsSinceGameFinish = 0;
 
+    }
+
+    public void SetUpForEndTrade()
+    {
+        _canFinishGameByInteracting = true;
+        _activated = true;
+        requiresItem = false;
+        _hasTraded = false;
     }
 
     private void HandleTradingForClothing()
@@ -143,7 +151,7 @@ public class NPC : MonoBehaviour, I_Interactable
     public void InteractableAction()
     {
         HandleFinishingGame();
-        if (EventOnInteract != null)
+        if (EventOnInteract != null && !_canFinishGameByInteracting)
         { EventOnInteract.Invoke(); }
 
         if (_hasTraded) return;

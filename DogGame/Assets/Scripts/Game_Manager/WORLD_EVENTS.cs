@@ -25,9 +25,7 @@ public class WORLD_EVENTS : MonoBehaviour
 
     public void DoIHaveABridge()
     {
-        Debug.Log(Bridge);
-        Bridge.SetActive(true);
-        BridgeRemoveColliders.SetActive(false);
+       
     }
 
     public void SignCutscene()
