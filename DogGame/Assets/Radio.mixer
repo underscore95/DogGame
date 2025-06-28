@@ -38,8 +38,6 @@ AudioMixerGroupController:
   m_Effects:
   - {fileID: 24400004}
   - {fileID: 1802221321211569476}
-  - {fileID: 1743026410589645979}
-  - {fileID: 7433567853054154241}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -103,30 +101,8 @@ AudioMixerSnapshotController:
     ca19c0ed2a36ebd4bbdbd9d5f442ee0c: 1
     e248553e4139bf2489c9ab31ea51701e: -4084
     5d7d6c6e598963947ac32bb8de38e7a3: -19.8
-    18e525eeb48e43c4595af79d80d07841: 12.6
+    18e525eeb48e43c4595af79d80d07841: 20
   m_TransitionOverrides: {}
---- !u!244 &1743026410589645979
-AudioMixerEffectController:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_EffectID: 6dbf769d33049fe42a1703c5b164f83c
-  m_EffectName: Compressor
-  m_MixLevel: c739d3ae8eb8bd04c95e8c4d3396115f
-  m_Parameters:
-  - m_ParameterName: Threshold
-    m_GUID: 5d7d6c6e598963947ac32bb8de38e7a3
-  - m_ParameterName: Attack
-    m_GUID: d25b758b49b4c43449c3db0270803164
-  - m_ParameterName: Release
-    m_GUID: 2c61490b95465d04bb7488fbd0bc6ba0
-  - m_ParameterName: Make up gain
-    m_GUID: a33a7a818f48b8b4285cda12ac07bbf9
-  m_SendTarget: {fileID: 0}
-  m_EnableWetMix: 0
-  m_Bypass: 0
 --- !u!244 &1802221321211569476
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -166,22 +142,6 @@ AudioMixerEffectController:
     m_GUID: e8823dfe067b68f478c794d5cd883986
   - m_ParameterName: LF Reference
     m_GUID: d07ce1bcddde7f144bbd932f6e2ff6e9
-  m_SendTarget: {fileID: 0}
-  m_EnableWetMix: 0
-  m_Bypass: 0
---- !u!244 &7433567853054154241
-AudioMixerEffectController:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_EffectID: 7a62871f0c716364f8332f4aa206e210
-  m_EffectName: Lowpass Simple
-  m_MixLevel: 074e7e7a64376bb45b997f08a3ee5391
-  m_Parameters:
-  - m_ParameterName: Cutoff freq
-    m_GUID: 206a5b9a3e22668469fbd59a8620efb1
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0

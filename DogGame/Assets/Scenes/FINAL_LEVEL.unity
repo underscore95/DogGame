@@ -48628,6 +48628,10 @@ PrefabInstance:
       propertyPath: 'HOTDOGS.Array.data[7]'
       value: 
       objectReference: {fileID: 2146526414}
+    - target: {fileID: 2410098891527854151, guid: 1d1335b78f7c62c48a01a8e917c12f41, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2466634027126319582, guid: 1d1335b78f7c62c48a01a8e917c12f41, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -48726,6 +48730,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3687081334571802964, guid: 1d1335b78f7c62c48a01a8e917c12f41, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3698807058130345027, guid: 1d1335b78f7c62c48a01a8e917c12f41, type: 3}
+      propertyPath: StopTimeScale
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4452402879292920601, guid: 1d1335b78f7c62c48a01a8e917c12f41, type: 3}
@@ -48914,6 +48922,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6441519304815350592, guid: 1d1335b78f7c62c48a01a8e917c12f41, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6484322167036733744, guid: 1d1335b78f7c62c48a01a8e917c12f41, type: 3}
+      propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6551326747592916647, guid: 1d1335b78f7c62c48a01a8e917c12f41, type: 3}
