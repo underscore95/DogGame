@@ -182,6 +182,7 @@ public class NPC : MonoBehaviour, I_Interactable
         if (MoneyGiveAmount > 0)
         {
             QR.EN.AddMoney(MoneyGiveAmount);
+            _hasTraded = true;
         }
         if (_hasClothing)
         {

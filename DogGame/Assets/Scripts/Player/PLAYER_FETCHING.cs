@@ -37,6 +37,8 @@ public class PLAYER_FETCHING : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
+
         if (PI.IA_Fetch.WasPressedThisFrame())
         {
             StartCoroutine(InputBuffer());
@@ -54,9 +56,12 @@ public class PLAYER_FETCHING : MonoBehaviour
     {  
         heldObj.transform.position = dropPoint.transform.position;
         heldFetch.EndFetch();
-        fetching = false;   
-      //  heldFetch = null;
-      //  heldObj = null;
+        fetching = false;
+        //  heldFetch = null;
+        //  heldObj = null;
+        FETCHBTONUI.SetBubbleVisibility(false);
+        FETCHUI.SetBubbleVisibility(false);
+
     }
 
     void MoveGrabbedObj()
