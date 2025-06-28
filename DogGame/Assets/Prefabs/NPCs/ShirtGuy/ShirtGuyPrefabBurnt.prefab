@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 50, y: 50, z: 50}
+  m_LocalScale: {x: 25, y: 25, z: 25}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2025329272124914808}
@@ -46,7 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bodyType: 2
-  _attachments: []
+  _attachments:
+  - {fileID: 11400000, guid: e8eeda3cf82964142bc55061d04505e2, type: 2}
 --- !u!1001 &1986601197318560659
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57,15 +58,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: c36f02120228ceb4abdc85fc394a7175, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.1056
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c36f02120228ceb4abdc85fc394a7175, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.0157
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c36f02120228ceb4abdc85fc394a7175, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.0524
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c36f02120228ceb4abdc85fc394a7175, type: 3}
       propertyPath: m_LocalRotation.w

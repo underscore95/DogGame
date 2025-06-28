@@ -26,9 +26,10 @@ public class NPC : MonoBehaviour, I_Interactable
 
     [Header("Clothing Item")]
     [SerializeField] private bool _hasClothing = true; // can't trade for clothing if this is false
-    [SerializeField] private GameObject _clothingObject;
+    [SerializeField] private NPCModelAttachment _clothing;
     [SerializeField] private GameObject _clothingPrefab;
     [SerializeField] private ClothingItemType _clothingItemType;
+    [SerializeField] private Material _materialNoBurn;
     QUEST_REFERENCER QR;
 
 
@@ -48,6 +49,7 @@ public class NPC : MonoBehaviour, I_Interactable
     [SerializeField] UnityEvent EventOnInteract;
 
     private PlayerClothing _playerClothing;
+    private NPCModel _npcModel;
     public bool _hasTraded = false;
     public bool _activated;
     public int id;
@@ -56,6 +58,7 @@ public class NPC : MonoBehaviour, I_Interactable
 
     private void Awake()
     {
+        _npcModel = GetComponentInChildren<NPCModel>();
         CLOTHUI = GameObject.Find("ClothesCounterUI").GetComponent<CLOTHTRACKER_UI>();
         _activated = true;
         _playerClothing = FindAnyObjectByType<PlayerClothing>();
@@ -69,6 +72,11 @@ public class NPC : MonoBehaviour, I_Interactable
         {
             Assert.IsNotNull(_outroImage, "must have an image to display for outro, in level blockout scene this is in the game finish canvas");
         }
+    }
+
+    private void Start()
+    {
+        Assert.IsTrue(_npcModel.HasAttachment(_clothing), $"You must add {_clothing.name} as an attachment to the NPCModel script on {_npcModel.name}");
     }
 
     public void AttachQuest(int id)
@@ -125,7 +133,8 @@ public class NPC : MonoBehaviour, I_Interactable
         }
 
         Instantiate(_smokePuffPrefab).transform.position = transform.position;
-        Destroy(_clothingObject);
+        _npcModel.RemoveAttachment(_clothing);
+        _npcModel.GetComponentInChildren<SkinnedMeshRenderer>().material = _materialNoBurn;
         CLOTHUI.CallStampPolaroid(_clothingItemType);
 
         _hasTraded = true;

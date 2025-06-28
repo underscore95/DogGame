@@ -22,7 +22,8 @@ public class NPCModelAttachment : ScriptableObject
         }
     }
 
-    internal void Attach(GameObject baseModel, NPCBone.NPCBodyType bodyType)
+    // returns the created game object
+    internal GameObject Attach(GameObject baseModel, NPCBone.NPCBodyType bodyType)
     {
         if (_isRestrictedToSpecificBodyTypes)
         {
@@ -43,10 +44,10 @@ public class NPCModelAttachment : ScriptableObject
         if (bone == null)
         {
             Debug.LogError($"No bone {_boneName} in model {baseModel.name}, failed to attach an {name}. Body type is {bodyType}, is that correct?");
-            return;
+            return null;
         }
 
-        MonoBehaviour.Instantiate(_prefab, bone.transform);
+        return MonoBehaviour.Instantiate(_prefab, bone.transform);
     }
 
     private GameObject FindGameObjectInChildrenByName(GameObject parent, string name)
