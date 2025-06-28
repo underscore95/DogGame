@@ -13,6 +13,7 @@ public class PLAYER_FETCHING : MonoBehaviour
     public bool fetching;
     public GameObject holdPoint;
     public GameObject dropPoint;
+    bool hideForSeconds;
     Vector3 holdPos;
     [SerializeField] UI_BUBBLE_DISPLAY FETCHUI;
     [SerializeField] UI_BUBBLE_DISPLAY FETCHBTONUI;
@@ -38,7 +39,11 @@ public class PLAYER_FETCHING : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+       if (hideForSeconds)
+        {
+            FETCHBTONUI.SetBubbleVisibility(false);
+            FETCHUI.SetBubbleVisibility(false);
+        }
 
         if (PI.IA_Fetch.WasPressedThisFrame())
         {
@@ -72,6 +77,21 @@ public class PLAYER_FETCHING : MonoBehaviour
         heldObj.transform.SetPositionAndRotation(holdPoint.transform.position, holdPoint.transform.rotation);
     }
 
+
+   public void HideFetchUI()
+    {
+        FETCHBTONUI.SetBubbleVisibility(false);
+        FETCHUI.SetBubbleVisibility(false);
+        hideForSeconds = true;
+        StartCoroutine(Hidething());
+
+    }
+
+    IEnumerator Hidething()
+    {
+        yield return new WaitForSeconds(3);
+        hideForSeconds = false;
+    }
    
     private void OnTriggerStay(Collider other)
     {

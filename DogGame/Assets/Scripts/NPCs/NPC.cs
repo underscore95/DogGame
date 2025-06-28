@@ -196,6 +196,7 @@ public class NPC : MonoBehaviour, I_Interactable
                 Destroy(PF.heldObj, 1.5f);
                 PF.heldObj = null;
                 PF.heldFetch = null;
+                PF.HideFetchUI();
             }
         }
         else
