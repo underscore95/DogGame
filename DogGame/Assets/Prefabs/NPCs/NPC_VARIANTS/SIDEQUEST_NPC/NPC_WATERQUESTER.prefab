@@ -152,11 +152,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4734812298447937969, guid: 56385005bd266ca4cb024df884c32194, type: 3}
       propertyPath: _bodyType
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4734812298447937969, guid: 56385005bd266ca4cb024df884c32194, type: 3}
       propertyPath: _animation
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4734812298447937969, guid: 56385005bd266ca4cb024df884c32194, type: 3}
       propertyPath: _reactsToBarks
