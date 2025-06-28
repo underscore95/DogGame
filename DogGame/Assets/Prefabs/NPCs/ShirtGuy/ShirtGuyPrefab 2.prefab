@@ -47,6 +47,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bodyType: 2
   _attachments: []
+  _animation: 0
+  _reactsToBarks: 1
+  _pauseDurationAfterBark: 0.8
 --- !u!1001 &1986601197318560659
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57,15 +60,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: c36f02120228ceb4abdc85fc394a7175, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.1137
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c36f02120228ceb4abdc85fc394a7175, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.0238
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c36f02120228ceb4abdc85fc394a7175, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.0363
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c36f02120228ceb4abdc85fc394a7175, type: 3}
       propertyPath: m_LocalRotation.w

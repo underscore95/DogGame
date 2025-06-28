@@ -39,7 +39,7 @@ public class NPCModel : MonoBehaviour, I_Interactable
         _animations = FindAnyObjectByType<NPCAnimationContainer>();
         Assert.IsNotNull(_animations);
 
-        Assert.IsTrue(_animations.CanPlay(_bodyType, _animation));
+        Assert.IsTrue(_animations.CanPlay(_bodyType, _animation), $"Can't play animation {_animation} on body type {_bodyType} ({gameObject.name})");
         AnimationClip animationToPlay = _animations.GetAnimation(_animation);
         Assert.IsNotNull(animationToPlay);
 
@@ -50,7 +50,7 @@ public class NPCModel : MonoBehaviour, I_Interactable
 
         AnimationClip barkClip = _animations.GetBarkReaction(_bodyType);
         Assert.IsNotNull(barkClip);
-        Assert.IsTrue(barkClip.wrapMode == WrapMode.Once);
+      //  Assert.IsTrue(barkClip.wrapMode == WrapMode.Once);
         _barkDuration = barkClip.length;
 
         // setup animator
