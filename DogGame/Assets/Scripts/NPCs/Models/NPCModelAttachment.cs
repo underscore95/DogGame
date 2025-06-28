@@ -50,7 +50,7 @@ public class NPCModelAttachment : ScriptableObject
         return MonoBehaviour.Instantiate(_prefab, bone.transform);
     }
 
-    private GameObject FindGameObjectInChildrenByName(GameObject parent, string name)
+    public static GameObject FindGameObjectInChildrenByName(GameObject parent, string name)
     {
         if (parent.name == name) return parent;
         foreach (Transform t in parent.transform)
