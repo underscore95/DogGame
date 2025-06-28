@@ -55,9 +55,10 @@ public class NPC : MonoBehaviour, I_Interactable
     public int id;
     public int onCompleteID = 444;
     private float _secondsSinceGameFinish = -1;
-
+    bool endscreenHang;
     PLAYER_MOVEMENT pm;
     PLAYER_STATES st;
+    [SerializeField] float endscreenTime;
 
     private void Awake()
     {
@@ -103,11 +104,20 @@ public class NPC : MonoBehaviour, I_Interactable
             Color c = _outroImage.color;
             c.a = Mathf.InverseLerp(0.0f, _fadeDuration, _secondsSinceGameFinish);
             _outroImage.color = c;
-            if (_secondsSinceGameFinish >= _waitDuration + _fadeDuration)
+            if (_secondsSinceGameFinish >= _waitDuration + _fadeDuration && !endscreenHang)
             {
-                SceneManager.LoadScene(_menuScene, LoadSceneMode.Single);
+                endscreenHang = true;
+                StartCoroutine(endScreenHang());
+               // SceneManager.LoadScene(_menuScene, LoadSceneMode.Single);
             }
         }
+    }
+
+    IEnumerator endScreenHang()
+    {
+        yield return new WaitForSeconds(endscreenTime);
+        SceneManager.LoadScene(_menuScene, LoadSceneMode.Single);
+
     }
 
     private void HandleFinishingGame()
