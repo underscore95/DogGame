@@ -91,6 +91,7 @@ public class NPCModel : MonoBehaviour, I_Interactable
 
     public void RemoveAttachment(NPCModelAttachment attachment)
     {
+        Assert.IsNotNull(attachment);
         Assert.IsTrue(HasAttachment(attachment));
         Destroy(_attachmentToGameObject[attachment]);
         _attachmentToGameObject.Remove(attachment);

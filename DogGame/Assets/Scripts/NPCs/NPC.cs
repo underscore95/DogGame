@@ -76,7 +76,11 @@ public class NPC : MonoBehaviour, I_Interactable
 
     private void Start()
     {
-        Assert.IsTrue(_npcModel.HasAttachment(_clothing), $"You must add {_clothing.name} as an attachment to the NPCModel script on {_npcModel.name}");
+        if (_hasClothing)
+        {
+            Assert.IsNotNull(_clothing, $"Cannot have null clothing on {_npcModel.name}");
+            Assert.IsTrue(_npcModel.HasAttachment(_clothing), $"You must add {_clothing.name} as an attachment to the NPCModel script on {_npcModel.name}");
+        }
     }
 
     public void AttachQuest(int id)
