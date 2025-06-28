@@ -84,6 +84,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1927671299, guid: afc50440fe274c448878b680d3989ebe, type: 3}
+    - target: {fileID: 565420084145878211, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
+      propertyPath: spritesData
+      value: 
+      objectReference: {fileID: 11400000, guid: b8be1f564abca8d468ab323348313c89, type: 2}
     - target: {fileID: 2651981260776875889, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
       propertyPath: defaultColor.b
       value: 0
@@ -120,6 +124,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.948
       objectReference: {fileID: 0}
+    - target: {fileID: 6338218965214351009, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -882244546, guid: d8fe7ee4e75585649b0b36ae4cab3a6e, type: 3}
     - target: {fileID: 7004931684402222511, guid: 437f15f4de094374399cc77ef8cd87e4, type: 3}
       propertyPath: m_SizeDelta.x
       value: 3
@@ -169,6 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da4d0e1f64d7cc540aba163af05ee601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spritesData: {fileID: 0}
   sprites:
   - {fileID: 1927671299, guid: afc50440fe274c448878b680d3989ebe, type: 3}
   - {fileID: -1373185322, guid: afc50440fe274c448878b680d3989ebe, type: 3}

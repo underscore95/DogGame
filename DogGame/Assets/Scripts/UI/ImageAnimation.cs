@@ -5,6 +5,12 @@ using UnityEngine.UI;
 // modified: https://gist.github.com/almirage/e9e4f447190371ee6ce9
 public class ImageAnimation : MonoBehaviour
 {
+    /// <summary>
+    /// in case you want to use the SO to make your life easier :), will override the sprites field unless this is null
+    /// </summary>
+
+    [Tooltip("in case you want to use the SO to make your life easier :), will override the sprites field unless this is null")]
+    [SerializeField] SO_UI_BUBBLE_SPRITES spritesData;
     public Sprite[] sprites;
     public bool loop = true;
     public bool destroyOnEnd = false;
@@ -18,6 +24,7 @@ public class ImageAnimation : MonoBehaviour
     void Awake()
     {
         image = GetComponent<Image>();
+        if (spritesData != null ) { sprites = spritesData.sprites; }
     }
 
     void Update()
