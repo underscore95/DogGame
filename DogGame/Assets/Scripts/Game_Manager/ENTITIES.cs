@@ -16,6 +16,9 @@ public class ENTITIES : MonoBehaviour
     public float MoneyRequiredToWin;
     CLOTHTRACKER_UI CC;
     public UnityEvent WhenWinConditionReached;
+    public UnityEvent WhenCoinConditionReached;
+    public UnityEvent WhenClothesConditionReached;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -67,6 +70,12 @@ public class ENTITIES : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Money >= MoneyRequiredToWin)
+        { WhenCoinConditionReached.Invoke(); }
+
+        if (CC.allItemsObtained)
+        { WhenClothesConditionReached.Invoke(); }
+
         if (Money >= MoneyRequiredToWin && CC.allItemsObtained)
         {
             WhenWinConditionReached.Invoke();

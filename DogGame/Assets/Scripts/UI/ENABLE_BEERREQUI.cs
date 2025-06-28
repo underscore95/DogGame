@@ -8,6 +8,9 @@ public class ENABLE_BEERREQUI : MonoBehaviour
     [SerializeField] IWANTBEERUI BEER;
     [SerializeField] IWANTBEERUI SPRINT;
 
+    [SerializeField] UI_BUBBLE_DISPLAY LACKMONEY;
+    [SerializeField] UI_BUBBLE_DISPLAY LACKCLOTHES;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,6 +29,16 @@ public class ENABLE_BEERREQUI : MonoBehaviour
         {
             if (!playerEntered) 
             {
+                
+                if (LACKMONEY.isActiveAndEnabled)
+                {
+                    LACKMONEY.SetBubbleVisibility(true);
+                }
+                if (LACKCLOTHES.isActiveAndEnabled)
+                {
+                    LACKCLOTHES.SetBubbleVisibility(true);
+
+                }
                 BEER.disappear = true;
                 SPRINT.disappear = true;
                 Debug.Log("ENTER");
@@ -46,8 +59,28 @@ public class ENABLE_BEERREQUI : MonoBehaviour
             playerEntered = false;
             CCUI.Hide();
             COINCOUNTER_UI.Hide();
+
+            if (LACKMONEY.isActiveAndEnabled)
+            {
+                LACKMONEY.SetBubbleVisibility(false);
+            }
+            if (LACKCLOTHES.isActiveAndEnabled) 
+            {
+                LACKCLOTHES.SetBubbleVisibility(false);
+
+            }
         }
     }
 
-   
+    public void DisableMoneyWarning()
+    {
+        LACKMONEY.gameObject.SetActive(false);
+    }
+
+    public void DisableClothesWarning()
+    {
+        LACKCLOTHES.gameObject.SetActive(false);
+    }
+
+
 }
