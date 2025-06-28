@@ -70,13 +70,14 @@ public class ENTITIES : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Money >= MoneyRequiredToWin)
+        Debug.Log(Money / 10);
+        if (Money/10 >= MoneyRequiredToWin)
         { WhenCoinConditionReached.Invoke(); }
 
         if (CC.allItemsObtained)
         { WhenClothesConditionReached.Invoke(); }
 
-        if (Money >= MoneyRequiredToWin && CC.allItemsObtained)
+        if (Money/10 >= MoneyRequiredToWin && CC.allItemsObtained)
         {
             WhenWinConditionReached.Invoke();
         }
