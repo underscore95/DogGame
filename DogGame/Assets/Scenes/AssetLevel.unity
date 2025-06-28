@@ -2980,33 +2980,45 @@ PrefabInstance:
       propertyPath: m_Name
       value: 4_NPC_FLOWERLADY
       objectReference: {fileID: 0}
+    - target: {fileID: 3862041459220012204, guid: ccca3aa5892480442b3ebef67c891235, type: 3}
+      propertyPath: _clothing
+      value: 
+      objectReference: {fileID: 11400000, guid: 32f5a1906dbab4944b84d459a4c0d775, type: 2}
+    - target: {fileID: 3862041459220012204, guid: ccca3aa5892480442b3ebef67c891235, type: 3}
+      propertyPath: _clothingPrefab
+      value: 
+      objectReference: {fileID: 892002738655608191, guid: 2fa84d94be6764f4dab8e102d2e5c02e, type: 3}
+    - target: {fileID: 3862041459220012204, guid: ccca3aa5892480442b3ebef67c891235, type: 3}
+      propertyPath: _materialNoBurn
+      value: 
+      objectReference: {fileID: 2100000, guid: 392eb15c3afdca348bf4d53947fd1192, type: 2}
     - target: {fileID: 6501682493284710614, guid: ccca3aa5892480442b3ebef67c891235, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -139.4
+      value: -138.82
       objectReference: {fileID: 0}
     - target: {fileID: 6501682493284710614, guid: ccca3aa5892480442b3ebef67c891235, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.35
+      value: 1.353
       objectReference: {fileID: 0}
     - target: {fileID: 6501682493284710614, guid: ccca3aa5892480442b3ebef67c891235, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 73.8
+      value: 75.385
       objectReference: {fileID: 0}
     - target: {fileID: 6501682493284710614, guid: ccca3aa5892480442b3ebef67c891235, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.42261827
       objectReference: {fileID: 0}
     - target: {fileID: 6501682493284710614, guid: ccca3aa5892480442b3ebef67c891235, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6501682493284710614, guid: ccca3aa5892480442b3ebef67c891235, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.9063079
       objectReference: {fileID: 0}
     - target: {fileID: 6501682493284710614, guid: ccca3aa5892480442b3ebef67c891235, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6501682493284710614, guid: ccca3aa5892480442b3ebef67c891235, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3014,15 +3026,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6501682493284710614, guid: ccca3aa5892480442b3ebef67c891235, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 6501682493284710614, guid: ccca3aa5892480442b3ebef67c891235, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2487160756892765641, guid: ccca3aa5892480442b3ebef67c891235, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6501682493284710614, guid: ccca3aa5892480442b3ebef67c891235, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 486956659}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccca3aa5892480442b3ebef67c891235, type: 3}
 --- !u!1001 &125008403
@@ -11327,6 +11343,68 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 476315478}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &486956658
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 555711274}
+    m_Modifications:
+    - target: {fileID: 3981008640672606761, guid: ee64731278a571b438fd1b0d1d51e33c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981008640672606761, guid: ee64731278a571b438fd1b0d1d51e33c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981008640672606761, guid: ee64731278a571b438fd1b0d1d51e33c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981008640672606761, guid: ee64731278a571b438fd1b0d1d51e33c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981008640672606761, guid: ee64731278a571b438fd1b0d1d51e33c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981008640672606761, guid: ee64731278a571b438fd1b0d1d51e33c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981008640672606761, guid: ee64731278a571b438fd1b0d1d51e33c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981008640672606761, guid: ee64731278a571b438fd1b0d1d51e33c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981008640672606761, guid: ee64731278a571b438fd1b0d1d51e33c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981008640672606761, guid: ee64731278a571b438fd1b0d1d51e33c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272054260243223327, guid: ee64731278a571b438fd1b0d1d51e33c, type: 3}
+      propertyPath: m_Name
+      value: NPCFlowerLadyPrefabBurnt
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ee64731278a571b438fd1b0d1d51e33c, type: 3}
+--- !u!4 &486956659 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3981008640672606761, guid: ee64731278a571b438fd1b0d1d51e33c, type: 3}
+  m_PrefabInstance: {fileID: 486956658}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &487566767
 PrefabInstance:
   m_ObjectHideFlags: 0
