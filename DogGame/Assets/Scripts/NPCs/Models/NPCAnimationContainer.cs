@@ -3,7 +3,8 @@ using UnityEngine.Assertions;
 
 public enum NPCAnimation
 {
-    HulaDance, SandAngel, Sightseeing, SittingAndDrinking, DrinkingBeerAndScratchingAss, MuscleFlex
+    HulaDance, SandAngel, Sightseeing, SittingAndDrinking, Yoga,
+    DrinkingBeerAndScratchingAss, MuscleFlex
 }
 
 public class NPCAnimationContainer : MonoBehaviour
@@ -19,6 +20,7 @@ public class NPCAnimationContainer : MonoBehaviour
     [SerializeField] private AnimationClip _sandAngel;
     [SerializeField] private AnimationClip _sightseeing;
     [SerializeField] private AnimationClip _sittingAndDrinking;
+    [SerializeField] private AnimationClip _yoga;
 
     [Header("Shirt, hat")]
     [SerializeField] private AnimationClip _drinkingBeerAndScratchingAss;
@@ -37,6 +39,7 @@ public class NPCAnimationContainer : MonoBehaviour
             case NPCAnimation.SandAngel: return _sandAngel;
             case NPCAnimation.Sightseeing: return _sightseeing;
             case NPCAnimation.SittingAndDrinking: return _sittingAndDrinking;
+            case NPCAnimation.Yoga: return _yoga;
             case NPCAnimation.DrinkingBeerAndScratchingAss: return _drinkingBeerAndScratchingAss;
             case NPCAnimation.MuscleFlex: return _muscleFlex;
             default:
@@ -53,6 +56,7 @@ public class NPCAnimationContainer : MonoBehaviour
             case NPCAnimation.SandAngel:
             case NPCAnimation.Sightseeing:
             case NPCAnimation.SittingAndDrinking:
+            case NPCAnimation.Yoga:
                 return type == NPCBone.NPCBodyType.Male || type == NPCBone.NPCBodyType.Female || type == NPCBone.NPCBodyType.SunglassesLady;
             case NPCAnimation.DrinkingBeerAndScratchingAss:
             case NPCAnimation.MuscleFlex:

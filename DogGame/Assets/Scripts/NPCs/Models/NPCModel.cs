@@ -4,7 +4,7 @@ using UnityEngine.Animations;
 using UnityEngine.Playables;
 using UnityEngine.Assertions;
 
-public class NPCModel : MonoBehaviour
+public class NPCModel : MonoBehaviour, I_Interactable
 {
     [SerializeField] private NPCBone.NPCBodyType _bodyType;
     [SerializeField] private List<NPCModelAttachment> _attachments = new();
@@ -15,6 +15,13 @@ public class NPCModel : MonoBehaviour
     private NPCAnimationContainer _animations;
     private AnimationClip _animationToPlay;
     private PlayableGraph _graph;
+    private AnimationClipPlayable _mainPlayable;
+    private AnimationClipPlayable _barkPlayable;
+    private PlayableOutput _playableOutput;
+    private bool _playingBark = false;
+    private AnimationMixerPlayable _mixer;
+    private double _barkEndTime = 0;
+    private const float CROSSFADE_DURATION = 0.2f;
 
     private void Awake()
     {
@@ -30,19 +37,18 @@ public class NPCModel : MonoBehaviour
             GameObject rootBone = _animations.GetRootBone(gameObject, _bodyType);
             Assert.IsNotNull(rootBone);
 
-            var animator = rootBone.GetComponent<Animator>();
-            if (animator == null)
-                animator = rootBone.AddComponent<Animator>();
+            var animator = rootBone.AddComponent<Animator>();
 
             _graph = PlayableGraph.Create($"NPCModelGraph_{name}");
-            var playableOutput = AnimationPlayableOutput.Create(_graph, "Animation", animator);
+            _playableOutput = AnimationPlayableOutput.Create(_graph, "Animation", animator);
 
-            AnimationClipPlayable clipPlayable = AnimationClipPlayable.Create(_graph, _animationToPlay);
-            clipPlayable.SetApplyFootIK(false);
-            clipPlayable.SetTime(0);
+            _mainPlayable = AnimationClipPlayable.Create(_graph, _animationToPlay);
+            _mainPlayable.SetApplyFootIK(false);
+            _mainPlayable.SetTime(0);
+            _mainPlayable.SetDuration(double.PositiveInfinity);
             _animationToPlay.wrapMode = WrapMode.Loop;
 
-            playableOutput.SetSourcePlayable(clipPlayable);
+            _playableOutput.SetSourcePlayable(_mainPlayable);
             _graph.Play();
         }
 
@@ -58,6 +64,13 @@ public class NPCModel : MonoBehaviour
         if (_hasAnimation && !_graph.IsPlaying())
         {
             _graph.Play();
+        }
+
+        if (_playingBark && _barkPlayable.IsValid() && _barkPlayable.GetTime() >= _barkPlayable.GetDuration())
+        {
+            _mainPlayable.SetTime(0);
+            _playableOutput.SetSourcePlayable(_mainPlayable);
+            _playingBark = false;
         }
     }
 
@@ -76,5 +89,27 @@ public class NPCModel : MonoBehaviour
         Assert.IsTrue(HasAttachment(attachment));
         Destroy(_attachmentToGameObject[attachment]);
         _attachmentToGameObject.Remove(attachment);
+    }
+
+    public void OnEnterInteractRange() { }
+    public void OnExitInteractRange() { }
+    public void InteractableInRange() { }
+
+    public void InteractableAction()
+    {
+        if (!_hasAnimation || _playingBark) return;
+
+        AnimationClip barkClip = _animations.GetBarkReaction(_bodyType);
+        if (barkClip == null) return;
+
+        _barkPlayable = AnimationClipPlayable.Create(_graph, barkClip);
+        _barkPlayable.SetApplyFootIK(false);
+        _barkPlayable.SetTime(0);
+        _barkPlayable.SetDuration(barkClip.length);
+        barkClip.wrapMode = WrapMode.Once;
+        
+
+        _playableOutput.SetSourcePlayable(_barkPlayable);
+        _playingBark = true;
     }
 }
