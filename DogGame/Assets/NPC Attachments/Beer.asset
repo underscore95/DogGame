@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873abb54113a9cb46a853a067f7894d3, type: 3}
+  m_Name: Beer
+  m_EditorClassIdentifier: 
+  _bone: {fileID: 11400000, guid: 49e74ff964de3304ba8210aa796bd8b7, type: 2}
+  _prefab: {fileID: 7739056605167585883, guid: 6b88cb37e006b164fb98fa4e9a0b9037, type: 3}
+  _isRestrictedToSpecificBodyTypes: 0
+  _allowedTypes: 
