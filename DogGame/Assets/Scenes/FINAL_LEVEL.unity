@@ -13731,6 +13731,89 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1ea4a4fbfde8b484fa98e908f57ad1ff, type: 3}
   m_PrefabInstance: {fileID: 543828725}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &548362559
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1783224171}
+    m_Modifications:
+    - target: {fileID: 3172769017679332542, guid: a9b914b0e0ff5624b8e4459f64c5be65, type: 3}
+      propertyPath: m_Name
+      value: DogShirtPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 4564386862654709171, guid: a9b914b0e0ff5624b8e4459f64c5be65, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4564386862654709171, guid: a9b914b0e0ff5624b8e4459f64c5be65, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4564386862654709171, guid: a9b914b0e0ff5624b8e4459f64c5be65, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4564386862654709171, guid: a9b914b0e0ff5624b8e4459f64c5be65, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4564386862654709171, guid: a9b914b0e0ff5624b8e4459f64c5be65, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.093
+      objectReference: {fileID: 0}
+    - target: {fileID: 4564386862654709171, guid: a9b914b0e0ff5624b8e4459f64c5be65, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4564386862654709171, guid: a9b914b0e0ff5624b8e4459f64c5be65, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4564386862654709171, guid: a9b914b0e0ff5624b8e4459f64c5be65, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4564386862654709171, guid: a9b914b0e0ff5624b8e4459f64c5be65, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4564386862654709171, guid: a9b914b0e0ff5624b8e4459f64c5be65, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4564386862654709171, guid: a9b914b0e0ff5624b8e4459f64c5be65, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4564386862654709171, guid: a9b914b0e0ff5624b8e4459f64c5be65, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4564386862654709171, guid: a9b914b0e0ff5624b8e4459f64c5be65, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4564386862654709171, guid: a9b914b0e0ff5624b8e4459f64c5be65, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a9b914b0e0ff5624b8e4459f64c5be65, type: 3}
+--- !u!4 &548362560 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4564386862654709171, guid: a9b914b0e0ff5624b8e4459f64c5be65, type: 3}
+  m_PrefabInstance: {fileID: 548362559}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &548362561 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8717785907272780955, guid: a9b914b0e0ff5624b8e4459f64c5be65, type: 3}
+  m_PrefabInstance: {fileID: 548362559}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &551950518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19578,6 +19661,7 @@ MonoBehaviour:
   loop: 1
   destroyOnEnd: 0
   fps: 5
+  Instance: {fileID: 0}
 --- !u!1001 &789572755
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39936,6 +40020,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 219177004786903394, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+      propertyPath: AnimDogShirt
+      value: 
+      objectReference: {fileID: 548362561}
     - target: {fileID: 914697518968547289, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -39964,6 +40052,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.958
       objectReference: {fileID: 0}
+    - target: {fileID: 2501464685967883236, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2501464685967883236, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2501464685967883236, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2600823512536965752, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
       propertyPath: Loop
       value: 0
@@ -39988,6 +40088,10 @@ PrefabInstance:
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2879066943685813667, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+      propertyPath: shirt
+      value: 
+      objectReference: {fileID: 1783224170}
     - target: {fileID: 4012885195248227180, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
       propertyPath: 'Footsteps.Array.data[5]'
       value: 
@@ -40087,7 +40191,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5970742338793385138, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2501464685967883236, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 548362560}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
 --- !u!82 &1635681586 stripped
@@ -43252,6 +43359,7 @@ MonoBehaviour:
   loop: 1
   destroyOnEnd: 0
   fps: 5
+  Instance: {fileID: 0}
 --- !u!1 &1766719985 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3382005566621619096, guid: 2be53dc8272dd09429411045f51dd285, type: 3}
@@ -43844,6 +43952,16 @@ MonoBehaviour:
   Sign: {fileID: 0}
   SignViewPos: {fileID: 0}
   SignCutsceneTime: 0
+--- !u!1 &1783224170 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4190539489696937672, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+  m_PrefabInstance: {fileID: 1635681585}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1783224171 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2501464685967883236, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+  m_PrefabInstance: {fileID: 1635681585}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1784945588
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44971,6 +45089,7 @@ MonoBehaviour:
   loop: 1
   destroyOnEnd: 0
   fps: 5
+  Instance: {fileID: 0}
 --- !u!1 &1816566110
 GameObject:
   m_ObjectHideFlags: 0
