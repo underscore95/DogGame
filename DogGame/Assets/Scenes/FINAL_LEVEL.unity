@@ -8933,6 +8933,10 @@ PrefabInstance:
       propertyPath: _reactsToBarks
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 521696859362750008, guid: 75502488a79bbe44681bf8325170e6d3, type: 3}
+      propertyPath: '_attachments.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b53612353eebe4e44b770045894b5761, type: 2}
     - target: {fileID: 2099858574594466321, guid: 75502488a79bbe44681bf8325170e6d3, type: 3}
       propertyPath: _animation
       value: 2
@@ -9009,6 +9013,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7374450498981486613, guid: 75502488a79bbe44681bf8325170e6d3, type: 3}
+      propertyPath: _clothing
+      value: 
+      objectReference: {fileID: 11400000, guid: b53612353eebe4e44b770045894b5761, type: 2}
+    - target: {fileID: 7374450498981486613, guid: 75502488a79bbe44681bf8325170e6d3, type: 3}
+      propertyPath: _clothingPrefab
+      value: 
+      objectReference: {fileID: 3172769017679332542, guid: a9b914b0e0ff5624b8e4459f64c5be65, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -39792,6 +39804,30 @@ PrefabInstance:
     - target: {fileID: 2104165378362470035, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.958
+      objectReference: {fileID: 0}
+    - target: {fileID: 2501464685967883236, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2501464685967883236, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2501464685967883236, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2501464685967883236, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.039
+      objectReference: {fileID: 0}
+    - target: {fileID: 2501464685967883236, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.272
+      objectReference: {fileID: 0}
+    - target: {fileID: 2501464685967883236, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.097
       objectReference: {fileID: 0}
     - target: {fileID: 2600823512536965752, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
       propertyPath: Loop
