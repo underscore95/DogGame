@@ -14,11 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubbleName: 
   sprites:
-  - {fileID: 513398606, guid: 6c23188ea41ce3e4f9512fa526adbc28, type: 3}
-  - {fileID: -1387865503, guid: 6c23188ea41ce3e4f9512fa526adbc28, type: 3}
-  - {fileID: 540592934, guid: 6c23188ea41ce3e4f9512fa526adbc28, type: 3}
-  - {fileID: -732719131, guid: 6c23188ea41ce3e4f9512fa526adbc28, type: 3}
-  - {fileID: 2117796296, guid: 6c23188ea41ce3e4f9512fa526adbc28, type: 3}
-  - {fileID: -1820036917, guid: 6c23188ea41ce3e4f9512fa526adbc28, type: 3}
-  - {fileID: -788856777, guid: 6c23188ea41ce3e4f9512fa526adbc28, type: 3}
-  animFPS: 4
+  - {fileID: -882244546, guid: d8fe7ee4e75585649b0b36ae4cab3a6e, type: 3}
+  - {fileID: 2024375316, guid: d8fe7ee4e75585649b0b36ae4cab3a6e, type: 3}
+  - {fileID: 115756158, guid: d8fe7ee4e75585649b0b36ae4cab3a6e, type: 3}
+  - {fileID: -1200422227, guid: d8fe7ee4e75585649b0b36ae4cab3a6e, type: 3}
+  animFPS: 0

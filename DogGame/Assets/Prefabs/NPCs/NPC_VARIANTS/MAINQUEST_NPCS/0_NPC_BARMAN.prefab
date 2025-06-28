@@ -14,8 +14,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2329333100991855012, guid: 911d2171d875228498642d10d9053d6c, type: 3}
       propertyPath: m_Name
-      value: 1_NPC_DRUNKGUY
+      value: 0_NPC_BARMAN
       objectReference: {fileID: 0}
+    - target: {fileID: 6938161890356322221, guid: 911d2171d875228498642d10d9053d6c, type: 3}
+      propertyPath: spritesData
+      value: 
+      objectReference: {fileID: 11400000, guid: b8be1f564abca8d468ab323348313c89, type: 2}
     - target: {fileID: 7227704553430513717, guid: 911d2171d875228498642d10d9053d6c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -18.981974
