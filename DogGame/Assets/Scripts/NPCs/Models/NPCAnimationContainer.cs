@@ -10,6 +10,7 @@ public enum NPCAnimation
 public class NPCAnimationContainer : MonoBehaviour
 {
     [SerializeField] private NPCBone _rootBone;
+    [SerializeField] private RuntimeAnimatorController _npcBaseAnimatorController;
 
     [Header("Bark reactions")]
     [SerializeField] private AnimationClip _shirtHatBarkReaction;
@@ -25,6 +26,11 @@ public class NPCAnimationContainer : MonoBehaviour
     [Header("Shirt, hat")]
     [SerializeField] private AnimationClip _drinkingBeerAndScratchingAss;
     [SerializeField] private AnimationClip _muscleFlex;
+
+    public RuntimeAnimatorController GetNPCBaseController()
+    {
+        return _npcBaseAnimatorController;
+    }
 
     public GameObject GetRootBone(GameObject model, NPCBone.NPCBodyType bodyType)
     {

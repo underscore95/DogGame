@@ -8287,9 +8287,49 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 521696859362750008, guid: 75502488a79bbe44681bf8325170e6d3, type: 3}
+      propertyPath: _animation
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 521696859362750008, guid: 75502488a79bbe44681bf8325170e6d3, type: 3}
+      propertyPath: _reactsToBarks
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2099858574594466321, guid: 75502488a79bbe44681bf8325170e6d3, type: 3}
+      propertyPath: _animation
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2099858574594466321, guid: 75502488a79bbe44681bf8325170e6d3, type: 3}
+      propertyPath: _reactsToBarks
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649039560537134176, guid: 75502488a79bbe44681bf8325170e6d3, type: 3}
+      propertyPath: _animation
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649039560537134176, guid: 75502488a79bbe44681bf8325170e6d3, type: 3}
+      propertyPath: _reactsToBarks
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5219157975275022781, guid: 75502488a79bbe44681bf8325170e6d3, type: 3}
       propertyPath: m_Name
       value: MAINQUEST_NPCS
+      objectReference: {fileID: 0}
+    - target: {fileID: 6545592308620686479, guid: 75502488a79bbe44681bf8325170e6d3, type: 3}
+      propertyPath: _animation
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6545592308620686479, guid: 75502488a79bbe44681bf8325170e6d3, type: 3}
+      propertyPath: _reactsToBarks
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6796669619444017812, guid: 75502488a79bbe44681bf8325170e6d3, type: 3}
+      propertyPath: _animation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6796669619444017812, guid: 75502488a79bbe44681bf8325170e6d3, type: 3}
+      propertyPath: _reactsToBarks
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7113550695032175830, guid: 75502488a79bbe44681bf8325170e6d3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -38072,6 +38112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rootBone: {fileID: 11400000, guid: 71ea8c2a77bd36344af4c15f249e5859, type: 2}
+  _npcBaseAnimatorController: {fileID: 9100000, guid: d15f4116fa70a9e4088fe103e3809b49, type: 2}
   _shirtHatBarkReaction: {fileID: 1827226128182048838, guid: ff9c666deeb5b0643a5fb79762f17a66, type: 3}
   _femaleMaleSunglassesBarkReaction: {fileID: 1827226128182048838, guid: ccab0e8c058153a4bb4ef77a372b0aa4, type: 3}
   _hulaDance: {fileID: 1827226128182048838, guid: 185c3185c77f0b141ba62319a512ab79, type: 3}
