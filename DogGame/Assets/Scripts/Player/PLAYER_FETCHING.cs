@@ -16,8 +16,9 @@ public class PLAYER_FETCHING : MonoBehaviour
     Vector3 holdPos;
     [SerializeField] UI_BUBBLE_DISPLAY FETCHUI;
     [SerializeField] UI_BUBBLE_DISPLAY FETCHBTONUI;
-    
 
+    [SerializeField] AudioClip FetchSound;
+    [SerializeField] AudioSource AS;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -85,7 +86,7 @@ public class PLAYER_FETCHING : MonoBehaviour
                 heldFetch.BeginFetch();
                 FETCHBTONUI.FX.ScalePulse(Vector3.one * 1.8f, Vector3.zero, 10f, 0f, true);
                 FETCHUI.FX.ScalePulse(Vector3.one * 1.8f, Vector3.zero, 10f, 0f, true);
-
+                AS.PlayOneShot(FetchSound);
                 FETCHBTONUI.SetBubbleVisibility(false);
                 FETCHUI.SetBubbleVisibility(false);
                 heldObj = other.gameObject;

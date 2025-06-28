@@ -37258,6 +37258,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: b4465a32d3d543d48a3df09867701af8, type: 3}
     - target: {fileID: 4566688278050132987, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+      propertyPath: AS
+      value: 
+      objectReference: {fileID: 1635681586}
+    - target: {fileID: 4566688278050132987, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
       propertyPath: FETCHUI
       value: 
       objectReference: {fileID: 2031994810}
@@ -37269,6 +37273,10 @@ PrefabInstance:
       propertyPath: holdPoint
       value: 
       objectReference: {fileID: 1021334447}
+    - target: {fileID: 4566688278050132987, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+      propertyPath: FetchSound
+      value: 
+      objectReference: {fileID: 8300000, guid: b3c107552c0e6f54dbd3c1e433818dd1, type: 3}
     - target: {fileID: 4566688278050132987, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
       propertyPath: FETCHBTONUI
       value: 
@@ -37343,6 +37351,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+--- !u!82 &1635681586 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 367856150315793144, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+  m_PrefabInstance: {fileID: 1635681585}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1638279715
 PrefabInstance:
   m_ObjectHideFlags: 0
