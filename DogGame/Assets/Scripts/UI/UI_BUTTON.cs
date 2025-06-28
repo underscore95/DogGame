@@ -13,7 +13,7 @@ public class UI_BUTTON : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoint
     public bool transitional;
     public float selectRotate;
     public float selectScale;
-
+    public bool alwaysSelected;
     [SerializeField] AudioClip selectSound;
     [SerializeField] AudioClip clickSound;
 
@@ -36,9 +36,13 @@ public class UI_BUTTON : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoint
        
     }
 
+   
 
     void Update()
     {
+        if (alwaysSelected)
+        { if (!selected) { BTON.Select(); } }
+
      if (dontInteract)
         { BTON.interactable = false; }
     }
@@ -48,6 +52,7 @@ public class UI_BUTTON : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoint
         float time = transitional ? 2f: 0f;
         aSrc.PlayOneShot(clickSound);
         invokeDelayb = true;
+        selected = false;
         //EventOnClick.Invoke();
         Debug.Log(EventsOnClick.Length);
         for (int i = 0; i < EventsOnClick.Length; i++)
@@ -65,8 +70,11 @@ public class UI_BUTTON : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoint
         selected = true;
         hovered = true;
         FX.OverrideScaleRotation(Vector3.one * selectScale, new Vector3(0, 0, selectRotate));
-       
-        aSrc.PlayOneShot(selectSound);
+
+        if (!alwaysSelected)
+        {
+            aSrc.PlayOneShot(selectSound);
+        }
     }
     private void OnEnable()
     {

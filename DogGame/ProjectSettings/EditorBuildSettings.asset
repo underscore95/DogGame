@@ -14,9 +14,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Level_Blockout.unity
     guid: 48534d8481fcab84e81bcea48083f71e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/AssetLevel.unity
     guid: 96b36d05a21ebab45b0348e2d5c4dd32
+  - enabled: 1
+    path: Assets/Scenes/FINAL_LEVEL.unity
+    guid: 4277749feb3c0ee498356e233d2931a7
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

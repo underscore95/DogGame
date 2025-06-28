@@ -5,10 +5,13 @@ public class ENABLE_BEERREQUI : MonoBehaviour
     bool playerEntered;
     [SerializeField] CLOTHTRACKER_UI CCUI;
     [SerializeField] COINCOUNTER_UI COINCOUNTER_UI;
+    [SerializeField] IWANTBEERUI BEER;
+    [SerializeField] IWANTBEERUI SPRINT;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+       // BEER = FindAnyObjectByType<IWANTBEERUI>();
     }
 
     // Update is called once per frame
@@ -23,6 +26,8 @@ public class ENABLE_BEERREQUI : MonoBehaviour
         {
             if (!playerEntered) 
             {
+                BEER.disappear = true;
+                SPRINT.disappear = true;
                 Debug.Log("ENTER");
                 playerEntered = true;
                 CCUI.Show();

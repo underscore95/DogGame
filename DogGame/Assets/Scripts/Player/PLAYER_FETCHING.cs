@@ -102,7 +102,6 @@ public class PLAYER_FETCHING : MonoBehaviour
         {
             if (!fetching)
             {
-                Debug.Log("ENABLE FETCHING UI!");
                 FETCHBTONUI.SetBubbleVisibility(true);
                 FETCHUI.SetBubbleVisibility(true);
             }
@@ -113,7 +112,6 @@ public class PLAYER_FETCHING : MonoBehaviour
     {
         if (other.gameObject.GetComponent<FETCHABLE>() != null)
         {
-            Debug.Log("DISABLE FETCHING UI!");
 
             FETCHBTONUI.SetBubbleVisibility(false);
             FETCHUI.SetBubbleVisibility(false);

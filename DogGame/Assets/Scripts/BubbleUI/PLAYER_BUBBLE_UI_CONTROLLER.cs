@@ -11,6 +11,7 @@ public class PLAYER_BUBBLE_UI_CONTROLLER : MonoBehaviour
     PLAYER_INPUTS PI;
     UI_FX FX;
     PLAYER_FETCHING PF;
+    public IWANTBEERUI b;
     private bool _interactInput = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -41,6 +42,7 @@ public class PLAYER_BUBBLE_UI_CONTROLLER : MonoBehaviour
                 {
                     playerBubbleDisplay.FX.ScalePulse(new Vector3(2f, 2f, 2f), Vector3.zero, 8f, 0f, true);
                     Invoke(nameof(HideBubble), 1f);
+
 
                 }
             }

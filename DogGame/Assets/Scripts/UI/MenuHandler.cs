@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using System.Collections;
 
 public class MenuHandler : MonoBehaviour
 {
@@ -39,17 +40,31 @@ public class MenuHandler : MonoBehaviour
     public void CloseCredits()
     {
         // _mainWidget.SetActive(true);
-        CreditsClose.Invoke();
+        StartCoroutine(Delay());
         _creditsWidget.SetActive(false);
         creditsOpen = false;
     }
 
-    public void OpenCredits()
+    IEnumerator Delay2()
     {
+      
+            yield return new WaitForSeconds(0.5f);
         _mainWidget.SetActive(false);
         _creditsWidget.SetActive(true);
         creditsOpen = true;
         Cursor.visible = true;
+
+    }
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(0.5f);
+        CreditsClose.Invoke();
+
+    }
+
+    public void OpenCredits()
+    {
+        StartCoroutine(Delay2());
     }
 
     public void Play()

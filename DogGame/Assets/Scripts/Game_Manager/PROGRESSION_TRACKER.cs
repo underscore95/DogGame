@@ -32,7 +32,7 @@ public class PROGRESSION_TRACKER : MonoBehaviour
 
             if (!completed) { completed = true;
 
-                AddQuestUI("QUEST " + id + ": " + name + " Has Completed!", false);
+               // AddQuestUI("QUEST " + id + ": " + name + " Has Completed!", false);
                 foreach (var qevent in  completeQuestEvents)
                 {
                     
@@ -48,12 +48,7 @@ public class PROGRESSION_TRACKER : MonoBehaviour
 
         public void AddQuestUI(string text, bool activate)
         {
-            GameObject GM = GameObject.Find("Game_Manager");
-            PROGRESSION_TRACKER PT = GM.GetComponent<PROGRESSION_TRACKER>();
-            GameObject popup = Instantiate(PT.QuestPopupUI);
-            QPOPUP = popup.GetComponent<UI_QUESTPOPUP>();
-            QPOPUP.Text.text = text;
-            if (activate) { QPOPUP.ChangePos(); }
+           
         }
 
         public void OnActivate()
