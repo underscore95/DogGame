@@ -13,7 +13,7 @@ AudioMixerController:
   - {fileID: 24500006}
   m_StartSnapshot: {fileID: 24500006}
   m_SuspendThreshold: -80
-  m_EnableSuspend: 1
+  m_EnableSuspend: 0
   m_UpdateMode: 0
   m_ExposedParameters: []
   m_AudioMixerGroupViews:
@@ -37,6 +37,7 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 24400004}
+  - {fileID: 1516720360815146410}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -64,5 +65,34 @@ AudioMixerSnapshotController:
   m_Name: Snapshot
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 9b246787af025934c8e47a0342ab8e76
-  m_FloatValues: {}
+  m_FloatValues:
+    5f2d6271491c99344842b383e31c50f1: 0
+    163b23447099be04ab08d54a080f61f3: 0
+    579c9d7ad0e428f4dbad760868f16f8c: 0.063
+    94ffc6fb55b36a148b63dd1e95754eae: 0
+    47353a4edddd77645bd7ed1d5177a94b: 0.111
   m_TransitionOverrides: {}
+--- !u!244 &1516720360815146410
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 7d7263fdfa16da943afdb9d98348e10f
+  m_EffectName: audioplugin_RNBO Plugin
+  m_MixLevel: 0f818c88b08ae544dae718f33aedb7c3
+  m_Parameters:
+  - m_ParameterName: Volume
+    m_GUID: 579c9d7ad0e428f4dbad760868f16f8c
+  - m_ParameterName: Resonance
+    m_GUID: 47353a4edddd77645bd7ed1d5177a94b
+  - m_ParameterName: Cutoff
+    m_GUID: 5f2d6271491c99344842b383e31c50f1
+  - m_ParameterName: Cuttoff_Ramp_To
+    m_GUID: 163b23447099be04ab08d54a080f61f3
+  - m_ParameterName: Cutoff_Ramp_Dur
+    m_GUID: 94ffc6fb55b36a148b63dd1e95754eae
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
