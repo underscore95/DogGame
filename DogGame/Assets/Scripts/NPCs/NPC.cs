@@ -60,6 +60,8 @@ public class NPC : MonoBehaviour, I_Interactable
     PLAYER_STATES st;
     [SerializeField] float endscreenTime;
 
+    public AUDIO_MUSIC audioMusic;
+
     private void Awake()
     {
        
@@ -135,7 +137,7 @@ public class NPC : MonoBehaviour, I_Interactable
     public void EndGame()
     {
         _secondsSinceGameFinish = 0;
-
+        audioMusic.EndMusic();
     }
 
     public void SetUpForEndTrade()
