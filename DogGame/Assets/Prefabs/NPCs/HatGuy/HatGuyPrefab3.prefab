@@ -47,6 +47,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bodyType: 4
   _attachments: []
+  _animation: 0
+  _reactsToBarks: 1
+  _pauseDurationAfterBark: 0.8
 --- !u!1001 &3138151854296509206
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57,15 +60,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: f0257f7e70648074995fbd4bb9269750, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.1259
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f0257f7e70648074995fbd4bb9269750, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.0017
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f0257f7e70648074995fbd4bb9269750, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.0579
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f0257f7e70648074995fbd4bb9269750, type: 3}
       propertyPath: m_LocalRotation.w
@@ -130,6 +133,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bodyType: 4
   _attachments: []
+  _animation: 0
+  _reactsToBarks: 1
+  _pauseDurationAfterBark: 0.8
 --- !u!4 &3172307655833079037 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f0257f7e70648074995fbd4bb9269750, type: 3}

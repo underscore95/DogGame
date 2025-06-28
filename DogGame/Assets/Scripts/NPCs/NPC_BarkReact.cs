@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// UNUSED
 public class NPC_BarkReact : MonoBehaviour, I_Interactable
 {
     Animator animator;
