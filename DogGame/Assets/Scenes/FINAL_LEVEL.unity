@@ -7824,7 +7824,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Beer Price: \xA36\n"
+  m_text: "Beer Price: \xA36.00\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -52333,7 +52333,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 569395374341777405, guid: 1d1335b78f7c62c48a01a8e917c12f41, type: 3}
       propertyPath: MoneyRequiredToWin
-      value: 6
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 569395374341777405, guid: 1d1335b78f7c62c48a01a8e917c12f41, type: 3}
       propertyPath: WhenWinConditionReached.m_PersistentCalls.m_Calls.Array.size
@@ -52729,7 +52729,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6182493329023116294, guid: 1d1335b78f7c62c48a01a8e917c12f41, type: 3}
       propertyPath: requiredWinMoney
-      value: 6
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 6182493329023116294, guid: 1d1335b78f7c62c48a01a8e917c12f41, type: 3}
       propertyPath: Game_Quests.Array.data[4].completeQuestEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -52825,7 +52825,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7025932407233992088, guid: 1d1335b78f7c62c48a01a8e917c12f41, type: 3}
       propertyPath: m_text
-      value: "\xA31.20"
+      value: "\xA30.00\n"
       objectReference: {fileID: 0}
     - target: {fileID: 7576102794375301623, guid: 1d1335b78f7c62c48a01a8e917c12f41, type: 3}
       propertyPath: m_AnchorMax.y

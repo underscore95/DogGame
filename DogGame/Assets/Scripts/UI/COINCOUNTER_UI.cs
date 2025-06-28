@@ -27,7 +27,9 @@ public class COINCOUNTER_UI : MonoBehaviour
         BG.BeginFadeOut(0f, 88f);
         Image.BeginFadeOut(0f, 66f);
         Text.BeginFadeOut(0f, 88f);
-        Text.text.text = ("£" + (MoneyAmount / 10).ToString());
+        //Text.text.text = ("£" + (MoneyAmount / 10).ToString());
+        Text.text.text = ("£0.00");
+
     }
 
     // Update is called once per frame
