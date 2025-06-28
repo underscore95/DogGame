@@ -40,12 +40,12 @@ public class AUDIO_MUSIC : MonoBehaviour
                 {
                     if (levelAudioSource.clip != pausedMusic)
                     {
-                //  float playTime = levelAudioSource.time;
-                // levelAudioSource.Stop();
-                // levelAudioSource.clip = pausedMusic;
-                // levelAudioSource.Play();
-                // levelAudioSource.time = playTime;
-                EndMusic();
+                  float playTime = levelAudioSource.time;
+                 levelAudioSource.Stop();
+                 levelAudioSource.clip = pausedMusic;
+                 levelAudioSource.Play();
+                 levelAudioSource.time = playTime;
+                
             }
                 }
                 else
