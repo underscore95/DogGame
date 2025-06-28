@@ -90,13 +90,17 @@ public class PLAYER_STATEMACHINE : MonoBehaviour
         bool lerpOrslerp = !sprinting;
         float turnSpd = sprinting ? PS.GST.sprintTurnSpd : PS.GST.turnSpd;
         float moveSpd = PSS.GState != PLAYER_STATES.GrndStates.Running ? PS.GST.maxSpeed : PS.GST.sprintMaxSpeed;
-
+        if (PM.cutscene) { attemptMove = false; } 
         if (!PM.isGrounded)
         { PSS.StateGrp = PLAYER_STATES.StateGroup.AirStates; PSS.AState = PLAYER_STATES.AirStates.Falling; PM.ApplyMovement(false); }
 
         else if (attemptJump || PM.JumpBuffer)
         {
-            Jump();
+            if (!PM.cutscene) 
+            {
+                Jump();
+            }
+           
         }
         else
         {
@@ -107,8 +111,11 @@ public class PLAYER_STATEMACHINE : MonoBehaviour
             else
             {
                 PSS.GState = MovementState();
-                PM.Accelerate(attemptMove ? PS.GST.accelSpd : PS.GST.decelSpd, attemptMove ? moveSpd : 0);
-                PM.LerpTurn(PI.InputDirection, turnSpd, PS.GST.minTurnVel, true, true, lerpOrslerp);
+                PM.Accelerate(attemptMove ? PS.GST.accelSpd : PM.cutscene ? 50f : PS.GST.decelSpd, attemptMove ? moveSpd : 0);
+                if (!PM.cutscene)
+                {
+                    PM.LerpTurn(PI.InputDirection, turnSpd, PS.GST.minTurnVel, true, true, lerpOrslerp);
+                }
                 PM.ApplyMovement(true);
             }
         }
