@@ -12,6 +12,8 @@ public class PLAYER_ANIMATION : MonoBehaviour
     private static readonly int Bark = Animator.StringToHash("Bark");
     private static readonly int Sunscreen = Animator.StringToHash("Sunscreen");
 
+    [SerializeField] Animator AnimDogShirt;
+
     int storedAnim;
     PLAYER_STATES PS;
    
@@ -87,6 +89,7 @@ public class PLAYER_ANIMATION : MonoBehaviour
         {
             storedAnim = anim;
             ANIM.CrossFadeInFixedTime(anim, 0.1f);
+            AnimDogShirt.CrossFadeInFixedTime(anim, 0.1f);
         }
     }
 
