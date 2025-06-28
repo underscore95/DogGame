@@ -37286,6 +37286,18 @@ PrefabInstance:
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3165858693679383681, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3165858693679383681, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3165858693679383681, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 4012885195248227180, guid: 821a47537d20e804196a7e8c4d5e1f39, type: 3}
       propertyPath: 'Footsteps.Array.data[5]'
       value: 
