@@ -819,7 +819,7 @@ AudioSource:
   m_GameObject: {fileID: 935176715}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 283bc0cdc17e1bd4a9bd3dfd5625c020, type: 2}
   m_audioClip: {fileID: 8300000, guid: 25702f076e01a9c4483949dd632fa46a, type: 3}
   m_Resource: {fileID: 8300000, guid: 25702f076e01a9c4483949dd632fa46a, type: 3}
   m_PlayOnAwake: 1
@@ -957,6 +957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da4d0e1f64d7cc540aba163af05ee601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spritesData: {fileID: 0}
   sprites:
   - {fileID: 945407517, guid: 6ab613d43b8ccea4d8430dc029d4ad00, type: 3}
   - {fileID: 2066902365, guid: 6ab613d43b8ccea4d8430dc029d4ad00, type: 3}
@@ -1296,6 +1297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da4d0e1f64d7cc540aba163af05ee601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spritesData: {fileID: 0}
   sprites:
   - {fileID: 443668257, guid: 4b71d6007dc453845b6b37890e576998, type: 3}
   - {fileID: -996134034, guid: 4b71d6007dc453845b6b37890e576998, type: 3}
@@ -1839,6 +1841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da4d0e1f64d7cc540aba163af05ee601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spritesData: {fileID: 0}
   sprites:
   - {fileID: -707638683, guid: 54096c21cc5a78847b19141c96b81ebf, type: 3}
   - {fileID: -379784827, guid: 54096c21cc5a78847b19141c96b81ebf, type: 3}
@@ -2126,6 +2129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da4d0e1f64d7cc540aba163af05ee601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spritesData: {fileID: 0}
   sprites:
   - {fileID: -808968537, guid: 33c03a81f8da40f459f772028e577168, type: 3}
   - {fileID: -311621870, guid: 33c03a81f8da40f459f772028e577168, type: 3}
@@ -2317,6 +2321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da4d0e1f64d7cc540aba163af05ee601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spritesData: {fileID: 0}
   sprites:
   - {fileID: 91444364, guid: 308e9a2ca9a30a040b1de84aeb976e26, type: 3}
   - {fileID: -1847598019, guid: 308e9a2ca9a30a040b1de84aeb976e26, type: 3}
