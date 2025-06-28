@@ -1,5 +1,7 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PAUSE_SCREENMANAGER : MonoBehaviour
@@ -149,6 +151,17 @@ public class PAUSE_SCREENMANAGER : MonoBehaviour
        
         enable.SetActive(false);
         fadingOut = false;
+
+    }
+
+    public void ReturnToMenu()
+    {
+        fadingOut = true;
+        AllObjFadeout();
+        StartCoroutine(UnPauseDelay());
+        Time.timeScale = 1f;
+        isPaused = false;
+        SceneManager.LoadScene("Menu", LoadSceneMode.Single);
 
     }
 }

@@ -178,7 +178,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1487298796828259308, guid: 42388ed8f94aa7a4b92802cd36f3ce5a, type: 3}
       propertyPath: EventsOnClick.Array.data[0].m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: UnPauseGame
+      value: ReturnToMenu
       objectReference: {fileID: 0}
     - target: {fileID: 1487298796828259308, guid: 42388ed8f94aa7a4b92802cd36f3ce5a, type: 3}
       propertyPath: EventsOnClick.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -524,9 +524,14 @@ MonoBehaviour:
   pi: {fileID: 0}
   img: {fileID: 2847281577586055638}
   isImg: 0
+  fadeOut: 0
   NotAffectedByTimescale: 1
+  fadeoutalpha: 0
   defaultAlpha: 0
   overrideScaleRotation: 0
+  isText: 0
+  text: {fileID: 0}
+  overridePosChanges: 0
 --- !u!114 &9036337225925721864
 MonoBehaviour:
   m_ObjectHideFlags: 0
