@@ -8941,6 +8941,14 @@ PrefabInstance:
       propertyPath: _reactsToBarks
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3439247170232104012, guid: 75502488a79bbe44681bf8325170e6d3, type: 3}
+      propertyPath: _clothing
+      value: 
+      objectReference: {fileID: 11400000, guid: d1aa84d6decdb894db8099117f40a7ac, type: 2}
+    - target: {fileID: 3439247170232104012, guid: 75502488a79bbe44681bf8325170e6d3, type: 3}
+      propertyPath: _clothingPrefab
+      value: 
+      objectReference: {fileID: 7712198005227974978, guid: 1b1ab8c4cf7b7f748a869a4bdd93dba1, type: 3}
     - target: {fileID: 3649039560537134176, guid: 75502488a79bbe44681bf8325170e6d3, type: 3}
       propertyPath: _animation
       value: 5
@@ -8961,6 +8969,10 @@ PrefabInstance:
       propertyPath: _reactsToBarks
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6545592308620686479, guid: 75502488a79bbe44681bf8325170e6d3, type: 3}
+      propertyPath: '_attachments.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: d1aa84d6decdb894db8099117f40a7ac, type: 2}
     - target: {fileID: 6796669619444017812, guid: 75502488a79bbe44681bf8325170e6d3, type: 3}
       propertyPath: _animation
       value: 1
