@@ -56,14 +56,21 @@ public class NPC : MonoBehaviour, I_Interactable
     public int onCompleteID = 444;
     private float _secondsSinceGameFinish = -1;
 
+    PLAYER_MOVEMENT pm;
+    PLAYER_STATES st;
+
     private void Awake()
     {
+       
+
         _npcModel = GetComponentInChildren<NPCModel>();
         CLOTHUI = GameObject.Find("ClothesCounterUI").GetComponent<CLOTHTRACKER_UI>();
         _activated = true;
         _playerClothing = FindAnyObjectByType<PlayerClothing>();
         PF = FindAnyObjectByType<PLAYER_FETCHING>();
-        QR = GetComponent<QUEST_REFERENCER>();
+        pm = PF.gameObject.GetComponent<PLAYER_MOVEMENT>();
+        st = PF.gameObject.GetComponent<PLAYER_STATES>();
+       QR = GetComponent<QUEST_REFERENCER>();
         AS = GetComponent<AudioSource>();
 
        // transform.localPosition = new Vector3(37 + id * 5, -1.5f, -33);
@@ -140,9 +147,19 @@ public class NPC : MonoBehaviour, I_Interactable
         _npcModel.RemoveAttachment(_clothing);
         _npcModel.GetComponentInChildren<SkinnedMeshRenderer>().material = _materialNoBurn;
         CLOTHUI.CallStampPolaroid(_clothingItemType);
-
+        StartCoroutine(Suncreamanimplayer());
         _hasTraded = true;
         _playerClothing.WearClothing(_clothingItemType, _clothingPrefab);
+
+    }
+
+    IEnumerator Suncreamanimplayer()
+    {
+        st.GState = PLAYER_STATES.GrndStates.Suncream;
+        pm.cutscene = true;
+        yield return new WaitForSeconds(3);
+        pm.cutscene = false;
+        st.GState = PLAYER_STATES.GrndStates.Idle;
 
     }
 
