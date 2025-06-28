@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PLAYER_STATES : MonoBehaviour
 {
-    public enum GrndStates {Idle, Walking, Running, Stopping, Skidding };
+    public enum GrndStates {Idle, Walking, Running, Stopping, Skidding, Suncream };
     public enum AirStates { Jumping, Falling };
 
     public enum StateGroup {GroundStates, AirStates};
