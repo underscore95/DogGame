@@ -6982,6 +6982,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5150302468605922256, guid: 26711c5d5f339f84dbbadfc012e20760, type: 3}
+      propertyPath: _animation
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6573077789571056324, guid: 26711c5d5f339f84dbbadfc012e20760, type: 3}
       propertyPath: m_Name
       value: HatGuyPrefab2
@@ -38936,13 +38940,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4734812298447937969, guid: 56385005bd266ca4cb024df884c32194, type: 3}
+      propertyPath: _animation
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734812298447937969, guid: 56385005bd266ca4cb024df884c32194, type: 3}
       propertyPath: _attachments.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4734812298447937969, guid: 56385005bd266ca4cb024df884c32194, type: 3}
       propertyPath: '_attachments.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: 819c2bad266626f4ea75cf03212e3b39, type: 2}
+    - target: {fileID: 4734812298447937969, guid: 56385005bd266ca4cb024df884c32194, type: 3}
+      propertyPath: '_attachments.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b53612353eebe4e44b770045894b5761, type: 2}
     - target: {fileID: 7492073541145300190, guid: 56385005bd266ca4cb024df884c32194, type: 3}
       propertyPath: m_Name
       value: ShirtGuyPrefab 2
@@ -46649,7 +46661,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6714317239665714809, guid: d5583c594d3c24a4c871d186dfa154a0, type: 3}
       propertyPath: _animation
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6714317239665714809, guid: d5583c594d3c24a4c871d186dfa154a0, type: 3}
       propertyPath: _attachments.Array.size
