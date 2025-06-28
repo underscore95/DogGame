@@ -9023,6 +9023,10 @@ PrefabInstance:
       propertyPath: _reactsToBarks
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 521696859362750008, guid: 75502488a79bbe44681bf8325170e6d3, type: 3}
+      propertyPath: '_attachments.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b53612353eebe4e44b770045894b5761, type: 2}
     - target: {fileID: 2099858574594466321, guid: 75502488a79bbe44681bf8325170e6d3, type: 3}
       propertyPath: _animation
       value: 2
@@ -9099,6 +9103,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7374450498981486613, guid: 75502488a79bbe44681bf8325170e6d3, type: 3}
+      propertyPath: _clothing
+      value: 
+      objectReference: {fileID: 11400000, guid: b53612353eebe4e44b770045894b5761, type: 2}
+    - target: {fileID: 7374450498981486613, guid: 75502488a79bbe44681bf8325170e6d3, type: 3}
+      propertyPath: _clothingPrefab
+      value: 
+      objectReference: {fileID: 3172769017679332542, guid: a9b914b0e0ff5624b8e4459f64c5be65, type: 3}
     - target: {fileID: 7569013185923905401, guid: 75502488a79bbe44681bf8325170e6d3, type: 3}
       propertyPath: _outroImage
       value: 

@@ -17,7 +17,7 @@ public class NPCModel : MonoBehaviour, I_Interactable
 
     private readonly Dictionary<NPCModelAttachment, GameObject> _attachmentToGameObject = new();
     private NPCAnimationContainer _animations;
-    private Animator _animator;
+    private List<Animator> _animators = new();
     private float _barkDuration = 0;
 
     private void Awake()
@@ -43,18 +43,25 @@ public class NPCModel : MonoBehaviour, I_Interactable
         AnimationClip animationToPlay = _animations.GetAnimation(_animation);
         Assert.IsNotNull(animationToPlay);
 
-        GameObject rootBone = _animations.GetRootBone(gameObject, _bodyType);
-        Assert.IsNotNull(rootBone);
+        GameObject rootBoneNPC = _animations.GetRootBone(gameObject, _bodyType);
+        Assert.IsNotNull(rootBoneNPC);
 
-       //Assert.IsTrue(animationToPlay.wrapMode == WrapMode.Loop);
+        List<GameObject> rootBonesToAnimate = new()
+        {
+            rootBoneNPC
+        };
+        var clothingToAnimate = GetComponentsInChildren<AnimateNPCClothing>();
+      //  foreach (var clothing in clothingToAnimate) rootBonesToAnimate.Add(clothing.gameObject);
 
         AnimationClip barkClip = _animations.GetBarkReaction(_bodyType);
         Assert.IsNotNull(barkClip);
-      //  Assert.IsTrue(barkClip.wrapMode == WrapMode.Once);
         _barkDuration = barkClip.length;
 
         // setup animator
-        _animator = rootBone.AddComponent<Animator>();
+        foreach (GameObject rootBone in rootBonesToAnimate)
+        {
+            _animators.Add(rootBone.AddComponent<Animator>());
+        }
         var controller = new AnimatorOverrideController
         {
             runtimeAnimatorController = _animations.GetNPCBaseController()
@@ -72,7 +79,8 @@ public class NPCModel : MonoBehaviour, I_Interactable
         }
         controller.ApplyOverrides(overrides);
 
-        _animator.runtimeAnimatorController = controller;
+        foreach (var animator in _animators)
+            animator.runtimeAnimatorController = controller;
     }
 
     private void Update()
@@ -105,7 +113,8 @@ public class NPCModel : MonoBehaviour, I_Interactable
     {
         if (_reactsToBarks)
         {
-            _animator.SetTrigger("TriggerBark");
+            foreach (var animator in _animators)
+                animator.SetTrigger("TriggerBark");
             StartCoroutine(Pause());
         }
     }
@@ -113,7 +122,8 @@ public class NPCModel : MonoBehaviour, I_Interactable
     private IEnumerator Pause()
     {
         yield return new WaitForSeconds(_barkDuration + _pauseDurationAfterBark);
-        _animator.SetTrigger("TriggerIdle");
+        foreach (var animator in _animators)
+            animator.SetTrigger("TriggerIdle");
 
     }
 }
