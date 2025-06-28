@@ -15,7 +15,6 @@ public class ImageAnimation : MonoBehaviour
     public bool loop = true;
     public bool destroyOnEnd = false;
     public float fps = 5;
-    public AUDIO_MUSIC Instance;
 
     private int index = 0;
     private Image image;
@@ -26,7 +25,6 @@ public class ImageAnimation : MonoBehaviour
     {
         image = GetComponent<Image>();
         if (spritesData != null ) { sprites = spritesData.sprites; }
-        Instance.EndMusic();
     }
 
     void Update()
