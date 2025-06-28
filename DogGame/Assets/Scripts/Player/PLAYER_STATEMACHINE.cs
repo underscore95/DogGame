@@ -116,6 +116,7 @@ public class PLAYER_STATEMACHINE : MonoBehaviour
 
     PLAYER_STATES.GrndStates MovementState()
     {
+        if (PM.cutscene) { return PLAYER_STATES.GrndStates.Suncream; }
         if (PSS.GState == PLAYER_STATES.GrndStates.Running) { return PLAYER_STATES.GrndStates.Running; }
 
         if (PM.speedProg < 0.1)

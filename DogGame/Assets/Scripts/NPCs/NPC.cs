@@ -145,7 +145,6 @@ public class NPC : MonoBehaviour, I_Interactable
 
         Instantiate(_smokePuffPrefab).transform.position = transform.position;
         _npcModel.RemoveAttachment(_clothing);
-        _npcModel.GetComponentInChildren<SkinnedMeshRenderer>().material = _materialNoBurn;
         CLOTHUI.CallStampPolaroid(_clothingItemType);
         StartCoroutine(Suncreamanimplayer());
         _hasTraded = true;
@@ -160,6 +159,8 @@ public class NPC : MonoBehaviour, I_Interactable
         yield return new WaitForSeconds(3);
         pm.cutscene = false;
         st.GState = PLAYER_STATES.GrndStates.Idle;
+        _npcModel.GetComponentInChildren<SkinnedMeshRenderer>().material = _materialNoBurn;
+
 
     }
 

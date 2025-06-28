@@ -10,6 +10,7 @@ public class PLAYER_ANIMATION : MonoBehaviour
     private static readonly int Walk = Animator.StringToHash("Walk");
     private static readonly int Run = Animator.StringToHash("Run");
     private static readonly int Bark = Animator.StringToHash("Bark");
+    private static readonly int Sunscreen = Animator.StringToHash("Sunscreen");
 
     int storedAnim;
     PLAYER_STATES PS;
@@ -58,6 +59,8 @@ public class PLAYER_ANIMATION : MonoBehaviour
                 return Walk;
             case PLAYER_STATES.GrndStates.Running:
                 return Run ;
+            case PLAYER_STATES.GrndStates.Suncream:
+                return Sunscreen;
            
         }
         return Idle;
