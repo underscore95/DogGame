@@ -7,7 +7,7 @@ public class AUDIO_MUSIC : MonoBehaviour
 {
     public static AUDIO_MUSIC Instance;
 
-    private AudioSource levelAudioSource;
+    public AudioSource levelAudioSource;
     [SerializeField] AudioClip levelMusic;
     [SerializeField] AudioClip pausedMusic;
     [SerializeField] AudioClip endScreenMusic;

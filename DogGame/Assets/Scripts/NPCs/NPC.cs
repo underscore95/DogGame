@@ -59,12 +59,16 @@ public class NPC : MonoBehaviour, I_Interactable
     PLAYER_MOVEMENT pm;
     PLAYER_STATES st;
     [SerializeField] float endscreenTime;
-
-    public AUDIO_MUSIC audioMusic;
+    private AUDIO_MUSIC _am;
+    bool musicChange = false;
+    PLAYER_INPUTS PI;
+    GameObject player;
 
     private void Awake()
     {
-       
+        _am = GameObject.Find("MusicPlayer").GetComponent<AUDIO_MUSIC>();
+        player = GameObject.Find("Player");
+        PI = player.GetComponent<PLAYER_INPUTS>();
 
         _npcModel = GetComponentInChildren<NPCModel>();
         CLOTHUI = GameObject.Find("ClothesCounterUI").GetComponent<CLOTHTRACKER_UI>();
@@ -90,7 +94,7 @@ public class NPC : MonoBehaviour, I_Interactable
         {
             Assert.IsNotNull(_clothing, $"Cannot have null clothing on {_npcModel.name}");
             Assert.IsTrue(_npcModel.HasAttachment(_clothing), $"You must add {_clothing.name} as an attachment to the NPCModel script on {_npcModel.name}");
-        }
+        }        
     }
 
     public void AttachQuest(int id)
@@ -102,24 +106,41 @@ public class NPC : MonoBehaviour, I_Interactable
     {
         if (_secondsSinceGameFinish >= 0)
         {
+            
             _secondsSinceGameFinish += Time.unscaledDeltaTime;
             Color c = _outroImage.color;
             c.a = Mathf.InverseLerp(0.0f, _fadeDuration, _secondsSinceGameFinish);
             _outroImage.color = c;
-            if (_secondsSinceGameFinish >= _waitDuration + _fadeDuration && !endscreenHang)
+            
+            if (musicChange == false)
             {
-                endscreenHang = true;
-                StartCoroutine(endScreenHang());
+                _am.EndMusic();
+                musicChange = true;
+            }    
+
+            if (PI.IA_Pause.WasPressedThisFrame())
+            {
+                EndScreenFinish();
+            }    
+
+            //if (_secondsSinceGameFinish >= _waitDuration + _fadeDuration && !endscreenHang)
+           // {                
+           //     endscreenHang = true;
+                //StartCoroutine(endScreenHang());
                // SceneManager.LoadScene(_menuScene, LoadSceneMode.Single);
-            }
+          //  }
         }
     }
 
     IEnumerator endScreenHang()
     {
-        yield return new WaitForSeconds(endscreenTime);
-        SceneManager.LoadScene(_menuScene, LoadSceneMode.Single);
+       yield return new WaitForSeconds(endscreenTime);
+       // SceneManager.LoadScene(_menuScene, LoadSceneMode.Single);
+    }
 
+    private void EndScreenFinish()
+    {
+        SceneManager.LoadScene(_menuScene, LoadSceneMode.Single);
     }
 
     private void HandleFinishingGame()
@@ -136,8 +157,8 @@ public class NPC : MonoBehaviour, I_Interactable
 
     public void EndGame()
     {
-        _secondsSinceGameFinish = 0;
-        audioMusic.EndMusic();
+        _secondsSinceGameFinish = 0;    
+        
     }
 
     public void SetUpForEndTrade()
