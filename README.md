@@ -1,5 +1,7 @@
 # DogGame
 
+![Gameplay](https://img.itch.zone/aW1nLzIxODk5OTE3LmdpZg==/original/rPKL9D.gif)
+
 Itch: https://innesmackenzieaitken.itch.io/sun-dog
 
 Developed in **1 week** for the [Summer Game Jam Jamboree 25](https://itch.io/jam/summer-game-jam-jamboree-25) using Unity.
